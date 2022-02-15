@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ContainerStyle, ContainerStyleProps } from "./HsContainer";
+import { ContainerStyle, ContainerStyleProps } from "./OldContainer";
 
 type CommonType = {
 	spacing?: number;

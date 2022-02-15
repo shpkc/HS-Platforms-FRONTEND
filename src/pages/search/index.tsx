@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HsTextField from "src/components/atoms/form/HsTextField";
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
+import HsContainer from "src/components/atoms/layout/OldContainer";
+import HsText from "src/components/atoms/text/OldText";
 import { IoSearch } from "react-icons/io5";
 import { AiFillAppstore, AiTwotoneBank } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";

@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import HsContainer from "src/components/atoms/layout/OldContainer";
 import CourtItem from "src/components/organisms/common/CourtItem";
 import InfiniteScrollTemplate from "src/components/templates/InniteScrollTemplate";
 

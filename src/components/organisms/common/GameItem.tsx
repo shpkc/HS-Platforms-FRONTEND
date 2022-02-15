@@ -1,13 +1,11 @@
 import { css } from "@emotion/react";
 import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsGrid from "src/components/atoms/layout/HsGrid";
 import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import TempContainer from "src/components/atoms/layout/TempContainer";
 
-const CourtItem = ({
+const GameItem = ({
 	item,
 	id,
 }: {
@@ -16,28 +14,26 @@ const CourtItem = ({
 }) => {
 	return (
 		<Link href={`games/detail/${id}`}>
-			<HsContainer padding="0 15px" margin="0 0 20px 0" cursor>
+			<HsContainer margin={20} border="1px solid #222227" borderRadius={16}>
 				<Thumbnail
 					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${id}/thumbnail.jpeg`}
 				/>
-				<HsContainer padding="20px">
-					<HsText color="white" h1 margin="0 0 15px 0">
+				<HsContainer padding={20}>
+					<HsText color="white" marginBottom={15} variant={"h3"}>
 						{item.title}
 					</HsText>
-					<HsText color="#bdbdbd" margin="0 0 15px 0" large>
+					<HsText color="gray10" marginBottom={15}>
 						{item.description.slice(0, 120)}
 					</HsText>
 				</HsContainer>
-				<TempContainer color="white" bg="white" width={["100px", "1000px"]}>
-					hello
-				</TempContainer>
 			</HsContainer>
 		</Link>
 	);
 };
 
-export default CourtItem;
+export default GameItem;
 
 const Thumbnail = styled.img`
+	width: 100%;
 	border-radius: 16px;
 `;

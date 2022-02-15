@@ -1,6 +1,8 @@
 export default {
-	breakpoints: ["414px", "1240px"],
+	breakpoints: ["1024px"],
+
 	colors: {
+		gray10: "#bdbdbd",
 		black: "#000e1a",
 		white: "#fff",
 		blue: "#007ce0",

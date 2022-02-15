@@ -21,9 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<QueryClientProvider client={queryClient} contextSharing>
 				<Hydrate state={pageProps.dehydratedState}>
-					<RootContainer>
-						<Component {...pageProps} />
-					</RootContainer>
+					<Component {...pageProps} />
 				</Hydrate>
 			</QueryClientProvider>
 		</ThemeProvider>

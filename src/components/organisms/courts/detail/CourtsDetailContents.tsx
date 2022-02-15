@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AxiosResponse } from "axios";
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
+import HsContainer from "src/components/atoms/layout/OldContainer";
+import HsText from "src/components/atoms/text/OldText";
 import styled from "@emotion/styled";
 import { Carousel } from "react-responsive-carousel";
 import { css } from "@emotion/react";

@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "@emotion/react";
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import HsContainer from "src/components/atoms/layout/OldContainer";
 import HsGrid from "src/components/atoms/layout/HsGrid";
 import Link from "next/link";
-import HsText from "src/components/atoms/text/HsText";
+import HsText from "src/components/atoms/text/OldText";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import { MdClose } from "react-icons/md";

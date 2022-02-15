@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "@emotion/react";
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import HsContainer from "src/components/atoms/layout/OldContainer";
 import Link from "next/link";
-import HsText from "src/components/atoms/text/HsText";
+import HsText from "src/components/atoms/text/OldText";
 
 const HeaderAside = () => {
 	return (
