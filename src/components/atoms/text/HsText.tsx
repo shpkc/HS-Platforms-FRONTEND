@@ -5,8 +5,10 @@ import {
 	LayoutProps,
 	BorderProps,
 	FontFamilyProps,
+	FontStyleProps,
 	FontSizeProps,
 	FontWeightProps,
+	TypographyProps,
 	SpaceProps,
 	space,
 	color,
@@ -25,8 +27,10 @@ interface TextProps
 		ColorProps,
 		BorderProps,
 		FontFamilyProps,
+		FontStyleProps,
 		FontSizeProps,
-		FontWeightProps {
+		FontWeightProps,
+		TypographyProps {
 	children: React.ReactNode;
 	variant?: TextVariant;
 }

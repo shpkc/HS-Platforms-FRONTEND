@@ -1,7 +1,7 @@
 export const textVariants = {
 	h3: {
 		fontWeight: "bold",
-		fontSize: "30px",
+		fontSize: "2rem",
 		lineHeight: "1.5",
 	},
 	body1: {
