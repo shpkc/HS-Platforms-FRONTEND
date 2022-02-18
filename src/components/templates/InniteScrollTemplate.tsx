@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import { InView } from "react-intersection-observer";
 import { useQueryClient } from "react-query";
 import { css } from "@emotion/react";
-import HsContainer from "src/components/atoms/layout/OldContainer";
+import HsContainer from "src/components/atoms/layout/HsContainer";
 
 const InfiniteScrollTemplate = ({
 	query,
@@ -18,12 +18,7 @@ const InfiniteScrollTemplate = ({
 	const queryClient = useQueryClient();
 	const data = queryClient.getQueryData(query) as AxiosResponse["data"];
 	return (
-		<HsContainer
-			relative
-			css={css`
-				scroll-behavior: smooth;
-			`}
-		>
+		<HsContainer>
 			{children}
 			<InView
 				onChange={(inView, _) => {

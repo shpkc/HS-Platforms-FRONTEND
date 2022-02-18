@@ -30,6 +30,8 @@ const ButtonDefaultStyle = styled.button<ButtonDefaultProps>`
 	width: 100%;
 	cursor: pointer;
 	border: none;
+	font-size: 1rem;
+	font-weight: bold;
 	&:hover {
 		transition: 0.5s all;
 		color: #6164ff;

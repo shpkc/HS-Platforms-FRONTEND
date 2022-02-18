@@ -71,9 +71,9 @@ const GamesDetailContents = ({
 							color="#222227"
 							margin="0 0 20px 0"
 						/>
-						<HsContainer display={"flex"} margin="0 0 20px 0">
+						<HsContainer display={"flex"} margin="0 0 50px 0">
 							<HsContainer
-								width={"50%"}
+								width={"60%"}
 								borderRight="1px solid #222227"
 								padding={"0 20px"}
 							>
@@ -89,11 +89,11 @@ const GamesDetailContents = ({
 									/>
 									<HsText color={"white"}>Currency</HsText>
 								</HsContainer>
-								<HsText color={"white"} fontSize={20}>
+								<HsText color={"white"} fontSize={20} lineHeight={1.2}>
 									{data.currency}
 								</HsText>
 							</HsContainer>
-							<HsContainer width={"50%"} padding={"0 20px"}>
+							<HsContainer width={"40%"} padding={"0 20px"}>
 								<HsContainer
 									display={"flex"}
 									alignItems="center"
@@ -104,7 +104,7 @@ const GamesDetailContents = ({
 										size={22}
 										style={{ margin: "0 5px 0 0" }}
 									/>
-									<HsText color={"white"}>Currency</HsText>
+									<HsText color={"white"}>Genre</HsText>
 								</HsContainer>
 								<HsText color={"white"} fontSize={20}>
 									{data.genre}
