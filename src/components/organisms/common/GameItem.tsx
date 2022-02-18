@@ -1,12 +1,11 @@
-import { css } from "@emotion/react";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
-
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import HsButton from "src/components/atoms/button/HsButton";
 import HsDivider from "src/components/atoms/divider/HsDivider";
+import HsImage from "src/components/atoms/image/HsImage";
 
 const GameItem = ({
 	item,
@@ -23,8 +22,9 @@ const GameItem = ({
 				width={[, "650px"]}
 				margin={[, "0 auto"]}
 			>
-				<Thumbnail
+				<HsImage
 					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${id}/thumbnail.jpeg`}
+					borderRadius={12}
 				/>
 				<HsContainer padding={20}>
 					<HsText color="white" marginBottom={15} variant="h3">
@@ -58,9 +58,3 @@ const GameItem = ({
 };
 
 export default GameItem;
-
-const Thumbnail = styled.img`
-	width: 100%;
-	border-radius: 16px;
-	cursor: pointer;
-`;

@@ -9,6 +9,7 @@ import {
 	color,
 	layout,
 	SpaceProps,
+	compose,
 } from "styled-system";
 
 interface ButtonProps
@@ -37,10 +38,7 @@ const ButtonDefaultStyle = styled.button<ButtonDefaultProps>`
 `;
 
 const HsButton = styled(ButtonDefaultStyle)<ButtonProps>(
-	space,
-	layout,
-	color,
-	border
+	compose(space, layout, color, border)
 );
 
 export default HsButton;
