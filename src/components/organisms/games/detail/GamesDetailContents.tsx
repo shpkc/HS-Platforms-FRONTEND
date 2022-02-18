@@ -4,7 +4,7 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsImage from "src/components/atoms/image/HsImage";
 import HsDivider from "src/components/atoms/divider/HsDivider";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
+import { HiOutlineOfficeBuilding, HiCurrencyDollar } from "react-icons/hi";
 
 const GamesDetailContents = ({
 	data,
@@ -50,18 +50,35 @@ const GamesDetailContents = ({
 						<HsContainer
 							display={"flex"}
 							alignItems="center"
-							margin={"0 0 10px 0"}
+							margin={"0 0 20px 0"}
 						>
 							<HiOutlineOfficeBuilding
 								color="#6164FF"
 								size={22}
-								style={{ margin: "0 10px 0 0" }}
+								style={{ margin: "0 5px 0 0" }}
 							/>
 							<HsText color={"white"}>Developer</HsText>
 						</HsContainer>
-						<HsText color={"white"} fontSize={20}>
+						<HsText color={"white"} fontSize={20} margin={"0 0 20px 0"}>
 							{data.developer}
 						</HsText>
+						<HsDivider
+							direction="horizontal"
+							color="#222227"
+							margin="0 0 20px 0"
+						/>
+						<HsContainer
+							display={"flex"}
+							alignItems="center"
+							margin={"0 0 20px 0"}
+						>
+							<HiCurrencyDollar
+								color="#6164FF"
+								size={22}
+								style={{ margin: "0 5px 0 0" }}
+							/>
+							<HsText color={"white"}>Currency</HsText>
+						</HsContainer>
 					</HsContainer>
 				</HsContainer>
 			</HsContainer>

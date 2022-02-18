@@ -34,7 +34,11 @@ interface TextProps
 	variant?: TextVariant;
 }
 
-const HsText = styled("p")<TextProps>(
+const DefaultTextStyle = styled.p<TextProps>`
+	line-height: 1.1;
+`;
+
+const HsText = styled(DefaultTextStyle)<TextProps>(
 	space,
 	layout,
 	color,
