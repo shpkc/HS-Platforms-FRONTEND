@@ -42,9 +42,8 @@ const GameItem = ({
 						READ MORE
 					</HsButton>
 					<HsDivider
-						direction="vertical"
+						direction="horizontal"
 						color="#222227"
-						height={1}
 						margin="0 0 20px 0"
 					/>
 					<HsText fontSize={18} color={"white"}>

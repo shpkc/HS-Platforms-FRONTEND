@@ -34,7 +34,7 @@ interface TextProps
 	variant?: TextVariant;
 }
 
-const HsText = styled("div")<TextProps>(
+const HsText = styled("p")<TextProps>(
 	space,
 	layout,
 	color,

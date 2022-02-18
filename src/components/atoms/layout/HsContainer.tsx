@@ -22,9 +22,7 @@ interface ContainerProps
 		BorderProps,
 		SpaceProps,
 		FlexProps,
-		FlexboxProps {
-	children?: React.ReactNode;
-}
+		FlexboxProps {}
 
 const HsContainer = styled.div<ContainerProps>(
 	space,

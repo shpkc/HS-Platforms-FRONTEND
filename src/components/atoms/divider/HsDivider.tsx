@@ -6,7 +6,6 @@ import {
 	BorderProps,
 	border,
 	space,
-	color,
 	layout,
 	SpaceProps,
 } from "styled-system";
@@ -26,13 +25,15 @@ interface DividerDefaultProps {
 const DividerDefaultStyle = styled.hr<DividerDefaultProps>`
 	width: 100%;
 	${props =>
-		props.direction == "vertical" && `border-top : 1px solid ${props.color};`}
+		props.direction == "horizontal" &&
+		`border-bottom : 1px solid ${props.color};`}
+	${props =>
+		props.direction == "vertical" && `border-right : 1px solid ${props.color};`}
 `;
 
 const HsDivider = styled(DividerDefaultStyle)<DividerProps>(
 	space,
 	layout,
-	color,
 	border
 );
 
