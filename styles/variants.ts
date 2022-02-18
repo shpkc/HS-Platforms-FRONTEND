@@ -1,4 +1,9 @@
 export const textVariants = {
+	h1: {
+		fontWeight: "bold",
+		fontSize: "2.2rem",
+		lineHeight: "1.5",
+	},
 	h3: {
 		fontWeight: "bold",
 		fontSize: "2rem",

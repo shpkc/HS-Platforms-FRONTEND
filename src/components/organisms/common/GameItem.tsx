@@ -2,7 +2,6 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
-import styled from "@emotion/styled";
 import HsButton from "src/components/atoms/button/HsButton";
 import HsDivider from "src/components/atoms/divider/HsDivider";
 import HsImage from "src/components/atoms/image/HsImage";
@@ -27,10 +26,10 @@ const GameItem = ({
 					borderRadius={12}
 				/>
 				<HsContainer padding={20}>
-					<HsText color="white" marginBottom={15} variant="h3">
+					<HsText color="white" margin="0 0 15px 0" variant="h3">
 						{item.title}
 					</HsText>
-					<HsText color="gray.gray10" marginBottom={20} lineHeight={1.5}>
+					<HsText color="gray.gray10" margin="0 0 20px 0" lineHeight={1.5}>
 						{item.description.slice(0, 130)}...
 					</HsText>
 					<HsButton

@@ -2,19 +2,16 @@ import React from "react";
 import { dehydrate } from "react-query";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import dynamic from "next/dynamic";
-import {
-	usePrefetchCourtsDetail,
-	useQueryCourtsDetail,
-} from "src/hooks/query/useCourts";
 import { GetStaticPaths } from "next";
-import CourtsDomain from "src/domains/CourtsDomain";
+import { getAllGamesId, getGamesDetailById } from "src/domains/GamesDomain";
+import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 
-const CourtsDetailContents = dynamic(
-	() => import("src/components/organisms/courts/detail/CourtsDetailContents")
+const GamesDetailContents = dynamic(
+	() => import("src/components/organisms/games/detail/GamesDetailContents")
 );
 
-const CourtsDetail = ({ id }: { id: string }) => {
-	const { data } = useQueryCourtsDetail(id);
+const GamesDetail = ({ id }: { id: string }) => {
+	const { data } = useFetch(`games${id}`, () => getGamesDetailById(id));
 	if (!data) {
 		return <div />;
 	}
@@ -26,7 +23,7 @@ const CourtsDetail = ({ id }: { id: string }) => {
 					description: data.result.name,
 				}}
 			>
-				<CourtsDetailContents data={data.result} id={data.result.id} />
+				<GamesDetailContents data={data.result} id={data.result.id} />
 			</LayoutTemplate>
 		</>
 	);
@@ -36,7 +33,9 @@ export const getStaticProps = async ({
 }: {
 	params: { id: string };
 }) => {
-	const queryClient = await usePrefetchCourtsDetail(id);
+	const queryClient = await usePreFetch(`games${id}`, () =>
+		getGamesDetailById(id)
+	);
 
 	return {
 		props: {
@@ -47,8 +46,7 @@ export const getStaticProps = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const { getAllCourtsId } = CourtsDomain();
-	const { result } = await getAllCourtsId();
+	const { result } = await getAllGamesId();
 	const paths = result.map((item: any) => ({
 		params: { id: item.id.toString() },
 	}));
@@ -57,4 +55,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		fallback: true,
 	};
 };
-export default CourtsDetail;
+export default GamesDetail;

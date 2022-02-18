@@ -1,8 +1,6 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
-import HomeContents from "src/components/organisms/home/HomeContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import { usePrefetchCourts, useQueryCourts } from "src/hooks/query/useCourts";
 import { useFetchInfinite, usePreFetchInfinite } from "src/hooks/query/fetch";
 import { getGames } from "src/domains/GamesDomain";
 import GamesContents from "src/components/organisms/games/GamesContents";
@@ -11,8 +9,6 @@ const Games = () => {
 	const { data, fetchNextPage } = useFetchInfinite("games", () =>
 		getGames({ pageParam: 1 })
 	);
-
-	console.log(data);
 	return (
 		<LayoutTemplate
 			seo={{

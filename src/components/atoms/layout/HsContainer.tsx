@@ -4,11 +4,15 @@ import {
 	PositionProps,
 	LayoutProps,
 	BorderProps,
+	SpaceProps,
+	FlexProps,
+	FlexboxProps,
 	border,
 	space,
 	color,
 	layout,
-	SpaceProps,
+	flex,
+	flexbox,
 } from "styled-system";
 
 interface ContainerProps
@@ -16,10 +20,19 @@ interface ContainerProps
 		LayoutProps,
 		ColorProps,
 		BorderProps,
-		SpaceProps {
-	children: React.ReactNode;
+		SpaceProps,
+		FlexProps,
+		FlexboxProps {
+	children?: React.ReactNode;
 }
 
-const HsContainer = styled("div")<ContainerProps>(space, layout, color, border);
+const HsContainer = styled.div<ContainerProps>(
+	space,
+	layout,
+	color,
+	border,
+	flex,
+	flexbox
+);
 
 export default HsContainer;

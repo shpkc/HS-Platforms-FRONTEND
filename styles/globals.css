@@ -8,12 +8,6 @@ body {
 	background-color: #16151a;
 	font-family: "Noto Sans KR", sans-serif;
 }
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-* {
-	box-sizing: border-box;
+h1 {
+	font-size: 2.2rem;
 }

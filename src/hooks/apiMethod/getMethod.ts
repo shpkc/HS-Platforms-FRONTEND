@@ -25,8 +25,6 @@ export const getMethod = (initialData: GetData) => {
 		{ method: initialData.method, url: `${initialData.url}` },
 		{
 			mapper: initialData.mapper,
-			needLogin: initialData.needLogin,
-			isShowLoginAlert: initialData.isShowLoginAlert,
 			errorHandler: initialData.errorHandler,
 		}
 	);

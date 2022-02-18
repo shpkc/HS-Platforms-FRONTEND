@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import styled from "@emotion/styled";
 import { ThemeProvider } from "@emotion/react";
 import theme from "styles/theme";
 
@@ -29,10 +28,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
-
-const RootContainer = styled.div`
-	@media (min-width: 800px) {
-		max-width: 414px;
-		margin: 0 auto;
-	}
-`;

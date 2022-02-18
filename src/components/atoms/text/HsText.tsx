@@ -31,7 +31,6 @@ interface TextProps
 		FontSizeProps,
 		FontWeightProps,
 		TypographyProps {
-	children: React.ReactNode;
 	variant?: TextVariant;
 }
 
