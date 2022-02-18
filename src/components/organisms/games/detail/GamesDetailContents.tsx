@@ -5,6 +5,8 @@ import HsText from "src/components/atoms/text/HsText";
 import HsImage from "src/components/atoms/image/HsImage";
 import HsDivider from "src/components/atoms/divider/HsDivider";
 import { HiOutlineOfficeBuilding, HiCurrencyDollar } from "react-icons/hi";
+import HsButton from "src/components/atoms/button/HsButton";
+import Link from "next/link";
 
 const GamesDetailContents = ({
 	data,
@@ -47,38 +49,79 @@ const GamesDetailContents = ({
 						margin="0 0 20px 0"
 					/>
 					<HsContainer>
-						<HsContainer
-							display={"flex"}
-							alignItems="center"
-							margin={"0 0 20px 0"}
-						>
-							<HiOutlineOfficeBuilding
-								color="#6164FF"
-								size={22}
-								style={{ margin: "0 5px 0 0" }}
-							/>
-							<HsText color={"white"}>Developer</HsText>
+						<HsContainer padding={"0 20px"}>
+							<HsContainer
+								display={"flex"}
+								alignItems="center"
+								margin={"0 0 20px 0"}
+							>
+								<HiOutlineOfficeBuilding
+									color="#6164FF"
+									size={22}
+									style={{ margin: "0 5px 0 0" }}
+								/>
+								<HsText color={"white"}>Developer</HsText>
+							</HsContainer>
+							<HsText color={"white"} fontSize={20} margin={"0 0 20px 0"}>
+								{data.developer}
+							</HsText>
 						</HsContainer>
-						<HsText color={"white"} fontSize={20} margin={"0 0 20px 0"}>
-							{data.developer}
-						</HsText>
 						<HsDivider
 							direction="horizontal"
 							color="#222227"
 							margin="0 0 20px 0"
 						/>
-						<HsContainer
-							display={"flex"}
-							alignItems="center"
-							margin={"0 0 20px 0"}
-						>
-							<HiCurrencyDollar
-								color="#6164FF"
-								size={22}
-								style={{ margin: "0 5px 0 0" }}
-							/>
-							<HsText color={"white"}>Currency</HsText>
+						<HsContainer display={"flex"} margin="0 0 20px 0">
+							<HsContainer
+								width={"50%"}
+								borderRight="1px solid #222227"
+								padding={"0 20px"}
+							>
+								<HsContainer
+									display={"flex"}
+									alignItems="center"
+									margin={"0 0 20px 0"}
+								>
+									<HiCurrencyDollar
+										color="#6164FF"
+										size={22}
+										style={{ margin: "0 5px 0 0" }}
+									/>
+									<HsText color={"white"}>Currency</HsText>
+								</HsContainer>
+								<HsText color={"white"} fontSize={20}>
+									{data.currency}
+								</HsText>
+							</HsContainer>
+							<HsContainer width={"50%"} padding={"0 20px"}>
+								<HsContainer
+									display={"flex"}
+									alignItems="center"
+									margin={"0 0 20px 0"}
+								>
+									<HiCurrencyDollar
+										color="#6164FF"
+										size={22}
+										style={{ margin: "0 5px 0 0" }}
+									/>
+									<HsText color={"white"}>Currency</HsText>
+								</HsContainer>
+								<HsText color={"white"} fontSize={20}>
+									{data.genre}
+								</HsText>
+							</HsContainer>
 						</HsContainer>
+						<Link href={data.website}>
+							<HsButton
+								borderRadius={12}
+								height={50}
+								color="white"
+								backgroundColor="purple.primary"
+								margin="0 0 20px 0"
+							>
+								WEBSITE
+							</HsButton>
+						</Link>
 					</HsContainer>
 				</HsContainer>
 			</HsContainer>

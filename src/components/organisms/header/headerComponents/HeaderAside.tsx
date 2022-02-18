@@ -1,38 +1,11 @@
 import React from "react";
 import { css } from "@emotion/react";
-import HsContainer from "src/components/atoms/layout/OldContainer";
+import HsContainer from "src/components/atoms/layout/HsContainer";
 import Link from "next/link";
-import HsText from "src/components/atoms/text/OldText";
+import HsText from "src/components/atoms/text/HsText";
 
 const HeaderAside = () => {
-	return (
-		<HsContainer
-			fixed
-			backgroundColor="white"
-			zIndex="999"
-			minWidth="100%"
-			css={asideStyle}
-		>
-			{/* <HsText bold h2 padding="24px">
-				로그인 / 회원가입
-			</HsText> */}
-			<Link href="/about">
-				<HsText bold h2 padding="8px 24px">
-					ABOUT
-				</HsText>
-			</Link>
-			<a>
-				<HsText bold h2 padding="8px 24px">
-					REPORT
-				</HsText>
-			</a>
-			<a>
-				<HsText bold h2 padding="8px 24px">
-					ASK
-				</HsText>
-			</a>
-		</HsContainer>
-	);
+	return <div />;
 };
 
 export default HeaderAside;
