@@ -1,29 +1,36 @@
 import React from "react";
-import { css } from "@emotion/react";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import Link from "next/link";
 import HsText from "src/components/atoms/text/HsText";
+import { RightToLeft } from "styles/animation";
 
 const HeaderAside = () => {
 	return (
-		<HsContainer width={100} position="fixed" display="flex">
-			<HsContainer>
-				<HsText color={"white"}>GAMES</HsText>
+		<HsContainer
+			position="fixed"
+			left={0}
+			top={60}
+			display="flex"
+			justifyContent={[, "center"]}
+			width={"100%"}
+			height={"calc(100vh - 60px)"}
+			backgroundColor="black"
+			css={RightToLeft}
+		>
+			<HsContainer padding={"30px 15px 0 15px"} width={[, "1300px"]}>
+				<Link href={"/upcoming"}>
+					<HsText color={"white"} variant={"h4"} margin="0 0 15px 0">
+						UPCOMING
+					</HsText>
+				</Link>
+				<Link href={"/games"}>
+					<HsText color={"white"} variant={"h4"} margin="0 0 15px 0">
+						GAMES
+					</HsText>
+				</Link>
 			</HsContainer>
 		</HsContainer>
 	);
 };
 
 export default HeaderAside;
-
-const asideStyle = css`
-	animation: rightToLeft 0.2s linear;
-	@keyframes rightToLeft {
-		0% {
-			left: 100%;
-		}
-		100% {
-			left: 0;
-		}
-	}
-`;

@@ -1,5 +1,4 @@
 import React from "react";
-import { css } from "@emotion/react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";

@@ -33,15 +33,17 @@ const GameItem = ({
 				<HsText color="gray.gray10" margin="0 0 20px 0" lineHeight={1.5}>
 					{item.description.slice(0, 130)}...
 				</HsText>
-				<HsButton
-					borderRadius={12}
-					height={50}
-					color="white"
-					backgroundColor="purple.primary"
-					margin="0 0 20px 0"
-				>
-					READ MORE
-				</HsButton>
+				<Link href={`games/detail/${id}`}>
+					<HsButton
+						borderRadius={12}
+						height={50}
+						color="white"
+						backgroundColor="purple.primary"
+						margin="0 0 20px 0"
+					>
+						READ MORE
+					</HsButton>
+				</Link>
 				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
 				<HsText fontSize={18} color={"white"}>
 					© {item.developer}
