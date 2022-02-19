@@ -1,5 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from "axios";
-import axiosConfig from "src/services/utils/requestConfig";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { getCookie } from "src/services/utils/cookies";
 import { queryClient } from "src/pages/_app";
 
@@ -9,7 +8,7 @@ export const fetch = (
 	url: string
 ) => {
 	const fetch = async () => {
-		const instance = axiosConfig;
+		const instance = axios.create({});
 		const hasToken = getCookie("accessToken");
 		const apiHeader = {
 			// accessToken: hasToken ?? store.userInfoStore.getUserToken(),
@@ -49,7 +48,7 @@ export const fetchCommon = (
 	}
 ) => {
 	const fetch = async () => {
-		const instance = axiosConfig;
+		const instance = axios.create({});
 		const hasToken = getCookie("accessToken");
 		const apiHeader = {
 			// accessToken: hasToken ?? store.userInfoStore.getUserToken(),

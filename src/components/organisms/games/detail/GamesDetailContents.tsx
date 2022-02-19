@@ -17,7 +17,7 @@ const GamesDetailContents = ({
 }) => {
 	return (
 		<HsContainer
-			padding={["80px 15px 0 15px", "100px 0 0 0"]}
+			padding={["60px 15px 0 15px", "60px 0 0 0"]}
 			margin={[, "0 auto"]}
 			width={[, "1300px"]}
 		>

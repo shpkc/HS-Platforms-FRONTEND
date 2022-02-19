@@ -13,6 +13,8 @@ import {
 	layout,
 	flex,
 	flexbox,
+	compose,
+	position,
 } from "styled-system";
 
 interface ContainerProps
@@ -25,12 +27,7 @@ interface ContainerProps
 		FlexboxProps {}
 
 const HsContainer = styled.div<ContainerProps>(
-	space,
-	layout,
-	color,
-	border,
-	flex,
-	flexbox
+	compose(space, layout, color, border, flex, flexbox, position)
 );
 
 export default HsContainer;

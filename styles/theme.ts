@@ -8,7 +8,7 @@ export default {
 		purple: {
 			primary: "#6164ff",
 		},
-		black: "#000e1a",
+		black: "#16151A",
 		white: "#fff",
 		blue: "#007ce0",
 		navy: "#004175",
