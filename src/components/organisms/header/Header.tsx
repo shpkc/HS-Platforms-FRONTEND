@@ -32,13 +32,14 @@ const Header = () => {
 					padding={"0 15px"}
 				>
 					<Link href={"/"}>
-						<HsText color={"white"} variant={"h4"}>
+						<HsText color={"white"} variant={"h4"} cursor={"pointer"}>
 							NFTGAMES
 						</HsText>
 					</Link>
 					<GiHamburgerMenu
 						color="white"
 						size={26}
+						cursor="pointer"
 						onClick={() => setIsAsideOpen(!isAsideOpen)}
 					/>
 				</HsContainer>

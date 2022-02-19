@@ -12,7 +12,7 @@ const GamesContents = ({
 }) => {
 	return (
 		<InfiniteScrollTemplate query="games" nextPage={nextPage}>
-			<HsContainer padding="80px 20px 0 20px">
+			<HsContainer padding="120px 20px 0 20px">
 				{data.pages
 					.map((item: AxiosResponse["data"]) => item.data)
 					.flat()

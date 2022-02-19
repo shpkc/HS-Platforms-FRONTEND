@@ -32,11 +32,13 @@ interface TextProps
 		FontWeightProps,
 		TypographyProps {
 	variant?: TextVariant;
+	cursor?: string;
 }
 
 const DefaultTextStyle = styled.p<TextProps>`
 	line-height: 1.1;
 	word-break: break-all;
+	${props => props.cursor && `cursor : ${props.cursor}`};
 `;
 
 const HsText = styled(DefaultTextStyle)<TextProps>(

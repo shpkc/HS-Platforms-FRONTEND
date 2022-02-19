@@ -19,13 +19,33 @@ const HeaderAside = () => {
 		>
 			<HsContainer padding={"30px 15px 0 15px"} width={[, "1300px"]}>
 				<Link href={"/upcoming"}>
-					<HsText color={"white"} variant={"h4"} margin="0 0 15px 0">
+					<HsText
+						color={"white"}
+						variant={"h4"}
+						margin="0 0 15px 0"
+						cursor="pointer"
+					>
 						UPCOMING
 					</HsText>
 				</Link>
-				<Link href={"/games"}>
-					<HsText color={"white"} variant={"h4"} margin="0 0 15px 0">
-						GAMES
+				<Link href={"/best"}>
+					<HsText
+						color={"white"}
+						variant={"h4"}
+						margin="0 0 15px 0"
+						cursor="pointer"
+					>
+						BEST
+					</HsText>
+				</Link>
+				<Link href={"/freedrops"}>
+					<HsText
+						color={"white"}
+						variant={"h4"}
+						margin="0 0 15px 0"
+						cursor="pointer"
+					>
+						DROPS
 					</HsText>
 				</Link>
 			</HsContainer>
