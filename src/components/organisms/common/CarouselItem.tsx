@@ -2,9 +2,6 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
-import HsButton from "src/components/atoms/button/HsButton";
-import HsDivider from "src/components/atoms/divider/HsDivider";
-import HsImage from "src/components/atoms/image/HsImage";
 
 const CarouselItem = ({
 	item,
@@ -15,38 +12,36 @@ const CarouselItem = ({
 }) => {
 	return (
 		<HsContainer
-			border="1px solid #222227"
-			borderRadius={16}
-			width={[, "650px"]}
-			margin={["0 0 20px 0", "0 auto 20px auto"]}
+			position={"relative"}
+			backgroundImage={`url(https://tennisflow.s3.ap-northeast-2.amazonaws.com/games/${id}/thumbnail.jpeg)`}
+			backgroundSize={["cover", "100% 100%"]}
+			backgroundRepeat="no-repeat"
+			backgroundPosition=""
+			height={["360px", "500px"]}
+			borderRadius={12}
 		>
-			<Link href={`games/detail/${id}`}>
-				<HsImage
-					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${id}/thumbnail.jpeg`}
-					borderRadius={12}
-				/>
-			</Link>
-			<HsContainer padding={20}>
-				<HsText color="white" margin="0 0 15px 0" variant="h3">
+			<HsContainer
+				style={{
+					position: "absolute",
+					zIndex: 1,
+					left: 0,
+					top: 0,
+					display: "block",
+					height: "100%",
+					width: "100%",
+					background:
+						"linear-gradient(30deg,rgba(0,0,0,0.5) 0,rgba(0,0,0,0) 100%)",
+				}}
+			/>
+			<HsContainer
+				position={"absolute"}
+				left={0}
+				bottom={0}
+				zIndex={2}
+				padding={"20px"}
+			>
+				<HsText color={"white"} variant={"h1"}>
 					{item.title}
-				</HsText>
-				<HsText color="gray.gray10" margin="0 0 20px 0" lineHeight={1.5}>
-					{item.description.slice(0, 130)}...
-				</HsText>
-				<Link href={`games/detail/${id}`}>
-					<HsButton
-						borderRadius={12}
-						height={50}
-						color="white"
-						backgroundColor="purple.primary"
-						margin="0 0 20px 0"
-					>
-						READ MORE
-					</HsButton>
-				</Link>
-				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
-				<HsText fontSize={18} color={"white"}>
-					© {item.developer}
 				</HsText>
 			</HsContainer>
 		</HsContainer>
