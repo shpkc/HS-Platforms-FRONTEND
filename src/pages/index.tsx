@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetchInfinite, usePreFetchInfinite } from "src/hooks/query/fetch";
 import { getGames } from "src/domains/GamesDomain";
-import GamesContents from "src/components/organisms/games/GamesContents";
 import HomeContents from "src/components/organisms/home/HomeContents";
 
 const Index = () => {

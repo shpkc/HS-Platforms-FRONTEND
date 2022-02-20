@@ -18,7 +18,7 @@ const GameItem = ({
 			border="1px solid #222227"
 			borderRadius={16}
 			width={[, "650px"]}
-			margin={[, "0 auto"]}
+			margin={["0 0 20px 0", "0 auto 20px auto"]}
 		>
 			<Link href={`games/detail/${id}`}>
 				<HsImage
