@@ -25,7 +25,7 @@ const Header = () => {
 				zIndex={1000}
 			>
 				<HsContainer
-					width={["100%", "1300px"]}
+					width={["100%", "1200px"]}
 					display={"flex"}
 					alignItems={"center"}
 					justifyContent={"space-between"}

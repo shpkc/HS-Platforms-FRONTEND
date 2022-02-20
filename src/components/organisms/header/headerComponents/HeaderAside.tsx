@@ -18,7 +18,7 @@ const HeaderAside = () => {
 			css={RightToLeft}
 			zIndex={999}
 		>
-			<HsContainer padding={"30px 15px 0 15px"} width={[, "1300px"]}>
+			<HsContainer padding={"30px 15px 0 15px"} width={[, "1200px"]}>
 				<Link href={"/upcoming"}>
 					<HsText
 						color={"white"}
