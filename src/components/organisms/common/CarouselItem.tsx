@@ -13,8 +13,8 @@ const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				backgroundRepeat="no-repeat"
 				backgroundPosition="center"
 				height={["360px", "500px"]}
-				borderRadius={[0, 12]}
 				cursor="pointer"
+				margin={["0 10px", "0 20px"]}
 			>
 				<HsContainer
 					style={{
