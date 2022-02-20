@@ -4,7 +4,6 @@ import { Carousel } from "react-responsive-carousel";
 import CarouselItem from "../common/CarouselItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	console.log(data);
 	return (
 		<HsContainer
 			padding={"100px 15px 0 15px"}
@@ -19,8 +18,9 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						showIndicators={false}
 						showThumbs={false}
 					>
-						<CarouselItem item={{ title: "Axie Infinity" }} id={1} />
-						<CarouselItem item={{ title: "axie" }} id={1} />
+						{data.banner.map((item: AxiosResponse["data"]) => (
+							<CarouselItem item={item} key={item.id} />
+						))}
 					</Carousel>
 				</HsContainer>
 			</HsContainer>

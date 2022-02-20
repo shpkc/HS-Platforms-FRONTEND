@@ -25,3 +25,9 @@ export const getAllGamesId = () =>
 	getMethod({
 		url: `${GAMES_API}/all-id`,
 	})();
+
+// NOTE : STATIC PROPS를 위한 get ID
+export const getMainGames = () =>
+	getMethod({
+		url: `${GAMES_API}/main`,
+	})();

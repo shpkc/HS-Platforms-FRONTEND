@@ -2,13 +2,11 @@ import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getGames } from "src/domains/GamesDomain";
+import { getMainGames } from "src/domains/GamesDomain";
 import HomeContents from "src/components/organisms/home/HomeContents";
 
 const Index = () => {
-	const {
-		data: { data },
-	} = useFetch("main", () => getGames({ pageParam: 1 }));
+	const { data } = useFetch("main", () => getMainGames());
 	return (
 		<LayoutTemplate
 			seo={{
@@ -22,9 +20,7 @@ const Index = () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-	const queryClient = await usePreFetch("main", () =>
-		getGames({ pageParam: 1 })
-	);
+	const queryClient = await usePreFetch("main", () => getMainGames());
 
 	return {
 		revalidate: 10,
