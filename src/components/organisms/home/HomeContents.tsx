@@ -12,16 +12,15 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<HsContainer padding={["61px 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
 			<HsContainer>
-				<HsContainer position={"relative"}>
+				<HsContainer position={"relative"} css={carouselStyle}>
 					<Carousel
 						showArrows={false}
 						showStatus={false}
 						showIndicators={false}
 						showThumbs={false}
-						centerMode={true}
 						selectedItem={currentPage}
 						infiniteLoop={true}
-						centerSlidePercentage={80}
+						centerMode={true}
 					>
 						{data.banner.map((item: AxiosResponse["data"]) => (
 							<CarouselItem item={item} key={item.id} />
@@ -70,11 +69,12 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 export default HomeContents;
 
 const carouselStyle = css`
-	@media (max-width: 1200px) {
+	@media (min-width: 1200px) {
 		.slider-wrapper {
-			li {
-				min-width: 90% !important;
-			}
+			/* li {
+				min-width: 1200px !important;
+				max-width: 1200px !important;
+			} */
 		}
 	}
 `;
