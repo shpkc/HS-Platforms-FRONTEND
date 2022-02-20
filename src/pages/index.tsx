@@ -7,6 +7,7 @@ import HomeContents from "src/components/organisms/home/HomeContents";
 
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
+	console.log(data);
 	return (
 		<LayoutTemplate
 			seo={{
