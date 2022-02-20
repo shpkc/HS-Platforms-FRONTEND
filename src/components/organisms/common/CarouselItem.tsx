@@ -11,9 +11,10 @@ const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				backgroundImage={`url(https://tennisflow.s3.ap-northeast-2.amazonaws.com/games/${item.id}/thumbnail.jpeg)`}
 				backgroundSize={["cover", "100% 100%"]}
 				backgroundRepeat="no-repeat"
-				backgroundPosition=""
+				backgroundPosition="center"
 				height={["360px", "500px"]}
-				borderRadius={12}
+				borderRadius={[0, 12]}
+				cursor="pointer"
 			>
 				<HsContainer
 					style={{
@@ -33,10 +34,18 @@ const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					left={0}
 					bottom={0}
 					zIndex={2}
-					padding={"20px"}
+					padding={"0 20px 20px"}
 				>
-					<HsText color={"white"} variant={"h1"}>
+					<HsText
+						color={"white"}
+						variant={"h3"}
+						textAlign="left"
+						margin="0 0 10px 0"
+					>
 						{item.title}
+					</HsText>
+					<HsText color={"white"} textAlign="left">
+						{item.genre}
 					</HsText>
 				</HsContainer>
 			</HsContainer>

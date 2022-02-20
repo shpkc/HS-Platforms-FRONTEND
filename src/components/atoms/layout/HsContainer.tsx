@@ -30,9 +30,14 @@ interface ContainerProps
 		FlexProps,
 		FlexboxProps,
 		BackgroundProps,
-		BackgroundImageProps {}
+		BackgroundImageProps {
+	cursor?: string;
+}
 
-const HsContainer = styled.div<ContainerProps>(
+const DefaultContainerStyle = styled.div<ContainerProps>`
+	${props => props.cursor && `cursor : ${props.cursor}`};
+`;
+const HsContainer = styled(DefaultContainerStyle)<ContainerProps>(
 	compose(
 		space,
 		layout,
