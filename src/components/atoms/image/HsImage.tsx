@@ -18,11 +18,13 @@ interface ImageProps
 		BorderProps,
 		SpaceProps {
 	src: string;
+	objectFit?: string;
 }
 
 const ImageDefaultStyle = styled.img<ImageProps>`
 	width: 100%;
-	height: auto;
+	height: 100%;
+	${props => props.objectFit && `object-fit:${props.objectFit}`};
 	cursor: pointer;
 `;
 

@@ -16,6 +16,7 @@ const HeaderAside = () => {
 			height={"calc(100vh - 60px)"}
 			backgroundColor="black"
 			css={RightToLeft}
+			zIndex={999}
 		>
 			<HsContainer padding={"30px 15px 0 15px"} width={[, "1300px"]}>
 				<Link href={"/upcoming"}>
