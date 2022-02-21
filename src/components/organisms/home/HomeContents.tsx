@@ -4,6 +4,7 @@ import CarouselItem from "../common/CarouselItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
 import { useState } from "react";
+import HsText from "src/components/atoms/text/HsText";
 
 const PrevArrow = props => {
 	return (
@@ -65,21 +66,23 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 		],
 	};
 
-	console.log(currentPage);
 	return (
 		<HsContainer padding={["61px 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
-			<HsContainer>
-				<HsContainer position={"relative"}>
-					<Slider {...sliderSettings}>
-						{data.banner.map((item: AxiosResponse["data"], index) => (
-							<CarouselItem
-								item={item}
-								key={item.id}
-								selected={currentPage == index}
-							/>
-						))}
-					</Slider>
-				</HsContainer>
+			<HsContainer margin={"0 0 100px 0"}>
+				<Slider {...sliderSettings}>
+					{data.banner.map((item: AxiosResponse["data"], index) => (
+						<CarouselItem
+							item={item}
+							key={item.id}
+							selected={currentPage == index}
+						/>
+					))}
+				</Slider>
+			</HsContainer>
+			<HsContainer width={[, "1100px"]} margin={[, "0 auto"]}>
+				<HsText color={"white"} variant="h1">
+					UPCOMING
+				</HsText>
 			</HsContainer>
 		</HsContainer>
 	);

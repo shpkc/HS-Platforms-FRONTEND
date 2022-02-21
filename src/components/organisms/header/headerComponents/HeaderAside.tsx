@@ -19,6 +19,16 @@ const HeaderAside = () => {
 			zIndex={999}
 		>
 			<HsContainer padding={"30px 15px 0 15px"} width={[, "1100px"]}>
+				<Link href={"/games"}>
+					<HsText
+						color={"white"}
+						variant={"h4"}
+						margin="0 0 15px 0"
+						cursor="pointer"
+					>
+						GAMES
+					</HsText>
+				</Link>
 				<Link href={"/upcoming"}>
 					<HsText
 						color={"white"}
@@ -27,16 +37,6 @@ const HeaderAside = () => {
 						cursor="pointer"
 					>
 						UPCOMING
-					</HsText>
-				</Link>
-				<Link href={"/best"}>
-					<HsText
-						color={"white"}
-						variant={"h4"}
-						margin="0 0 15px 0"
-						cursor="pointer"
-					>
-						BEST
 					</HsText>
 				</Link>
 				<Link href={"/freedrops"}>
