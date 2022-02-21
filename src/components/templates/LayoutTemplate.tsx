@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../organisms/header/Header";
 import { NextSeo } from "next-seo";
 
+// NOTE : 기본적인 seo와 레이아웃
 const LayoutTemplate = ({
 	seo,
 	children,
