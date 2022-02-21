@@ -5,7 +5,7 @@
 <!-- # [NFTGAMES](https://teamit.co.kr/)
  -->
  
-# [NFTGAMES(가제)]
+# NFTGAMES
 
 
 # Introduction
