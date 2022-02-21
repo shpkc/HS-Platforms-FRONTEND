@@ -1,68 +1,75 @@
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
-import { Carousel } from "react-responsive-carousel";
 import CarouselItem from "../common/CarouselItem";
-import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { css } from "@emotion/react";
+import Slider from "react-slick";
+
+const PrevArrow = props => {
+	return (
+		<HsContainer
+			position={"absolute"}
+			left={30}
+			top={"219px"}
+			display={["none", "block"]}
+			zIndex={999}
+		>
+			<IoIosArrowBack
+				color={"white"}
+				style={{ cursor: "pointer", margin: "0 5px 0 0" }}
+				size={62}
+				onClick={props.onClick}
+			/>
+		</HsContainer>
+	);
+};
+
+const NextArrow = props => {
+	return (
+		<HsContainer
+			position={"absolute"}
+			right={30}
+			top={"calc(50% - 62px)"}
+			display={["none", "block"]}
+		>
+			<IoIosArrowForward
+				color={"white"}
+				style={{ cursor: "pointer" }}
+				size={62}
+				onClick={props.onClick}
+			/>
+		</HsContainer>
+	);
+};
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	const [currentPage, setCurrentPage] = useState(0);
+	// NOTE : 1100px 기준으로 responsive setting
+	const sliderSettings = {
+		infinite: true,
+		centerMode: true,
+		variableWidth: true,
+		prevArrow: <PrevArrow />,
+		nextArrow: <NextArrow />,
+		responsive: [
+			{
+				breakpoint: 1100,
+				settings: {
+					infinite: true,
+					centerMode: false,
+					variableWidth: false,
+				},
+			},
+		],
+	};
 
 	return (
 		<HsContainer padding={["61px 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
 			<HsContainer>
-				<HsContainer
-					position={"relative"}
-					width={[, "1200px"]}
-					margin={[, "0 auto"]}
-				>
-					<Carousel
-						showArrows={false}
-						showStatus={false}
-						showIndicators={false}
-						showThumbs={false}
-						selectedItem={currentPage}
-						infiniteLoop={true}
-					>
+				<HsContainer position={"relative"}>
+					<Slider {...sliderSettings}>
 						{data.banner.map((item: AxiosResponse["data"]) => (
 							<CarouselItem item={item} key={item.id} />
 						))}
-					</Carousel>
-					<HsContainer
-						position={"absolute"}
-						left={"5px"}
-						top={"calc(50% - 62px)"}
-						display={["none", "block"]}
-					>
-						<IoIosArrowBack
-							color={"white"}
-							style={{ cursor: "pointer", margin: "0 5px 0 0" }}
-							size={62}
-							onClick={() =>
-								currentPage > 0
-									? setCurrentPage(currentPage - 1)
-									: setCurrentPage(data.banner.length - 1)
-							}
-						/>
-					</HsContainer>
-					<HsContainer
-						position={"absolute"}
-						right={"5px"}
-						top={"calc(50% - 62px)"}
-						display={["none", "block"]}
-					>
-						<IoIosArrowForward
-							color={"white"}
-							style={{ cursor: "pointer" }}
-							size={62}
-							onClick={() =>
-								currentPage + 1 < data.banner.length
-									? setCurrentPage(currentPage + 1)
-									: setCurrentPage(0)
-							}
-						/>
-					</HsContainer>
+					</Slider>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>

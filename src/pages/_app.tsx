@@ -2,9 +2,10 @@ import "../../styles/globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ThemeProvider } from "@emotion/react";
 import theme from "styles/theme";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const queryClient = new QueryClient({
 	defaultOptions: {

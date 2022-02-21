@@ -1,5 +1,6 @@
 export default {
-	breakpoints: ["1024px"],
+	// NOTE : 1100px 기준으로 모바일, 데스크탑
+	breakpoints: ["1100px"],
 	colors: {
 		gray: {
 			gray10: "#bdbdbd",

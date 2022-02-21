@@ -14,6 +14,8 @@ const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				backgroundPosition="center"
 				height={["360px", "500px"]}
 				cursor="pointer"
+				width={["100%", "1100px"]}
+				margin={[, "0 20px"]}
 			>
 				<HsContainer
 					style={{
