@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsImage from "src/components/atoms/image/HsImage";
 import HsDivider from "src/components/atoms/divider/HsDivider";
-import { HiOutlineOfficeBuilding, HiCurrencyDollar } from "react-icons/hi";
+import {
+	HiOutlineOfficeBuilding,
+	HiCurrencyDollar,
+	HiViewGrid,
+} from "react-icons/hi";
 import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
 
@@ -99,7 +103,7 @@ const GamesDetailContents = ({
 									alignItems="center"
 									margin={"0 0 20px 0"}
 								>
-									<HiCurrencyDollar
+									<HiViewGrid
 										color="#6164FF"
 										size={22}
 										style={{ margin: "0 5px 0 0" }}
