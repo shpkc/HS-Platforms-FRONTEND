@@ -3,6 +3,7 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import CarouselItem from "../common/CarouselItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
+import { useState } from "react";
 
 const PrevArrow = props => {
 	return (
@@ -11,7 +12,7 @@ const PrevArrow = props => {
 			left={30}
 			top={"219px"}
 			display={["none", "block"]}
-			zIndex={999}
+			zIndex={2}
 		>
 			<IoIosArrowBack
 				color={"white"}
@@ -30,6 +31,7 @@ const NextArrow = props => {
 			right={30}
 			top={"calc(50% - 62px)"}
 			display={["none", "block"]}
+			zIndex={2}
 		>
 			<IoIosArrowForward
 				color={"white"}
@@ -42,13 +44,15 @@ const NextArrow = props => {
 };
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	// NOTE : 1100px 기준으로 responsive setting
+	const [currentPage, setCurrentPage] = useState(0);
+	// NOTE : 1100px 기준으로 responsive slider setting
 	const sliderSettings = {
 		infinite: true,
 		centerMode: true,
 		variableWidth: true,
 		prevArrow: <PrevArrow />,
 		nextArrow: <NextArrow />,
+		beforeChange: (current, next) => setCurrentPage(next),
 		responsive: [
 			{
 				breakpoint: 1100,
@@ -61,13 +65,18 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 		],
 	};
 
+	console.log(currentPage);
 	return (
 		<HsContainer padding={["61px 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
 			<HsContainer>
 				<HsContainer position={"relative"}>
 					<Slider {...sliderSettings}>
-						{data.banner.map((item: AxiosResponse["data"]) => (
-							<CarouselItem item={item} key={item.id} />
+						{data.banner.map((item: AxiosResponse["data"], index) => (
+							<CarouselItem
+								item={item}
+								key={item.id}
+								selected={currentPage == index}
+							/>
 						))}
 					</Slider>
 				</HsContainer>

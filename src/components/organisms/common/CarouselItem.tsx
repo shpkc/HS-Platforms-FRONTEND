@@ -3,12 +3,18 @@ import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 
-const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
+const CarouselItem = ({
+	item,
+	selected,
+}: {
+	item: AxiosResponse["data"];
+	selected: boolean;
+}) => {
 	return (
 		<Link href={`/games/detail/${item.id}`}>
 			<HsContainer
 				position={"relative"}
-				backgroundImage={`url(https://tennisflow.s3.ap-northeast-2.amazonaws.com/games/${item.id}/thumbnail.jpeg)`}
+				backgroundImage={`url(${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg)`}
 				backgroundSize={["cover", "100% 100%"]}
 				backgroundRepeat="no-repeat"
 				backgroundPosition="center"
@@ -17,19 +23,22 @@ const CarouselItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				width={["100%", "1100px"]}
 				margin={[, "0 20px"]}
 			>
-				<HsContainer
-					style={{
-						position: "absolute",
-						zIndex: 1,
-						left: 0,
-						top: 0,
-						display: "block",
-						height: "100%",
-						width: "100%",
-						background:
-							"linear-gradient(30deg,rgba(0,0,0,0.5) 0,rgba(0,0,0,0) 100%)",
-					}}
-				/>
+				{!selected && (
+					<HsContainer
+						display={["none", "block"]}
+						style={{
+							position: "absolute",
+							zIndex: 1,
+							left: 0,
+							top: 0,
+
+							height: "100%",
+							width: "100%",
+							background:
+								"linear-gradient(30deg,rgba(0,0,0,0.9) 0,rgba(0,0,0,0) 100%)",
+						}}
+					/>
+				)}
 				<HsContainer
 					position={"absolute"}
 					left={0}
