@@ -16,8 +16,8 @@ const GamesContents = ({
 				{data.pages
 					.map((item: AxiosResponse["data"]) => item.data)
 					.flat()
-					.map((item: any, index: number) => (
-						<GameItem key={index} item={item} id={item.id} />
+					.map((item: any) => (
+						<GameItem key={item.id} item={item} />
 					))}
 			</HsContainer>
 		</InfiniteScrollTemplate>
