@@ -32,9 +32,11 @@ interface ContainerProps
 		BackgroundProps,
 		BackgroundImageProps {
 	cursor?: string;
+	filter?: string;
 }
 
 const DefaultContainerStyle = styled.div<ContainerProps>`
+	${props => props.filter && `filter : ${props.filter}`};
 	${props => props.cursor && `cursor : ${props.cursor}`};
 `;
 const HsContainer = styled(DefaultContainerStyle)<ContainerProps>(

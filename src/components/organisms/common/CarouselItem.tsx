@@ -22,23 +22,8 @@ const CarouselItem = ({
 				cursor="pointer"
 				width={["100%", "1100px"]}
 				margin={[, "0 20px"]}
+				filter={!selected && "brightness(50%)"}
 			>
-				{!selected && (
-					<HsContainer
-						display={["none", "block"]}
-						style={{
-							position: "absolute",
-							zIndex: 1,
-							left: 0,
-							top: 0,
-
-							height: "100%",
-							width: "100%",
-							background:
-								"linear-gradient(30deg,rgba(0,0,0,0.9) 0,rgba(0,0,0,0) 100%)",
-						}}
-					/>
-				)}
 				<HsContainer
 					position={"absolute"}
 					left={0}
