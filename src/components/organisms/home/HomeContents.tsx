@@ -7,6 +7,7 @@ import HsText from "src/components/atoms/text/HsText";
 import { PrevArrow, NextArrow } from "./homeComponents/CarouselArrow";
 import GameItem from "../common/GameItem";
 import Link from "next/link";
+import UpcomingItem from "./homeComponents/UpcomingItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = useState(0);
@@ -43,21 +44,27 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					))}
 				</Slider>
 			</HsContainer>
-			<HsContainer width={[, "650px"]} margin={["0 20px", "0 auto"]}>
+			<HsContainer width={[, "1100px"]} margin={["0 20px", "0 auto"]}>
 				<Link href={"/upcoming"}>
 					<HsText
 						color={"white"}
 						fontWeight="bold"
-						variant={"h3"}
+						variant={"h4"}
 						margin={["0 0 30px 0", "0 0 50px 0"]}
 						cursor="pointer"
 					>
 						UPCOMING
 					</HsText>
 				</Link>
-				{data.upcoming.map((item: AxiosResponse["data"]) => (
-					<GameItem item={item} key={item.id} />
-				))}
+				<HsContainer
+					display={"flex"}
+					justifyContent={"space-between"}
+					flexWrap={"wrap"}
+				>
+					{data.upcoming.map((item: AxiosResponse["data"]) => (
+						<UpcomingItem item={item} key={item.id} />
+					))}
+				</HsContainer>
 			</HsContainer>
 		</HsContainer>
 	);
