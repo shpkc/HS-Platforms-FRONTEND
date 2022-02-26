@@ -32,7 +32,7 @@ interface TextProps
 		FontWeightProps,
 		TypographyProps {
 	variant?: TextVariant;
-	cursor?: string;
+	cursor?: "pointer";
 }
 
 const DefaultTextStyle = styled.p<TextProps>`
