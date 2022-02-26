@@ -11,21 +11,27 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 		<HsContainer
 			border="1px solid #222227"
 			borderRadius={16}
-			width={[, "650px"]}
+			width={[, "1100px"]}
 			margin={["0 0 30px 0", "0 auto 40px auto"]}
+			display={[, "flex"]}
+			alignItems={[, "flex-start"]}
 		>
-			<Link href={`games/detail/${item.id}`}>
+			<HsContainer minWidth={[, "600px"]} height={[, "300px"]}>
 				<HsImage
 					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg`}
 					borderRadius={12}
 				/>
-			</Link>
-			<HsContainer padding={20}>
+			</HsContainer>
+			<HsContainer padding={["20px", "10px 20px"]}>
 				<HsText color="white" margin="0 0 15px 0" variant="h3">
 					{item.title}
 				</HsText>
 				<HsText color="gray.gray10" margin="0 0 20px 0" lineHeight={1.5}>
 					{item.description.slice(0, 130)}...
+				</HsText>
+				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
+				<HsText fontSize={18} color={"white"} margin="0 0 30px 0">
+					© {item.developer}
 				</HsText>
 				<Link href={`games/detail/${item.id}`}>
 					<HsButton
@@ -38,10 +44,6 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 						READ MORE
 					</HsButton>
 				</Link>
-				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
-				<HsText fontSize={18} color={"white"}>
-					© {item.developer}
-				</HsText>
 			</HsContainer>
 		</HsContainer>
 	);
