@@ -18,7 +18,7 @@ interface ImageProps
 		BorderProps,
 		SpaceProps {
 	src: string;
-	objectFit?: string;
+	objectFit?: "fill" | "contain" | "cover";
 }
 
 const ImageDefaultStyle = styled.img<ImageProps>`

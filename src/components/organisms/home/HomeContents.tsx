@@ -84,7 +84,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsText>
 				</Link>
 				<HsContainer margin="0 0 50px 0">
-					{data.upcoming.map((item: AxiosResponse["data"]) => (
+					{data.best.map((item: AxiosResponse["data"]) => (
 						<GameItem item={item} key={item.id} />
 					))}
 				</HsContainer>

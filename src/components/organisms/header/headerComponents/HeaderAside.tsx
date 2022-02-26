@@ -13,7 +13,7 @@ const HeaderAside = () => {
 			display="flex"
 			justifyContent={[, "center"]}
 			width={"100%"}
-			height={"calc(100vh - 60px)"}
+			height={"100vh"}
 			backgroundColor="black"
 			css={RightToLeft}
 			zIndex={999}
@@ -29,6 +29,16 @@ const HeaderAside = () => {
 						GAMES
 					</HsText>
 				</Link>
+				<Link href={"/best"}>
+					<HsText
+						color={"white"}
+						variant={"h4"}
+						margin="0 0 15px 0"
+						cursor="pointer"
+					>
+						BEST
+					</HsText>
+				</Link>
 				<Link href={"/upcoming"}>
 					<HsText
 						color={"white"}
@@ -39,16 +49,14 @@ const HeaderAside = () => {
 						UPCOMING
 					</HsText>
 				</Link>
-				<Link href={"/freedrops"}>
-					<HsText
-						color={"white"}
-						variant={"h4"}
-						margin="0 0 15px 0"
-						cursor="pointer"
-					>
-						DROPS
-					</HsText>
-				</Link>
+				<HsText
+					color={"white"}
+					variant={"h4"}
+					margin="0 0 15px 0"
+					cursor="pointer"
+				>
+					REPORT
+				</HsText>
 			</HsContainer>
 		</HsContainer>
 	);

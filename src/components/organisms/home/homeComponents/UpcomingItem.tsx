@@ -19,13 +19,11 @@ const UpcomingItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					objectFit="cover"
 					margin="0 0 18px 0"
 				/>
-				<HsText color="white" fontSize={"20px"} margin="0 0 10px 0">
+				<HsText color="white" fontSize={"1.25rem"} margin="0 0 10px 0">
 					{item.title}
 				</HsText>
 				<HsContainer>
-					<HsText color="gray.gray10" fontSize={"16px"}>
-						{item.genre}
-					</HsText>
+					<HsText color="gray.gray10">{item.genre}</HsText>
 				</HsContainer>
 			</HsContainer>
 		</Link>

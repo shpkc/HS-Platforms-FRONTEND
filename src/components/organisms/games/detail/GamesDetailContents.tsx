@@ -38,10 +38,11 @@ const GamesDetailContents = ({
 				>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${id}/thumbnail.jpeg`}
+						objectFit="cover"
 					/>
 				</HsContainer>
 				<HsContainer>
-					<HsText color={"white"} margin="0 0 15px 0" fontSize={"18px"}>
+					<HsText color={"white"} margin="0 0 15px 0" fontSize={"1.1rem"}>
 						Descriptions
 					</HsText>
 					<HsText color={"gray.gray10"} lineHeight={1.625} margin="0 0 20px 0">
@@ -66,7 +67,7 @@ const GamesDetailContents = ({
 								/>
 								<HsText color={"white"}>Developer</HsText>
 							</HsContainer>
-							<HsText color={"white"} fontSize={20} margin={"0 0 20px 0"}>
+							<HsText color={"white"} fontSize={"1.2rem"} margin={"0 0 20px 0"}>
 								{data.developer}
 							</HsText>
 						</HsContainer>
@@ -93,7 +94,7 @@ const GamesDetailContents = ({
 									/>
 									<HsText color={"white"}>Currency</HsText>
 								</HsContainer>
-								<HsText color={"white"} fontSize={20} lineHeight={1.2}>
+								<HsText color={"white"} fontSize={"1.2rem"} lineHeight={1.2}>
 									{data.currency}
 								</HsText>
 							</HsContainer>
@@ -110,7 +111,7 @@ const GamesDetailContents = ({
 									/>
 									<HsText color={"white"}>Genre</HsText>
 								</HsContainer>
-								<HsText color={"white"} fontSize={20}>
+								<HsText color={"white"} fontSize={"1.2rem"}>
 									{data.genre}
 								</HsText>
 							</HsContainer>
