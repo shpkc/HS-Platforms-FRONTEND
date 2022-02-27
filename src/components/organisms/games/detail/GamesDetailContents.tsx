@@ -78,7 +78,7 @@ const GamesDetailContents = ({
 						/>
 						<HsContainer display={"flex"} margin="0 0 50px 0">
 							<HsContainer
-								width={"60%"}
+								width={"50%"}
 								borderRight="1px solid #222227"
 								padding={"0 20px"}
 							>
@@ -98,7 +98,7 @@ const GamesDetailContents = ({
 									{data.currency}
 								</HsText>
 							</HsContainer>
-							<HsContainer width={"40%"} padding={"0 20px"}>
+							<HsContainer width={"50%"} padding={"0 20px"}>
 								<HsContainer
 									display={"flex"}
 									alignItems="center"
