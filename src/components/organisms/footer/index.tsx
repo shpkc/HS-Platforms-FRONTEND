@@ -13,7 +13,7 @@ const Footer = () => {
 				<HsContainer
 					width={[, "1100px"]}
 					margin={["100px 0 0 0", "100px auto 0 auto"]}
-					padding={["60px 15px", "60px 0"]}
+					padding={["40px 15px 60px 15px", "40px 0 60px"]}
 				>
 					<HsContainer
 						display={[, "flex"]}
