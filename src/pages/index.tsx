@@ -3,11 +3,14 @@ import { GetStaticProps } from "next";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainGames } from "src/domains/GamesDomain";
-import HomeContents from "src/components/organisms/home/HomeContents";
+import dynamic from "next/dynamic";
+
+const HomeContents = dynamic(
+	() => import("src/components/organisms/home/HomeContents")
+);
 
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
-	console.log(data);
 	return (
 		<LayoutTemplate
 			seo={{

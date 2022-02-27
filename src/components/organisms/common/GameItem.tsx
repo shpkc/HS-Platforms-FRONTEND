@@ -32,7 +32,7 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					{item.genre}
 				</HsText>
 				<HsText color="gray.gray10" margin="0 0 20px 0" lineHeight={1.5}>
-					{item.description.slice(0, 130)}...
+					{item.description.slice(0, 200)}...
 				</HsText>
 				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
 				<HsText fontSize={"1.1rem"} color={"white"} margin="0 0 30px 0">
