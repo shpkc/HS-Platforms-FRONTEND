@@ -6,6 +6,7 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "styles/theme";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import LayoutTemplate from "src/components/templates/LayoutTemplate";
 
 export const queryClient = new QueryClient({
 	defaultOptions: {
@@ -21,7 +22,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<QueryClientProvider client={queryClient} contextSharing>
 				<Hydrate state={pageProps.dehydratedState}>
-					<Component {...pageProps} />
+					<LayoutTemplate
+						seo={{
+							title: "",
+							description: "",
+						}}
+					>
+						<Component {...pageProps} />
+					</LayoutTemplate>
 				</Hydrate>
 			</QueryClientProvider>
 		</ThemeProvider>

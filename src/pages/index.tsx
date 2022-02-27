@@ -1,6 +1,5 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
-import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainGames } from "src/domains/GamesDomain";
 import dynamic from "next/dynamic";
@@ -11,16 +10,7 @@ const HomeContents = dynamic(
 
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
-	return (
-		<LayoutTemplate
-			seo={{
-				title: "",
-				description: "",
-			}}
-		>
-			<HomeContents data={data} />
-		</LayoutTemplate>
-	);
+	return <HomeContents data={data} />;
 };
 
 export const getStaticProps: GetStaticProps = async context => {

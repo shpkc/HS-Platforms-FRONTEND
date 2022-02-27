@@ -1,6 +1,5 @@
 import React from "react";
 import { dehydrate } from "react-query";
-import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import dynamic from "next/dynamic";
 import { GetStaticPaths } from "next";
 import { getAllGamesId, getGamesDetailById } from "src/domains/GamesDomain";
@@ -15,18 +14,7 @@ const GamesDetail = ({ id }: { id: string }) => {
 	if (!data) {
 		return <div />;
 	}
-	return (
-		<>
-			<LayoutTemplate
-				seo={{
-					title: data.result.name,
-					description: data.result.name,
-				}}
-			>
-				<GamesDetailContents data={data.result} id={data.result.id} />
-			</LayoutTemplate>
-		</>
-	);
+	return <GamesDetailContents data={data.result} id={data.result.id} />;
 };
 export const getStaticProps = async ({
 	params: { id },
