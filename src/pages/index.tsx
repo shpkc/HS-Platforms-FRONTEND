@@ -12,8 +12,15 @@ const HomeContents = lazy(
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
 	return (
-		<Suspense fallback={<div />}>
-			<HomeContents data={data} />
+		<Suspense fallback={<div />} key={"home"}>
+			<LayoutTemplate
+				seo={{
+					title: "",
+					description: "",
+				}}
+			>
+				<HomeContents data={data} />
+			</LayoutTemplate>
 		</Suspense>
 	);
 };
