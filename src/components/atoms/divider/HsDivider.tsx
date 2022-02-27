@@ -8,6 +8,7 @@ import {
 	space,
 	layout,
 	SpaceProps,
+	compose,
 } from "styled-system";
 
 interface DividerProps
@@ -32,9 +33,7 @@ const DividerDefaultStyle = styled.hr<DividerDefaultProps>`
 `;
 
 const HsDivider = styled(DividerDefaultStyle)<DividerProps>(
-	space,
-	layout,
-	border
+	compose(space, layout, border)
 );
 
 export default HsDivider;

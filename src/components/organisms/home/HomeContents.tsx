@@ -16,6 +16,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	const sliderSettings = {
 		infinite: true,
 		centerMode: true,
+		lazyLoad: true,
 		variableWidth: true,
 		prevArrow: <PrevArrow />,
 		nextArrow: <NextArrow />,

@@ -15,6 +15,7 @@ import {
 	layout,
 	typography,
 	variant,
+	compose,
 } from "styled-system";
 import { textVariants } from "styles/variants";
 
@@ -42,10 +43,7 @@ const DefaultTextStyle = styled.p<TextProps>`
 `;
 
 const HsText = styled(DefaultTextStyle)<TextProps>(
-	space,
-	layout,
-	color,
-	typography,
+	compose(space, layout, color, typography),
 	variant({ variants: textVariants })
 );
 
