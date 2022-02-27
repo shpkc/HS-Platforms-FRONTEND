@@ -20,7 +20,7 @@ const Footer = () => {
 						justifyContent={[, "space-between"]}
 					>
 						<HsText color={"white"} variant="h4" margin={"0 0 20px 0"}>
-							NFT GAMES
+							NFTIFY
 						</HsText>
 						<HsContainer
 							margin={"0 0 20px 0"}
@@ -61,7 +61,7 @@ const Footer = () => {
 							</Link>
 						))}
 					</HsContainer>
-					<HsText color="white">© NFT GAMES, 2021</HsText>
+					<HsText color="white">© NFTIFY, 2022</HsText>
 				</HsContainer>
 			</HsContainer>
 		</footer>

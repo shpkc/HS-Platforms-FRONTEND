@@ -37,7 +37,7 @@ const Header = () => {
 				>
 					<Link href={"/"}>
 						<HsText color={"white"} variant={"h4"} cursor={"pointer"}>
-							NFTGAMES
+							NFTIFY
 						</HsText>
 					</Link>
 					<HsContainer>
