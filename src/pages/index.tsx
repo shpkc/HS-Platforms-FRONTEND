@@ -3,14 +3,19 @@ import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainGames } from "src/domains/GamesDomain";
 import dynamic from "next/dynamic";
+import { lazy, Suspense } from "react";
 
-const HomeContents = dynamic(
+const HomeContents = lazy(
 	() => import("src/components/organisms/home/HomeContents")
 );
 
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
-	return <HomeContents data={data} />;
+	return (
+		<Suspense fallback={<div />}>
+			<HomeContents data={data} />
+		</Suspense>
+	);
 };
 
 export const getStaticProps: GetStaticProps = async context => {
