@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { GetStaticPaths } from "next";
 import { getAllGamesId, getGamesDetailById } from "src/domains/GamesDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
+import LayoutTemplate from "src/components/templates/LayoutTemplate";
 
 const GamesDetailContents = dynamic(
 	() => import("src/components/organisms/games/detail/GamesDetailContents")
@@ -14,7 +15,16 @@ const GamesDetail = ({ id }: { id: string }) => {
 	if (!data) {
 		return <div />;
 	}
-	return <GamesDetailContents data={data.result} id={data.result.id} />;
+	return (
+		<LayoutTemplate
+			seo={{
+				title: data.title,
+				description: data.description,
+			}}
+		>
+			<GamesDetailContents data={data.result} id={data.result.id} />
+		</LayoutTemplate>
+	);
 };
 export const getStaticProps = async ({
 	params: { id },

@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import CarouselItem from "../common/CarouselItem";
 import Slider from "react-slick";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import HsText from "src/components/atoms/text/HsText";
 import { PrevArrow, NextArrow } from "./homeComponents/CarouselArrow";
 import GameItem from "../common/GameItem";
@@ -14,6 +14,8 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	// NOTE : 1100px 기준으로 responsive slider setting
 	const sliderSettings = {
+		slidesToShow: 1,
+		slidesToScroll: 1,
 		infinite: true,
 		centerMode: true,
 		variableWidth: true,
@@ -35,15 +37,17 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<HsContainer padding={["61px 0 0 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
 			<HsContainer margin={"0 0 100px 0"}>
-				<Slider {...sliderSettings}>
-					{data.banner.map((item: AxiosResponse["data"], index) => (
-						<CarouselItem
-							item={item}
-							key={item.id}
-							selected={currentPage == index}
-						/>
-					))}
-				</Slider>
+				<Suspense fallback={<div />}>
+					<Slider {...sliderSettings}>
+						{data.banner.map((item: AxiosResponse["data"], index) => (
+							<CarouselItem
+								item={item}
+								key={item.id}
+								selected={currentPage == index}
+							/>
+						))}
+					</Slider>
+				</Suspense>
 			</HsContainer>
 			<HsContainer width={[, "1100px"]} margin={["0 20px", "0 auto"]}>
 				<Link href={"/upcoming"}>

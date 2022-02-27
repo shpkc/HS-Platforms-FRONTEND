@@ -9,7 +9,16 @@ const Games = () => {
 	const { data, fetchNextPage } = useFetchInfinite("games", () =>
 		getGames({ pageParam: 1 })
 	);
-	return <GamesContents data={data} nextPage={fetchNextPage} />;
+	return (
+		<LayoutTemplate
+			seo={{
+				title: "",
+				description: "",
+			}}
+		>
+			<GamesContents data={data} nextPage={fetchNextPage} />
+		</LayoutTemplate>
+	);
 };
 
 export const getStaticProps: GetStaticProps = async context => {
