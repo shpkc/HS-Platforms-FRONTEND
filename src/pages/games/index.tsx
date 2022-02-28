@@ -12,8 +12,8 @@ const Games = () => {
 	return (
 		<LayoutTemplate
 			seo={{
-				title: "",
-				description: "",
+				title: "GAMES",
+				description: "NFT GAMES",
 			}}
 		>
 			<GamesContents data={data} nextPage={fetchNextPage} />

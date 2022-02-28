@@ -11,6 +11,7 @@ const LayoutTemplate = ({
 	seo: {
 		title: string;
 		description: string;
+		images?: "default/og.png" | string;
 	};
 	children: JSX.Element | JSX.Element[];
 }) => {
@@ -23,7 +24,9 @@ const LayoutTemplate = ({
 					type: "website",
 					title: `${seo.title}`,
 					description: seo.description,
-					images: [{ url: `${process.env.IMG_HOST}/default/og.png` }],
+					images: [
+						{ url: `${process.env.NEXT_PUBLIC_IMG_HOST}/${seo.images}` },
+					],
 				}}
 			/>
 			<Header />

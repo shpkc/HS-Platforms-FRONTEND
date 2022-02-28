@@ -11,18 +11,19 @@ const GamesDetailContents = dynamic(
 );
 
 const GamesDetail = ({ id }: { id: string }) => {
-	const { data } = useFetch(`games${id}`, () => getGamesDetailById(id));
-	if (!data) {
-		return <div />;
-	}
+	const {
+		data: { result },
+	} = useFetch(`games${id}`, () => getGamesDetailById(id));
+
 	return (
 		<LayoutTemplate
 			seo={{
-				title: data.title,
-				description: data.description,
+				title: result.title,
+				description: result.description,
+				images: `${result.id}/thumbnail.jpeg`,
 			}}
 		>
-			<GamesDetailContents data={data.result} id={data.result.id} />
+			<GamesDetailContents data={result} id={result.id} />
 		</LayoutTemplate>
 	);
 };

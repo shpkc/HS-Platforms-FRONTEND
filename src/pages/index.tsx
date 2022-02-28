@@ -15,8 +15,8 @@ const Index = () => {
 		<Suspense fallback={<div />} key={"home"}>
 			<LayoutTemplate
 				seo={{
-					title: "",
-					description: "",
+					title: "NFT GAMES",
+					description: "World Wide NFT Games",
 				}}
 			>
 				<HomeContents data={data} />
