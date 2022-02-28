@@ -11,14 +11,9 @@ import {
 } from "react-icons/hi";
 import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
+import { GameType } from "src/types/game";
 
-const GamesDetailContents = ({
-	data,
-	id,
-}: {
-	data: AxiosResponse["data"];
-	id: number;
-}) => {
+const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 	return (
 		<HsContainer
 			padding={["100px 15px 0 15px", "100px 0 0 0"]}

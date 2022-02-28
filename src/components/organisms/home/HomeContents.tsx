@@ -9,6 +9,7 @@ import GameItem from "../common/GameItem";
 import Link from "next/link";
 import UpcomingItem from "./homeComponents/UpcomingItem";
 import HsDivider from "src/components/atoms/divider/HsDivider";
+import { GameType } from "src/types/game";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = useState(0);
@@ -39,7 +40,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 			<HsContainer margin={"0 0 100px 0"}>
 				<Suspense fallback={<div />}>
 					<Slider {...sliderSettings}>
-						{data.banner.map((item: AxiosResponse["data"], index) => (
+						{data.banner.map((item: GameType, index) => (
 							<CarouselItem
 								item={item}
 								key={item.id}
@@ -67,7 +68,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					flexWrap={"wrap"}
 					margin={["0 0 60px 0", "0 0 120px 0"]}
 				>
-					{data.upcoming.map((item: AxiosResponse["data"]) => (
+					{data.upcoming.map((item: GameType) => (
 						<UpcomingItem item={item} key={item.id} />
 					))}
 				</HsContainer>
@@ -88,7 +89,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsText>
 				</Link>
 				<HsContainer margin="0 0 50px 0">
-					{data.best.map((item: AxiosResponse["data"]) => (
+					{data.best.map((item: GameType) => (
 						<GameItem item={item} key={item.id} />
 					))}
 				</HsContainer>

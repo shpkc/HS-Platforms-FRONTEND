@@ -5,6 +5,7 @@ import { GetStaticPaths } from "next";
 import { getAllGamesId, getGamesDetailById } from "src/domains/GamesDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
+import { PathType } from "src/types/path";
 
 const GamesDetailContents = dynamic(
 	() => import("src/components/organisms/games/detail/GamesDetailContents")
@@ -48,7 +49,7 @@ export const getStaticProps = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { result } = await getAllGamesId();
-	const paths = result.map((item: any) => ({
+	const paths = result.map((item: PathType) => ({
 		params: { id: item.id.toString() },
 	}));
 	return {

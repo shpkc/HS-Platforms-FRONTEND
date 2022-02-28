@@ -2,6 +2,7 @@ import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import GameItem from "src/components/organisms/common/GameItem";
 import InfiniteScrollTemplate from "src/components/templates/InniteScrollTemplate";
+import { GameType } from "src/types/game";
 
 const GamesContents = ({
 	data,
@@ -16,7 +17,7 @@ const GamesContents = ({
 				{data.pages
 					.map((item: AxiosResponse["data"]) => item.data)
 					.flat()
-					.map((item: any) => (
+					.map((item: GameType) => (
 						<GameItem key={item.id} item={item} />
 					))}
 			</HsContainer>
