@@ -149,19 +149,25 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 				alignItems={"center"}
 			>
 				<HsContainer display="flex" alignItems={"center"}>
-					<HsContainer display="flex" margin={"0 10px 0 0"}>
+					<HsContainer display="flex">
 						<StarsSpread score={4.4} />
 					</HsContainer>
 					<HsContainer>
-						<HsText color="white">(VOTE NOW)</HsText>
+						<HsText color="white" fontSize={["0.75rem", "1rem"]}>
+							(VOTE NOW)
+						</HsText>
 					</HsContainer>
 				</HsContainer>
 				<HsContainer
 					backgroundColor={"#6164FF"}
 					borderRadius={6}
-					padding="15px"
+					padding={["10px", "15px"]}
 				>
-					<HsText color={"white"} fontWeight="bold" fontSize={20}>
+					<HsText
+						color={"white"}
+						fontWeight="bold"
+						fontSize={["1rem", "1.25rem"]}
+					>
 						4.4
 					</HsText>
 				</HsContainer>
