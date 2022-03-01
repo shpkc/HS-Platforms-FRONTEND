@@ -9,11 +9,11 @@ import {
 	HiViewGrid,
 } from "react-icons/hi";
 import { FaSteam } from "react-icons/fa";
-
-import { AiFillStar, AiFillWindows } from "react-icons/ai";
+import { AiFillWindows } from "react-icons/ai";
 import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
 import { GameType } from "src/types/game";
+import StarsSpread from "./StarsSpread";
 
 const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 	return (
@@ -150,15 +150,7 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 			>
 				<HsContainer display="flex" alignItems={"center"}>
 					<HsContainer display="flex" margin={"0 10px 0 0"}>
-						<AiFillStar
-							color="white"
-							size={36}
-							style={{ margin: "0 0 0 0", cursor: "pointer" }}
-						/>
-						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
-						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
-						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
-						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
+						<StarsSpread score={4.4} />
 					</HsContainer>
 					<HsContainer>
 						<HsText color="white">(VOTE NOW)</HsText>
