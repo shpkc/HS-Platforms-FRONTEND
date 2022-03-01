@@ -37,7 +37,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 
 	return (
 		<HsContainer padding={["61px 0 0 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
-			<HsContainer margin={"0 0 100px 0"}>
+			<HsContainer margin={["0 0 60px 0", "0 0 180px 0"]}>
 				<Suspense fallback={<div />}>
 					<Slider {...sliderSettings}>
 						{data.banner.map((item: GameType, index) => (
@@ -66,17 +66,12 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					display={"flex"}
 					justifyContent={"space-between"}
 					flexWrap={"wrap"}
-					margin={["0 0 60px 0", "0 0 120px 0"]}
+					margin={["0 0 60px 0", "0 0 180px 0"]}
 				>
 					{data.upcoming.map((item: GameType) => (
 						<UpcomingItem item={item} key={item.id} />
 					))}
 				</HsContainer>
-				<HsDivider
-					direction="horizontal"
-					color={"#222227"}
-					margin={["0 0 60px 0", "0 0 120px 0"]}
-				/>
 				<Link href={"/upcoming"}>
 					<HsText
 						color={"white"}

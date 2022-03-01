@@ -5,6 +5,7 @@ import Link from "next/link";
 import HsButton from "src/components/atoms/button/HsButton";
 import HsDivider from "src/components/atoms/divider/HsDivider";
 import HsImage from "src/components/atoms/image/HsImage";
+import { AiFillStar } from "react-icons/ai";
 
 const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
@@ -16,7 +17,11 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 			display={[, "flex"]}
 			alignItems={[, "flex-start"]}
 		>
-			<HsContainer minWidth={[, "600px"]} height={[, "350px"]}>
+			<HsContainer
+				minWidth={[, "600px"]}
+				maxWidth={[, "600px"]}
+				height={[, "350px"]}
+			>
 				<Link href={`games/detail/${item.id}`}>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg`}
@@ -35,9 +40,25 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					{item.description.slice(0, 200)}...
 				</HsText>
 				<HsDivider direction="horizontal" color="#222227" margin="0 0 20px 0" />
-				<HsText fontSize={"1.1rem"} color={"white"} margin="0 0 30px 0">
-					© {item.developer}
-				</HsText>
+				<HsContainer
+					display={"flex"}
+					justifyContent="space-between"
+					margin="0 0 30px 0"
+				>
+					<HsText fontSize={"1.1rem"} color={"white"}>
+						© {item.developer}
+					</HsText>
+					<HsContainer display={"flex"} alignItems="center">
+						<AiFillStar
+							color="white"
+							size={20}
+							style={{ margin: "0 5px 0 0" }}
+						/>
+						<HsText color={"white"} fontSize="1.1rem">
+							4.4
+						</HsText>
+					</HsContainer>
+				</HsContainer>
 				<Link href={`games/detail/${item.id}`}>
 					<HsButton
 						borderRadius={12}

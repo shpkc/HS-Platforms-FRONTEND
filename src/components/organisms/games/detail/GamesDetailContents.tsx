@@ -1,14 +1,15 @@
 import React from "react";
-import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsImage from "src/components/atoms/image/HsImage";
 import HsDivider from "src/components/atoms/divider/HsDivider";
 import {
 	HiOutlineOfficeBuilding,
-	HiCurrencyDollar,
+	HiOutlineCube,
 	HiViewGrid,
 } from "react-icons/hi";
+
+import { AiFillWindows } from "react-icons/ai";
 import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
 import { GameType } from "src/types/game";
@@ -74,26 +75,9 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 						<HsContainer display={"flex"} margin="0 0 50px 0">
 							<HsContainer
 								width={"50%"}
-								borderRight="1px solid #222227"
 								padding={"0 20px"}
+								borderRight="1px solid #222227"
 							>
-								<HsContainer
-									display={"flex"}
-									alignItems="center"
-									margin={"0 0 20px 0"}
-								>
-									<HiCurrencyDollar
-										color="#6164FF"
-										size={22}
-										style={{ margin: "0 5px 0 0" }}
-									/>
-									<HsText color={"white"}>Currency</HsText>
-								</HsContainer>
-								<HsText color={"white"} fontSize={"1.2rem"} lineHeight={1.2}>
-									{data.currency}
-								</HsText>
-							</HsContainer>
-							<HsContainer width={"50%"} padding={"0 20px"}>
 								<HsContainer
 									display={"flex"}
 									alignItems="center"
@@ -109,6 +93,21 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 								<HsText color={"white"} fontSize={"1.2rem"}>
 									{data.genre}
 								</HsText>
+							</HsContainer>
+							<HsContainer width={"50%"} padding={"0 20px"}>
+								<HsContainer
+									display={"flex"}
+									alignItems="center"
+									margin={"0 0 20px 0"}
+								>
+									<HiOutlineCube
+										color="#6164FF"
+										size={24}
+										style={{ margin: "0 5px 0 0" }}
+									/>
+									<HsText color={"white"}>Platform</HsText>
+								</HsContainer>
+								<AiFillWindows color="white" size={24} />
 							</HsContainer>
 						</HsContainer>
 						<Link href={data.website}>
