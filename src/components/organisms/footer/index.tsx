@@ -61,7 +61,7 @@ const Footer = () => {
 							</Link>
 						))}
 					</HsContainer>
-					<HsText color="white">© NFTIFY, 2022</HsText>
+					<HsText color="white">© NFTIFY</HsText>
 				</HsContainer>
 			</HsContainer>
 		</footer>
