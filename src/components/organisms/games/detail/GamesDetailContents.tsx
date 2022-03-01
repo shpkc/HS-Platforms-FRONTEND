@@ -8,8 +8,9 @@ import {
 	HiOutlineCube,
 	HiViewGrid,
 } from "react-icons/hi";
+import { FaSteam } from "react-icons/fa";
 
-import { AiFillWindows } from "react-icons/ai";
+import { AiFillStar, AiFillWindows } from "react-icons/ai";
 import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
 import { GameType } from "src/types/game";
@@ -24,7 +25,7 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 			<HsText color={"white"} variant={"h1"} margin="0 0 30px 0">
 				{data.title}
 			</HsText>
-			<HsContainer display={["block", "flex"]}>
+			<HsContainer display={["block", "flex"]} margin={[, "0 0 20px 0"]}>
 				<HsContainer
 					padding={"20px 10px"}
 					border="1px solid #222227"
@@ -107,7 +108,22 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 									/>
 									<HsText color={"white"}>Platform</HsText>
 								</HsContainer>
-								<AiFillWindows color="white" size={24} />
+								<HsContainer display={"flex"}>
+									{data.isWindow && (
+										<AiFillWindows
+											color="white"
+											size={24}
+											style={{ margin: "0 5px 0 0" }}
+										/>
+									)}
+									{data.isSteam && (
+										<FaSteam
+											color="white"
+											size={22}
+											style={{ margin: "0 5px 0 0" }}
+										/>
+									)}
+								</HsContainer>
 							</HsContainer>
 						</HsContainer>
 						<Link href={data.website}>
@@ -122,6 +138,40 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 							</HsButton>
 						</Link>
 					</HsContainer>
+				</HsContainer>
+			</HsContainer>
+			<HsContainer
+				padding={"20px 10px"}
+				border="1px solid #222227"
+				borderRadius={16}
+				display={"flex"}
+				justifyContent={"space-between"}
+				alignItems={"center"}
+			>
+				<HsContainer display="flex" alignItems={"center"}>
+					<HsContainer display="flex" margin={"0 10px 0 0"}>
+						<AiFillStar
+							color="white"
+							size={36}
+							style={{ margin: "0 0 0 0", cursor: "pointer" }}
+						/>
+						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
+						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
+						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
+						<AiFillStar color="white" size={36} style={{ margin: "0 0 0 0" }} />
+					</HsContainer>
+					<HsContainer>
+						<HsText color="white">(VOTE NOW)</HsText>
+					</HsContainer>
+				</HsContainer>
+				<HsContainer
+					backgroundColor={"#6164FF"}
+					borderRadius={6}
+					padding="15px"
+				>
+					<HsText color={"white"} fontWeight="bold" fontSize={20}>
+						4.4
+					</HsText>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>

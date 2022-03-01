@@ -7,4 +7,9 @@ export interface GameType {
 	website: string;
 	description: string;
 	isReleased: boolean;
+	isWindow: boolean;
+	isApple: boolean;
+	isGoogle: boolean;
+	isSteam: boolean;
+	isNFT: boolean;
 }
