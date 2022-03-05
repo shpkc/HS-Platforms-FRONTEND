@@ -9,6 +9,6 @@
 
 #### Introduction
 
-We introduce NFT games from all over the world.
+Plusive aggregates game reviews all over the world.
 
 <br/>
