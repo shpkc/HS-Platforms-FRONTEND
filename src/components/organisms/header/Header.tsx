@@ -37,7 +37,7 @@ const Header = () => {
 				>
 					<Link href={"/"}>
 						<HsText color={"white"} variant={"h4"} cursor={"pointer"}>
-							NFTIFY
+							PLUSIVE
 						</HsText>
 					</Link>
 					<HsContainer>

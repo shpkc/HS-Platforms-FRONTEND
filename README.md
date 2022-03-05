@@ -5,7 +5,7 @@
 <!-- # [NFTGAMES](https://teamit.co.kr/)
  -->
 
-# NFTIFY
+# PLUSIVE
 
 #### Introduction
 
