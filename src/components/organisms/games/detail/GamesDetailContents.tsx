@@ -14,6 +14,7 @@ import HsButton from "src/components/atoms/button/HsButton";
 import Link from "next/link";
 import { GameType } from "src/types/game";
 import StarsSpread from "./StarsSpread";
+import { SiNintendoswitch } from "react-icons/si";
 
 const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 	return (
@@ -118,6 +119,13 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 									)}
 									{data.isSteam && (
 										<FaSteam
+											color="white"
+											size={22}
+											style={{ margin: "0 5px 0 0" }}
+										/>
+									)}
+									{data.isSwitch && (
+										<SiNintendoswitch
 											color="white"
 											size={22}
 											style={{ margin: "0 5px 0 0" }}

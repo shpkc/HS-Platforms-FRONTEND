@@ -11,5 +11,6 @@ export interface GameType {
 	isApple: boolean;
 	isGoogle: boolean;
 	isSteam: boolean;
+	isSwitch: boolean;
 	isNFT: boolean;
 }
