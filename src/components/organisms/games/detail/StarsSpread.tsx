@@ -10,7 +10,7 @@ const StarsSpread = ({ score }: { score: number }) => {
 				<HsContainer key={index}>
 					{score >= item ? (
 						<AiFillStar
-							color="#389BB2"
+							color="#E83E57"
 							size={36}
 							style={{ margin: "0 0 0 0", cursor: "pointer" }}
 						/>
