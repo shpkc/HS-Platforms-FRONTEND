@@ -158,7 +158,7 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 			>
 				<HsContainer display="flex" alignItems={"center"}>
 					<HsContainer display="flex">
-						<StarsSpread score={4.4} />
+						<StarsSpread score={data.score} />
 					</HsContainer>
 					<HsContainer>
 						<HsText color="white" fontSize={["0.75rem", "1rem"]}>
@@ -176,7 +176,7 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 						fontWeight="bold"
 						fontSize={["1rem", "1.25rem"]}
 					>
-						4.4
+						{data.score.toFixed(1)}
 					</HsText>
 				</HsContainer>
 			</HsContainer>

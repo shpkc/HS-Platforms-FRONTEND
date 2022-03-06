@@ -43,7 +43,7 @@ const CarouselItem = ({
 					left={0}
 					bottom={0}
 					zIndex={2}
-					width={"80%"}
+					width={"100%"}
 					padding={"0 20px 20px"}
 				>
 					<HsText

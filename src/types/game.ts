@@ -1,5 +1,5 @@
 export interface GameType {
-	id: number;
+	id: string;
 	title: string;
 	genre: string;
 	developer: string;
@@ -13,4 +13,6 @@ export interface GameType {
 	isSteam: boolean;
 	isSwitch: boolean;
 	isNFT: boolean;
+	score: number;
+	participantsCount: number;
 }

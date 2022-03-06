@@ -55,7 +55,7 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 							style={{ margin: "0 5px 0 0" }}
 						/>
 						<HsText color={"white"} fontSize="1.1rem">
-							4.4
+							{item.score.toFixed(1)}
 						</HsText>
 					</HsContainer>
 				</HsContainer>
