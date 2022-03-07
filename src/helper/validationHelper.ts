@@ -9,7 +9,7 @@ export const validationHelper =
 				const regax =
 					/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				const isValid = regax.test(validTargetValue);
-				const msg = item.length > 0 ? "이메일 형식을 확인해 주세요." : "";
+				const msg = item.length > 0 ? "Invalid Email" : "";
 				return { result: isValid, msg: msg };
 			},
 

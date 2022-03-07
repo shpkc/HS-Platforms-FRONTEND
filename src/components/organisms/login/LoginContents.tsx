@@ -2,6 +2,7 @@ import React from "react";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsTextField from "src/components/atoms/textfield/HsTextField";
+import { validationHelper } from "src/helper/validationHelper";
 
 const LoginContents = () => {
 	const [loginInfo, setLoginInfo] = React.useState({
@@ -45,6 +46,7 @@ const LoginContents = () => {
 					onChange={onChangeEmail}
 					placeholder="example@example.com"
 				/>
+				<HsText>{validationHelper(loginInfo.memberEmail)("email").msg}</HsText>
 			</HsContainer>
 			<HsContainer margin="0 0 10px 0">
 				<HsText color="white" margin="0 0 10px 0">
