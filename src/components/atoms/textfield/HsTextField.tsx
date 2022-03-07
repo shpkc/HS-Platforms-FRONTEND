@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { SpaceProps, compose, space } from "styled-system";
+import HsText from "../text/HsText";
 
 interface TextFieldProps extends SpaceProps {
 	height?: number;
@@ -31,14 +32,12 @@ const HsTextField = ({
 	value,
 	onChange,
 	placeholder,
-	label,
-	errorMessage,
+	type,
 }: {
 	value: string;
 	onChange: any;
 	placeholder?: string;
-	label?: string;
-	errorMessage?: string;
+	type?: string;
 }) => {
 	return (
 		<DefaultTextFieldLayout>
@@ -46,6 +45,7 @@ const HsTextField = ({
 				placeholder={placeholder}
 				value={value}
 				onChange={onChange}
+				type={type}
 			/>
 		</DefaultTextFieldLayout>
 	);
