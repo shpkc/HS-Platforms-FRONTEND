@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
 import HeaderAside from "./headerComponents/HeaderAside";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
@@ -10,7 +9,7 @@ import { MENU_LIST } from "src/constants/menu";
 import { MenuType } from "src/types/menu";
 
 const Header = () => {
-	const [isAsideOpen, setIsAsideOpen] = useState(false);
+	const [isAsideOpen, setIsAsideOpen] = React.useState(false);
 
 	return (
 		<header>

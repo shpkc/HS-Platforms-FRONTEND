@@ -1,18 +1,18 @@
+import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import CarouselItem from "../common/CarouselItem";
 import Slider from "react-slick";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import HsText from "src/components/atoms/text/HsText";
 import { PrevArrow, NextArrow } from "./homeComponents/CarouselArrow";
 import GameItem from "../common/GameItem";
 import Link from "next/link";
 import UpcomingItem from "./homeComponents/UpcomingItem";
-import HsDivider from "src/components/atoms/divider/HsDivider";
 import { GameType } from "src/types/game";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	const [currentPage, setCurrentPage] = useState(0);
+	const [currentPage, setCurrentPage] = React.useState(0);
 	// NOTE : 1100px 기준으로 responsive slider setting
 	const sliderSettings = {
 		slidesToShow: 1,

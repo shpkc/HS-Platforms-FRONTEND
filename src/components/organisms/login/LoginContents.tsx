@@ -9,6 +9,24 @@ const LoginContents = () => {
 		memberPassword: "",
 	});
 
+	const onChangeEmail = React.useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>) =>
+			setLoginInfo(state => ({
+				...state,
+				memberEmail: event.target.value,
+			})),
+		[loginInfo.memberEmail]
+	);
+
+	const onChangePassword = React.useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>) =>
+			setLoginInfo(state => ({
+				...state,
+				memberPassword: event.target.value,
+			})),
+		[loginInfo.memberPassword]
+	);
+
 	return (
 		<HsContainer
 			padding={["100px 15px 0 15px", "150px 0 0 0"]}
@@ -18,8 +36,20 @@ const LoginContents = () => {
 			<HsText color={"white"} variant={"h4"} margin="0 0 20px 0">
 				LOGIN
 			</HsText>
-			<HsTextField value={loginInfo.memberEmail} />
-			<HsTextField value={loginInfo.memberPassword} />
+			<HsContainer margin="0 0 10px 0">
+				<HsTextField
+					value={loginInfo.memberEmail}
+					label="Email"
+					onChange={onChangeEmail}
+				/>
+			</HsContainer>
+			<HsContainer margin="0 0 10px 0">
+				<HsTextField
+					value={loginInfo.memberPassword}
+					label="Password"
+					onChange={onChangePassword}
+				/>
+			</HsContainer>
 		</HsContainer>
 	);
 };

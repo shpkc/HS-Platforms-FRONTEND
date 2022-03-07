@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { SpaceProps, compose, space } from "styled-system";
 
-interface TextFieldProps {
+interface TextFieldProps extends SpaceProps {
 	height?: number;
 }
 
@@ -28,18 +29,24 @@ const DefaultTextFieldStyle = styled.input<TextFieldProps>`
 
 const HsTextField = ({
 	value,
+	onChange,
 	placeholder,
 	label,
 	errorMessage,
 }: {
 	value: string;
+	onChange: any;
 	placeholder?: string;
 	label?: string;
 	errorMessage?: string;
 }) => {
 	return (
 		<DefaultTextFieldLayout>
-			<DefaultTextFieldStyle placeholder={placeholder} value={value} />
+			<DefaultTextFieldStyle
+				placeholder={placeholder}
+				value={value}
+				onChange={onChange}
+			/>
 		</DefaultTextFieldLayout>
 	);
 };
