@@ -4,6 +4,7 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsTextField from "src/components/atoms/textfield/HsTextField";
 import { validationHelper } from "src/helper/validationHelper";
+import { signIn } from "next-auth/react";
 
 const LoginContents = () => {
 	const [loginInfo, setLoginInfo] = React.useState({
@@ -29,10 +30,11 @@ const LoginContents = () => {
 		[loginInfo.memberPassword]
 	);
 
-	const onClickEnter = (e: React.KeyboardEvent) => {
-		e.preventDefault();
-		if (e.key === "Enter") {
-		}
+	const onClickLogin = () => {
+		signIn("email-password-credential", {
+			email: loginInfo.memberEmail,
+			password: loginInfo.memberPassword,
+		});
 	};
 
 	return (
@@ -79,6 +81,7 @@ const LoginContents = () => {
 				color="white"
 				backgroundColor="purple.primary"
 				margin="0 0 20px 0"
+				onClick={onClickLogin}
 			>
 				Sign in
 			</HsButton>
