@@ -1,3 +1,4 @@
+// NOTE : valid helper
 export const validationHelper =
 	(item: string, minLength?: number) =>
 	(...a: string[]) => {
@@ -9,17 +10,17 @@ export const validationHelper =
 				const regax =
 					/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				const isValid = regax.test(validTargetValue);
-				const msg = item.length > 0 ? "Invalid Email" : "";
+				const msg = item.length > 0 ? "Invalid Email !" : "";
 				return { result: isValid, msg: msg };
 			},
 
 			// NOTE : 특수문자, 한글 입력 불가 유효성 검사
-			special: () => {
-				const regax = /^[a-zA-Z0-9]*$/i;
-				const isValid = regax.test(validTargetValue);
-				const msg = "영문, 숫자로 입력해 주세요.";
-				return { result: isValid, msg: msg };
-			},
+			// password: () => {
+			// 	const regax = /^[a-zA-Z0-9]*$/i;
+			// 	const isValid = regax.test(validTargetValue);
+			// 	const msg = "영문, 숫자로 입력해 주세요.";
+			// 	return { result: isValid, msg: msg };
+			// },
 		} as {
 			[key: string]: () => { result: boolean; msg: string };
 		};

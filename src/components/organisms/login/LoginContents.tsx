@@ -1,4 +1,5 @@
 import React from "react";
+import HsButton from "src/components/atoms/button/HsButton";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsTextField from "src/components/atoms/textfield/HsTextField";
@@ -28,13 +29,19 @@ const LoginContents = () => {
 		[loginInfo.memberPassword]
 	);
 
+	const onClickEnter = (e: React.KeyboardEvent) => {
+		e.preventDefault();
+		if (e.key === "Enter") {
+		}
+	};
+
 	return (
 		<HsContainer
 			padding={["100px 15px 0 15px", "150px 0 0 0"]}
 			margin={[, "0 auto"]}
 			width={[, "500px"]}
 		>
-			<HsText color={"white"} variant={"h1"} margin="0 0 50px 0">
+			<HsText color={"white"} variant={"h1"} margin="0 0 30px 0">
 				LOGIN
 			</HsText>
 			<HsContainer margin="0 0 20px 0">
@@ -46,9 +53,16 @@ const LoginContents = () => {
 					onChange={onChangeEmail}
 					placeholder="example@example.com"
 				/>
-				<HsText>{validationHelper(loginInfo.memberEmail)("email").msg}</HsText>
+				<HsText
+					color="red.primary"
+					fontSize={"0.75rem"}
+					height={"10px"}
+					margin="10px 0 0 0"
+				>
+					{validationHelper(loginInfo.memberEmail)("email").msg}
+				</HsText>
 			</HsContainer>
-			<HsContainer margin="0 0 10px 0">
+			<HsContainer margin="0 0 30px 0">
 				<HsText color="white" margin="0 0 10px 0">
 					Password
 				</HsText>
@@ -59,6 +73,15 @@ const LoginContents = () => {
 					placeholder="*********"
 				/>
 			</HsContainer>
+			<HsButton
+				borderRadius={4}
+				height={50}
+				color="white"
+				backgroundColor="purple.primary"
+				margin="0 0 20px 0"
+			>
+				Sign in
+			</HsButton>
 		</HsContainer>
 	);
 };

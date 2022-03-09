@@ -22,6 +22,7 @@ interface ButtonProps
 }
 
 interface ButtonDefaultProps {
+	hover?: boolean;
 	hoverColor?: string;
 	hoverBackgroundColor?: string;
 }
@@ -32,11 +33,13 @@ const ButtonDefaultStyle = styled.button<ButtonDefaultProps>`
 	border: none;
 	font-size: 1rem;
 	font-weight: bold;
-	&:hover {
+	${props =>
+		props.hover &&
+		`&:hover {
 		transition: 0.5s all;
 		color: #6164ff;
 		background-color: #222227;
-	}
+	}`}
 `;
 
 const HsButton = styled(ButtonDefaultStyle)<ButtonProps>(

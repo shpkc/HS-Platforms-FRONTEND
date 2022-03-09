@@ -61,6 +61,7 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				</HsContainer>
 				<Link href={`games/detail/${item.id}`}>
 					<HsButton
+						hover
 						borderRadius={12}
 						height={50}
 						color="white"
