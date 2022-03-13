@@ -1,14 +1,15 @@
-<!-- <img src="https://user-images.githubusercontent.com/9734978/150770333-d4c300f8-da5e-4b3d-9049-6a2bd5ff7be2.png"  width="700" height="394">
+# Basic Sample Hardhat Project
 
- -->
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-<!-- # [NFTGAMES](https://teamit.co.kr/)
- -->
+Try running some of the following tasks:
 
-# PLUSIVE
-
-#### Introduction
-
-Plusive aggregates game reviews all over the world.
-
-<br/>
+```shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+node scripts/sample-script.js
+npx hardhat help
+```
