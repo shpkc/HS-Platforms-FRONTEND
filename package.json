@@ -2,19 +2,21 @@
 	"name": "my-app",
 	"private": true,
 	"scripts": {
-		"dev": "next dev -p 8080",
+		"dev": "next dev -p 3000",
 		"build": "next build",
 		"start": "next start -p 8080",
 		"lint": "next lint",
 		"test": "jest"
 	},
 	"dependencies": {
+		"ipfs-http-client": "^56.0.1",
 		"jest": "^27.5.1",
 		"next": "^12.1.0",
 		"react": "^18.0.0-rc.0",
 		"react-dom": "^18.0.0-rc.0",
 		"react-intersection-observer": "^8.33.1",
 		"react-query": "^3.34.7",
+		"web3modal": "^1.9.5",
 		"zustand": "^3.7.1"
 	},
 	"devDependencies": {
@@ -31,9 +33,9 @@
 		"@loadable/component": "^5.15.0",
 		"@nomiclabs/hardhat-ethers": "^2.0.0",
 		"@nomiclabs/hardhat-waffle": "^2.0.0",
+		"@openzeppelin/contracts": "^4.5.0",
 		"@types/jest": "^27.4.0",
 		"@types/loadable__component": "^5.13.4",
-		"@openzeppelin/contracts": "^4.5.0",
 		"@types/node": "17.0.7",
 		"@types/react": "17.0.38",
 		"@types/styled-system": "^5.1.15",
