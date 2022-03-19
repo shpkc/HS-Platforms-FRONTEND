@@ -22,6 +22,7 @@ const CarouselItem = ({
 				cursor="pointer"
 				width={["100%", "1100px"]}
 				margin={[, "0 20px"]}
+				borderRadius={"4px"}
 			>
 				{!selected && (
 					<HsContainer

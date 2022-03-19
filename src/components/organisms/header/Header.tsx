@@ -32,7 +32,7 @@ const Header = () => {
 					display={"flex"}
 					alignItems={"center"}
 					justifyContent={"space-between"}
-					padding={"0 15px"}
+					padding={"0 20px"}
 				>
 					<Link href={"/"}>
 						<HsText variant={"h4"} cursor={"pointer"}>

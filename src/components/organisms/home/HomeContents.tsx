@@ -37,7 +37,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 
 	return (
 		<HsContainer padding={["61px 0 0 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
-			<HsContainer margin={["0 0 60px 0", "0 0 180px 0"]}>
+			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
 				<Suspense fallback={<div />}>
 					<Slider {...sliderSettings}>
 						{data.banner.map((item: GameType, index) => (
@@ -50,44 +50,23 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</Slider>
 				</Suspense>
 			</HsContainer>
-			<HsContainer width={[, "1100px"]} margin={["0 20px", "0 auto"]}>
-				<Link href={"/upcoming"}>
-					<HsText
-						color={"white"}
-						fontWeight="bold"
-						variant={"h4"}
-						margin={["0 0 30px 0", "0 0 50px 0"]}
-						cursor="pointer"
-					>
-						UPCOMING
-					</HsText>
-				</Link>
-				<HsContainer
-					display={"flex"}
-					justifyContent={"space-between"}
-					flexWrap={"wrap"}
-					margin={["0 0 60px 0", "0 0 180px 0"]}
+			<HsContainer
+				width={[, "1100px"]}
+				padding="50px 0"
+				margin={["0 20px", "0 auto"]}
+				backgroundColor="#F8F9FA"
+			>
+				<HsText
+					textAlign={"center"}
+					fontWeight="bold"
+					fontSize={"1.5rem"}
+					margin="0 0 15px 0"
 				>
-					{data.upcoming.map((item: GameType) => (
-						<UpcomingItem item={item} key={item.id} />
-					))}
-				</HsContainer>
-				<Link href={"/upcoming"}>
-					<HsText
-						color={"white"}
-						fontWeight="bold"
-						variant={"h4"}
-						margin={["0 0 30px 0", "0 0 50px 0"]}
-						cursor="pointer"
-					>
-						BEST
-					</HsText>
-				</Link>
-				<HsContainer margin="0 0 50px 0">
-					{data.best.map((item: GameType) => (
-						<GameItem item={item} key={item.id} />
-					))}
-				</HsContainer>
+					Start Your NFT Trade Here
+				</HsText>
+				<HsText textAlign={"center"} margin="0 0 10px 0" fontSize={"1.2rem"}>
+					You can create and transfer your own GAME NFTs
+				</HsText>
 			</HsContainer>
 		</HsContainer>
 	);
