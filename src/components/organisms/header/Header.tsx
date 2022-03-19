@@ -15,17 +15,17 @@ const Header = () => {
 		<header>
 			{isAsideOpen && <HeaderAside />}
 			<HsContainer
-				backgroundColor={"black"}
 				width={"100%"}
 				position={"fixed"}
 				left={0}
 				top={0}
-				borderBottom={"1px solid #222227"}
 				height={60}
 				display={"flex"}
 				justifyContent={"center"}
 				alignItems={"center"}
 				zIndex={1000}
+				backgroundColor={"white"}
+				borderBottom="1px solid #ededed"
 			>
 				<HsContainer
 					width={["100%", "1100px"]}
@@ -35,8 +35,8 @@ const Header = () => {
 					padding={"0 15px"}
 				>
 					<Link href={"/"}>
-						<HsText color={"white"} variant={"h4"} cursor={"pointer"}>
-							PLUSIVE
+						<HsText variant={"h4"} cursor={"pointer"}>
+							NFTIFY
 						</HsText>
 					</Link>
 					<HsContainer>
@@ -44,7 +44,6 @@ const Header = () => {
 							{MENU_LIST.map((item: MenuType) => (
 								<Link href={item.url} key={item.name}>
 									<HsText
-										color={"white"}
 										cursor="pointer"
 										margin={"0 20px 0 0"}
 										fontWeight={500}
@@ -54,11 +53,7 @@ const Header = () => {
 								</Link>
 							))}
 							<Link href={"/search"}>
-								<IoSearch
-									color="white"
-									size={22}
-									style={{ cursor: "pointer" }}
-								/>
+								<IoSearch size={22} style={{ cursor: "pointer" }} />
 							</Link>
 						</HsContainer>
 						<HsContainer display={[, "none"]}>

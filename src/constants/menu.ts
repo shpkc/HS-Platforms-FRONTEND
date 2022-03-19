@@ -1,6 +1,6 @@
 export const MENU_LIST = [
-	{ name: "GAMES", url: "/games" },
-	{ name: "BEST", url: "/best" },
-	{ name: "UPCOMING", url: "/upcoming" },
+	{ name: "EXPLORE", url: "/explore" },
+	{ name: "DROP", url: "/drop" },
+	{ name: "CREATE", url: "/create" },
 	{ name: "LOGIN", url: "/login" },
 ];
