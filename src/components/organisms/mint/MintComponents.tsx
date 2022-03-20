@@ -61,15 +61,14 @@ const MintContents = () => {
 		const signer = provider.getSigner();
 
 		/* next, create the item */
-		const price = ethers.utils.parseUnits(nftInfo.price, "ether");
+		const price = ethers.utils.parseUnits("0", "ether");
+
 		let contract = new ethers.Contract(
 			process.env.NFT_MARKET_PLACE_ADDRESS,
 			NFTMarketplace.abi,
 			signer
 		);
-		console.log(contract);
 		let listingPrice = await contract.getListingPrice();
-
 		listingPrice = listingPrice.toString();
 		let transaction = await contract.createToken(url, price, {
 			value: listingPrice,
