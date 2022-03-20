@@ -63,8 +63,10 @@ contract NFTMarketplace is ERC721URIStorage {
       uint256 tokenId,
       uint256 price
     ) private {
+      console.log(price);
+      console.log(listingPrice);
       require(price > 0, "Price must be at least 1 wei");
-      require(msg.value == listingPrice, "Price must be equal to listing price");
+      // require(msg.value == listingPrice, "Price must be equal to listing price");
 
       idToMarketItem[tokenId] =  MarketItem(
         tokenId,

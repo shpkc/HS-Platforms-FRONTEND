@@ -8,7 +8,7 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import Web3Modal from "web3modal";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
@@ -61,19 +61,20 @@ const MintContents = () => {
 		const signer = provider.getSigner();
 
 		/* next, create the item */
-		const price = ethers.utils.parseUnits("0", "ether");
+		const price = ethers.utils.parseUnits("0.025", "ether");
 
 		let contract = new ethers.Contract(
 			process.env.NFT_MARKET_PLACE_ADDRESS,
 			NFTMarketplace.abi,
 			signer
 		);
-		let listingPrice = await contract.getListingPrice();
-		listingPrice = listingPrice.toString();
-		let transaction = await contract.createToken(url, price, {
-			value: listingPrice,
-		});
+
+		let listingPrice = 1;
+		console.log(price);
+		let transaction = await contract.createToken(url, price);
+		console.log(transaction);
 		await transaction.wait();
+		Router.back();
 	}
 
 	return (
