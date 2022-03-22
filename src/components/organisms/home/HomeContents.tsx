@@ -2,44 +2,27 @@ import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import CarouselItem from "../common/CarouselItem";
-import Slider from "react-slick";
-import { Suspense } from "react";
 import HsText from "src/components/atoms/text/HsText";
-import { PrevArrow, NextArrow } from "./homeComponents/CarouselArrow";
-import GameItem from "../common/GameItem";
 import Link from "next/link";
 import UpcomingItem from "./homeComponents/UpcomingItem";
 import { GameType } from "src/types/game";
+import { Carousel } from "react-responsive-carousel";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = React.useState(0);
-	// NOTE : 1100px 기준으로 responsive slider setting
-	const sliderSettings = {
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		infinite: true,
-		centerMode: true,
-		variableWidth: true,
-		prevArrow: <PrevArrow />,
-		nextArrow: <NextArrow />,
-		beforeChange: (_, next) => setCurrentPage(next),
-		responsive: [
-			{
-				breakpoint: 1100,
-				settings: {
-					infinite: true,
-					centerMode: false,
-					variableWidth: false,
-				},
-			},
-		],
-	};
 
 	return (
-		<HsContainer padding={["61px 0 0 0", "100px 0 0 0"]} margin={[, "0 auto"]}>
+		<HsContainer padding={"61px 0 0 0"} margin={[, "0 auto"]}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
-				<Suspense fallback={<div />}>
-					<Slider {...sliderSettings}>
+				<HsContainer position={"relative"}>
+					<Carousel
+						showArrows={false}
+						showStatus={false}
+						showIndicators={false}
+						showThumbs={false}
+						selectedItem={currentPage}
+					>
 						{data.banner.map((item: GameType, index) => (
 							<CarouselItem
 								item={item}
@@ -47,8 +30,43 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 								selected={currentPage == index}
 							/>
 						))}
-					</Slider>
-				</Suspense>
+					</Carousel>
+					<HsContainer
+						borderRadius={50}
+						width={"32px"}
+						height={"32px"}
+						backgroundColor="white"
+						position={"absolute"}
+						left={16}
+						top={[274, 274]}
+						display={["none", "flex"]}
+						alignItems="center"
+						justifyContent={"center"}
+						cursor="pointer"
+						onClick={() => currentPage > 0 && setCurrentPage(currentPage - 1)}
+					>
+						<IoIosArrowBack />
+					</HsContainer>
+					<HsContainer
+						borderRadius={50}
+						width={"32px"}
+						height={"32px"}
+						backgroundColor="white"
+						position={"absolute"}
+						right={16}
+						top={[274, 274]}
+						display={["none", "flex"]}
+						alignItems="center"
+						justifyContent={"center"}
+						cursor="pointer"
+						onClick={() =>
+							currentPage + 1 < data.banner.length &&
+							setCurrentPage(currentPage + 1)
+						}
+					>
+						<IoIosArrowForward />
+					</HsContainer>
+				</HsContainer>
 			</HsContainer>
 			<HsContainer
 				width={[, "1100px"]}

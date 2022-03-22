@@ -61,7 +61,7 @@ const MintContents = () => {
 		const signer = provider.getSigner();
 
 		/* next, create the item */
-		const price = ethers.utils.parseUnits("0.025", "ether");
+		const price = ethers.utils.parseUnits(nftInfo.price, "ether");
 
 		let contract = new ethers.Contract(
 			process.env.NFT_MARKET_PLACE_ADDRESS,
