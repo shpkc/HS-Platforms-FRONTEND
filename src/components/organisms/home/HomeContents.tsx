@@ -1,10 +1,9 @@
 import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
-import CarouselItem from "../common/CarouselItem";
+import CarouselItem from "../common/BannerItem";
 import HsText from "src/components/atoms/text/HsText";
 import Link from "next/link";
-import UpcomingItem from "./homeComponents/UpcomingItem";
 import { GameType } from "src/types/game";
 import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -24,11 +23,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						selectedItem={currentPage}
 					>
 						{data.banner.map((item: GameType, index) => (
-							<CarouselItem
-								item={item}
-								key={item.id}
-								selected={currentPage == index}
-							/>
+							<CarouselItem item={item} key={item.id} />
 						))}
 					</Carousel>
 					<HsContainer
@@ -83,7 +78,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					Start Your NFT Trade Here
 				</HsText>
 				<HsText textAlign={"center"} margin="0 0 10px 0" fontSize={"1.2rem"}>
-					You can create and transfer your own GAME NFTs
+					You can create and transfer your own extraordinary NFTs
 				</HsText>
 			</HsContainer>
 		</HsContainer>

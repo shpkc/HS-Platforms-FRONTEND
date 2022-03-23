@@ -2,26 +2,25 @@ import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainGames } from "src/domains/GamesDomain";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
+import dynamic from "next/dynamic";
 
-const HomeContents = lazy(
+const HomeContents = dynamic(
 	() => import("src/components/organisms/home/HomeContents")
 );
 
 const Index = () => {
 	const { data } = useFetch("main", () => getMainGames());
 	return (
-		<Suspense fallback={<div />} key={"home"}>
-			<LayoutTemplate
-				seo={{
-					title: "Game Reviews",
-					description: "World Wide Games",
-				}}
-			>
-				<HomeContents data={data} />
-			</LayoutTemplate>
-		</Suspense>
+		<LayoutTemplate
+			seo={{
+				title: "Your Own NFTs",
+				description: "World Wide NFTs",
+			}}
+		>
+			<HomeContents data={data} />
+		</LayoutTemplate>
 	);
 };
 

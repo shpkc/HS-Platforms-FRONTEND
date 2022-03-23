@@ -40,6 +40,7 @@ export default function MyAssets() {
 		 *  map over items returned from smart contract and format
 		 *  them as well as fetch their token metadata
 		 */
+		console.log(data);
 		const items = await Promise.all(
 			data.map(async i => {
 				const tokenUri = await contract.tokenURI(i.tokenId);
@@ -57,6 +58,7 @@ export default function MyAssets() {
 				return item;
 			})
 		);
+		console.log(items);
 		setNfts(items);
 		setLoadingState("loaded");
 	}

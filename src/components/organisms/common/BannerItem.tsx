@@ -3,13 +3,7 @@ import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 
-const CarouselItem = ({
-	item,
-	selected,
-}: {
-	item: AxiosResponse["data"];
-	selected: boolean;
-}) => {
+const BannerItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/nft/goods/detail/${item.id}`}>
 			<HsContainer
@@ -46,4 +40,4 @@ const CarouselItem = ({
 	);
 };
 
-export default CarouselItem;
+export default BannerItem;
