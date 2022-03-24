@@ -1,8 +1,7 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getMainGames } from "src/domains/GamesDomain";
-import { lazy } from "react";
+import { getMainNfts } from "src/domains/NftsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import dynamic from "next/dynamic";
 
@@ -11,7 +10,7 @@ const HomeContents = dynamic(
 );
 
 const Index = () => {
-	const { data } = useFetch("main", () => getMainGames());
+	const { data } = useFetch("main", () => getMainNfts());
 	return (
 		<LayoutTemplate
 			seo={{
@@ -25,7 +24,7 @@ const Index = () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-	const queryClient = await usePreFetch("main", () => getMainGames());
+	const queryClient = await usePreFetch("main", () => getMainNfts());
 
 	return {
 		revalidate: 10,

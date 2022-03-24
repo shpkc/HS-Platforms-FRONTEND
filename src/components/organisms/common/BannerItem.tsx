@@ -2,37 +2,47 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
+import HsImage from "src/components/atoms/image/HsImage";
+import { css } from "@emotion/react";
 
 const BannerItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/nft/goods/detail/${item.id}`}>
 			<HsContainer
 				position={"relative"}
-				backgroundImage={`url(${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg)`}
-				backgroundSize={"cover"}
-				backgroundRepeat="no-repeat"
-				backgroundPosition="center"
 				height={["310px", "580px"]}
 				cursor="pointer"
 			>
+				<HsImage
+					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg`}
+					objectFit={"cover"}
+				/>
 				<HsContainer
 					position={"absolute"}
-					left={80}
-					bottom={80}
+					left={[0, 80]}
+					bottom={[0, 80]}
 					zIndex={2}
-					width={"100%"}
-					padding={"0 20px 20px"}
+					width={["100%", "450px"]}
+					padding={["6px", "32px"]}
+					minHeight={["auto", "68px"]}
+					backgroundColor="rgba(44, 49, 65, 0.8)"
 				>
 					<HsText
 						color={"white"}
-						variant={"h3"}
 						textAlign="left"
-						margin="0 0 10px 0"
+						fontWeight={"bold"}
+						margin={["0 0 8px 0", "0 0 20px 0"]}
+						fontSize={["1rem", "1.8rem"]}
+						lineHeight={["24px", "32px"]}
 					>
 						{item.title}
 					</HsText>
-					<HsText color={"white"} textAlign="left">
-						{item.genre}
+					<HsText
+						color={"white"}
+						textAlign="left"
+						fontSize={["0.8rem", "1.2rem"]}
+					>
+						{item.description}
 					</HsText>
 				</HsContainer>
 			</HsContainer>

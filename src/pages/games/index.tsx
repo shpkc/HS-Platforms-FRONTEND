@@ -2,7 +2,7 @@ import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetchInfinite, usePreFetchInfinite } from "src/hooks/query/fetch";
-import { getGames } from "src/domains/GamesDomain";
+import { getGames } from "src/domains/NftsDomain";
 import GamesContents from "src/components/organisms/games/GamesContents";
 
 const Games = () => {

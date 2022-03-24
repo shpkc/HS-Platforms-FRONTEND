@@ -2,7 +2,7 @@ import React from "react";
 import { dehydrate } from "react-query";
 import dynamic from "next/dynamic";
 import { GetStaticPaths } from "next";
-import { getAllGamesId, getGamesDetailById } from "src/domains/GamesDomain";
+import { getAllGamesId, getGamesDetailById } from "src/domains/NftsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { PathType } from "src/types/path";

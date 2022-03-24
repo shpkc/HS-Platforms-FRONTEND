@@ -9,10 +9,11 @@ import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
+	console.log(data);
 	const [currentPage, setCurrentPage] = React.useState(0);
 
 	return (
-		<HsContainer padding={"61px 0 0 0"} margin={[, "0 auto"]}>
+		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
 				<HsContainer position={"relative"}>
 					<Carousel
@@ -63,23 +64,34 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsContainer>
 				</HsContainer>
 			</HsContainer>
-			<HsContainer
-				width={[, "1100px"]}
-				padding="50px 0"
-				margin={["0 20px", "0 auto"]}
-				backgroundColor="#F8F9FA"
-			>
-				<HsText
-					textAlign={"center"}
-					fontWeight="bold"
-					fontSize={"1.5rem"}
-					margin="0 0 15px 0"
+			<HsContainer width={[, "1100px"]} margin={[, "0 auto"]}>
+				<HsContainer
+					padding="50px 0"
+					backgroundColor="#F8F9FA"
+					margin="0 0 100px 0"
 				>
-					Start Your NFT Trade Here
-				</HsText>
-				<HsText textAlign={"center"} margin="0 0 10px 0" fontSize={"1.2rem"}>
-					You can create and transfer your own extraordinary NFTs
-				</HsText>
+					<HsText
+						textAlign={"center"}
+						fontWeight="bold"
+						fontSize={"1.5rem"}
+						margin="0 0 15px 0"
+					>
+						Start Your NFT Trade Here
+					</HsText>
+					<HsText textAlign={"center"} margin="0 0 10px 0" fontSize={"1.2rem"}>
+						You can create and transfer your own extraordinary NFTs
+					</HsText>
+				</HsContainer>
+				<HsContainer>
+					<HsText variant="h4" margin="0 0 30px 0">
+						Recommend NFTs
+					</HsText>
+				</HsContainer>
+				<HsContainer>
+					<HsText variant="h4" margin="0 0 30px 0">
+						Recommend Collections
+					</HsText>
+				</HsContainer>
 			</HsContainer>
 		</HsContainer>
 	);
