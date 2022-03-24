@@ -1,8 +1,6 @@
 import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
-import Link from "next/link";
 import { GameType } from "src/types/game";
 import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -20,7 +18,7 @@ const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 				showThumbs={false}
 				selectedItem={currentPage}
 			>
-				{data.banner.map((item: GameType) => (
+				{data.map((item: GameType) => (
 					<BannerItem item={item} key={item.id} />
 				))}
 			</Carousel>

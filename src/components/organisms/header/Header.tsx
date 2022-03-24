@@ -32,7 +32,7 @@ const Header = () => {
 					display={"flex"}
 					alignItems={"center"}
 					justifyContent={"space-between"}
-					padding={"0 20px"}
+					padding={"0 16px"}
 				>
 					<Link href={"/"}>
 						<HsText variant={"h4"} cursor={"pointer"}>
@@ -58,7 +58,6 @@ const Header = () => {
 						</HsContainer>
 						<HsContainer display={[, "none"]}>
 							<GiHamburgerMenu
-								color="white"
 								size={26}
 								cursor="pointer"
 								onClick={() => setIsAsideOpen(!isAsideOpen)}
