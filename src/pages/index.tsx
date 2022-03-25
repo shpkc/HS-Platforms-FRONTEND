@@ -4,6 +4,7 @@ import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainNfts } from "src/domains/NftsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const HomeContents = dynamic(
 	() => import("src/components/organisms/home/HomeContents")
@@ -18,7 +19,9 @@ const Index = () => {
 				description: "World Wide NFTs",
 			}}
 		>
-			<HomeContents data={data} />
+			<Suspense fallback={<div />}>
+				<HomeContents data={data} />
+			</Suspense>
 		</LayoutTemplate>
 	);
 };
