@@ -44,13 +44,24 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						Explore
 					</HsText>
 					{data.recommend.map(item => (
-						<HsContainer key={item.id} width={[, "280px"]}>
-							<HsContainer width={[, "300px"]} height={[, "300px"]}>
+						<HsContainer key={item.id}>
+							<HsContainer width={[, "250px"]} height={[, "250px"]}>
 								<HsImage
 									src={item.image}
 									borderRadius="4px"
 									objectFit="cover"
+									margin="0 0 15px 0"
 								/>
+								<HsText
+									fontWeight={"500"}
+									fontSize={"1.2rem"}
+									margin="0 0 15px 0"
+								>
+									{item.title}
+								</HsText>
+								<HsContainer display={"flex"} justifyContent="space-between">
+									Price
+								</HsContainer>
 							</HsContainer>
 						</HsContainer>
 					))}
