@@ -3,8 +3,6 @@ import HsButton from "src/components/atoms/button/HsButton";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HsTextField from "src/components/atoms/textfield/HsTextField";
-import { validationHelper } from "src/helper/validationHelper";
-import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { ethers } from "ethers";
 import { create } from "ipfs-http-client";
@@ -13,9 +11,7 @@ import Web3Modal from "web3modal";
 import NFTMarketplace from "../../../../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 const MintContents = () => {
-	const client = create({
-		host: "https://ipfs.infura.io:5001/api/v0",
-	});
+	const client = create({ url: "https://ipfs.infura.io:5001/api/v0" });
 	const [nftFileUrl, setNftFileUrl] = useState(null);
 	const [nftInfo, setNftInfo] = useState({
 		name: "",

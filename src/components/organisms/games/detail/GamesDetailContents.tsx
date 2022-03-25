@@ -21,7 +21,7 @@ const GamesDetailContents = ({ data, id }: { data: GameType; id: number }) => {
 		<HsContainer
 			padding={["100px 15px 0 15px", "100px 0 0 0"]}
 			margin={[, "0 auto"]}
-			width={[, "1100px"]}
+			width={[, "1200px"]}
 		>
 			<HsText color={"white"} variant={"h1"} margin="0 0 30px 0">
 				{data.title}

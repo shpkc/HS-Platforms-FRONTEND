@@ -12,7 +12,7 @@ const GameItem = ({ item }: { item: AxiosResponse["data"] }) => {
 		<HsContainer
 			border="1px solid #222227"
 			borderRadius={16}
-			width={[, "1100px"]}
+			width={[, "1200px"]}
 			margin={["0 0 30px 0", "0 auto 40px auto"]}
 			display={[, "flex"]}
 			alignItems={[, "flex-start"]}

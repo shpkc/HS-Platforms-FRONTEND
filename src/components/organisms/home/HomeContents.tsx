@@ -4,16 +4,19 @@ import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HomeBanner from "./homeComponents/HomeBanner";
 import HsImage from "src/components/atoms/image/HsImage";
+import { css } from "@emotion/react";
+import { FaEthereum } from "react-icons/fa";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	console.log(data);
+	const temp = Array(10).fill(data.recommend[0]);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
 				<HomeBanner data={data.banner} />
 			</HsContainer>
 			<HsContainer
-				width={[, "1100px"]}
+				width={[, "1200px"]}
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>
@@ -43,28 +46,48 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					<HsText variant="h4" margin="0 0 50px 0">
 						Explore
 					</HsText>
-					{data.recommend.map(item => (
-						<HsContainer key={item.id}>
-							<HsContainer width={[, "250px"]} height={[, "250px"]}>
-								<HsImage
-									src={item.image}
-									borderRadius="4px"
-									objectFit="cover"
-									margin="0 0 15px 0"
-								/>
+					<HsContainer display={"flex"} flexWrap={"wrap"}>
+						{temp.map(item => (
+							<HsContainer
+								key={item.id}
+								margin={"0 26px 50px 0"}
+								css={css`
+									:nth-child(4n) {
+										margin: 0 0 50px 0;
+									}
+								`}
+							>
+								<HsContainer width={[, "280px"]} height={[, "280px"]}>
+									<HsImage
+										src={item.image}
+										borderRadius="4px"
+										objectFit="cover"
+									/>
+								</HsContainer>
 								<HsText
 									fontWeight={"500"}
 									fontSize={"1.2rem"}
-									margin="0 0 15px 0"
+									margin="16px 0 12px 0"
 								>
 									{item.title}
 								</HsText>
 								<HsContainer display={"flex"} justifyContent="space-between">
-									Price
+									<HsText color={"gray.gray20"} fontSize="0.8rem">
+										Price
+									</HsText>
+									<HsContainer display={"flex"} alignItems="center">
+										<FaEthereum />
+										<HsText fontWeight={500} margin="0 0 0 2px">
+											{item.price.toFixed(1)}
+										</HsText>
+										<HsText fontWeight={500} margin="0 0 0 2px">
+											{item.currency}
+										</HsText>
+									</HsContainer>
 								</HsContainer>
 							</HsContainer>
-						</HsContainer>
-					))}
+						))}
+					</HsContainer>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>
