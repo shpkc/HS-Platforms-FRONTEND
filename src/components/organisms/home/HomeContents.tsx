@@ -5,7 +5,7 @@ import HsText from "src/components/atoms/text/HsText";
 import HomeBanner from "./homeComponents/HomeBanner";
 import HsImage from "src/components/atoms/image/HsImage";
 import { css } from "@emotion/react";
-import { FaEthereum } from "react-icons/fa";
+import NftItem from "../common/NftItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	console.log(data);
@@ -48,44 +48,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsText>
 					<HsContainer display={"flex"} flexWrap={"wrap"}>
 						{temp.map(item => (
-							<HsContainer
-								key={item.id}
-								margin={"0 26px 50px 0"}
-								css={css`
-									:nth-child(4n) {
-										margin: 0 0 50px 0;
-									}
-								`}
-							>
-								<HsContainer width={[, "280px"]} height={[, "280px"]}>
-									<HsImage
-										src={item.image}
-										borderRadius="4px"
-										objectFit="cover"
-									/>
-								</HsContainer>
-								<HsText
-									fontWeight={"500"}
-									fontSize={"1.2rem"}
-									margin="16px 0 12px 0"
-								>
-									{item.title}
-								</HsText>
-								<HsContainer display={"flex"} justifyContent="space-between">
-									<HsText color={"gray.gray20"} fontSize="0.8rem">
-										Price
-									</HsText>
-									<HsContainer display={"flex"} alignItems="center">
-										<FaEthereum />
-										<HsText fontWeight={500} margin="0 0 0 2px">
-											{item.price.toFixed(1)}
-										</HsText>
-										<HsText fontWeight={500} margin="0 0 0 2px">
-											{item.currency}
-										</HsText>
-									</HsContainer>
-								</HsContainer>
-							</HsContainer>
+							<NftItem item={item} key={item.id} />
 						))}
 					</HsContainer>
 				</HsContainer>
