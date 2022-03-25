@@ -3,8 +3,6 @@ import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import HomeBanner from "./homeComponents/HomeBanner";
-import HsImage from "src/components/atoms/image/HsImage";
-import { css } from "@emotion/react";
 import NftItem from "../common/NftItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
