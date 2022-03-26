@@ -10,7 +10,7 @@ const BannerItem = ({ item }: { item: AxiosResponse["data"] }) => {
 		<Link href={`/nft/collections/${item.id}`}>
 			<HsContainer height={["310px", "580px"]} cursor="pointer">
 				<HsImage
-					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/${item.id}/thumbnail.jpeg`}
+					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/collections/${item.id}/thumbnail.jpeg`}
 					objectFit={"cover"}
 				/>
 				<HsContainer width={[, "1200px"]} position={"relative"} margin="0 auto">
