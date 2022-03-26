@@ -15,7 +15,7 @@ export default function MyAssets() {
 		loadNFTs();
 	}, []);
 	async function loadNFTs() {
-		console.log(process.env.NFT_MARKET_PLACE_ADDRESS);
+		console.log(process.env.NEXT_PUBLIC_NFT_MARKET_PLACE_ADDRESS);
 
 		// const web3Modal = new Web3Modal({
 		//   network: "mainnet",
