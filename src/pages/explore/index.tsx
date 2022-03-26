@@ -14,7 +14,6 @@ export default function MyAssets() {
 	useEffect(() => {
 		loadNFTs();
 	}, []);
-
 	async function loadNFTs() {
 		console.log(process.env.NFT_MARKET_PLACE_ADDRESS);
 
