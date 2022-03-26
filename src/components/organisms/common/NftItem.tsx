@@ -11,6 +11,7 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/nft/goods/detail?productId=${item.id}`}>
 			<HsContainer
+				width={[, "280px"]}
 				margin={"0 26px 50px 0"}
 				css={css`
 					:nth-child(4n) {
@@ -18,11 +19,7 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					}
 				`}
 			>
-				<HsContainer
-					width={[, "280px"]}
-					height={[, "280px"]}
-					position="relative"
-				>
+				<HsContainer position="relative" height={[, "280px"]}>
 					<HsImage src={item.image} borderRadius="4px" objectFit="cover" />
 					{item.mediaType == "IMAGE" && (
 						<HsContainer
@@ -41,7 +38,12 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 						</HsContainer>
 					)}
 				</HsContainer>
-				<HsText fontWeight={"500"} fontSize={"1.2rem"} margin="16px 0 12px 0">
+				<HsText
+					fontWeight={"500"}
+					fontSize={"1.2rem"}
+					margin="16px 0 12px 0"
+					lineHeight={1.2}
+				>
 					{item.title}
 				</HsText>
 				<HsContainer

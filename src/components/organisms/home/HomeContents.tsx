@@ -7,7 +7,6 @@ import NftItem from "../common/NftItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	console.log(data);
-	const temp = Array(10).fill(data.recommend[0]);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
@@ -45,7 +44,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						Explore
 					</HsText>
 					<HsContainer display={"flex"} flexWrap={"wrap"}>
-						{temp.map(item => (
+						{data.trendNfts.map(item => (
 							<NftItem item={item} key={item.id} />
 						))}
 					</HsContainer>
