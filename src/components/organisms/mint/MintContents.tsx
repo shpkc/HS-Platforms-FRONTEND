@@ -71,7 +71,7 @@ const MintContents = () => {
 		let transaction = await contract.createToken(url, price);
 		console.log(transaction);
 		await transaction.wait();
-		Router.back();
+		Router.push("/explore");
 	}
 
 	return (
