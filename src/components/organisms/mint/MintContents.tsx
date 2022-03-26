@@ -54,9 +54,11 @@ const MintContents = () => {
 		const url = await uploadToIPFS();
 		const web3Modal = new Web3Modal();
 		const connection = await web3Modal.connect();
+		console.log(connection);
 		const provider = new ethers.providers.Web3Provider(connection);
+		console.log(provider);
 		const signer = provider.getSigner();
-
+		console.log(signer);
 		/* next, create the item */
 		const price = ethers.utils.parseUnits(nftInfo.price, "ether");
 
