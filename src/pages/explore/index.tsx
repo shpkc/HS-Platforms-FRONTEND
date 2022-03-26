@@ -15,7 +15,7 @@ export default function MyAssets() {
 		loadNFTs();
 	}, []);
 	async function loadNFTs() {
-		console.log(process.env.NEXT_PUBLIC_NFT_MARKET_PLACE_ADDRESS);
+		console.log(process.env.NEXT_PUBLIC_NEXT_PUBLIC_NFT_MARKET_PLACE_ADDRESS);
 
 		// const web3Modal = new Web3Modal({
 		//   network: "mainnet",
@@ -30,7 +30,7 @@ export default function MyAssets() {
 		const signer = provider.getSigner();
 
 		const contract = new ethers.Contract(
-			process.env.NFT_MARKET_PLACE_ADDRESS,
+			process.env.NEXT_PUBLIC_NFT_MARKET_PLACE_ADDRESS,
 			NFTMarketplace.abi,
 			provider
 		);

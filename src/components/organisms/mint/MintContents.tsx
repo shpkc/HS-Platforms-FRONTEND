@@ -63,7 +63,7 @@ const MintContents = () => {
 		const price = ethers.utils.parseUnits(nftInfo.price, "ether");
 
 		let contract = new ethers.Contract(
-			process.env.NFT_MARKET_PLACE_ADDRESS,
+			process.env.NEXT_PUBLIC_NFT_MARKET_PLACE_ADDRESS,
 			NFTMarketplace.abi,
 			signer
 		);
