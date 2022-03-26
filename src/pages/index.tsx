@@ -3,15 +3,14 @@ import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import { getMainNfts } from "src/domains/NftsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-const HomeContents = dynamic(
-	() => import("src/components/organisms/home/HomeContents")
-);
+import HomeContents from "src/components/organisms/home/HomeContents";
+import MainSkeleton from "src/components/organisms/skeleton/MainSkeleton";
 
 const Index = () => {
-	const { data } = useFetch("main", () => getMainNfts());
+	const { data, isFetching } = useFetch("main", () => getMainNfts());
+	if (isFetching) {
+		return <MainSkeleton />;
+	}
 	return (
 		<LayoutTemplate
 			seo={{
@@ -19,9 +18,7 @@ const Index = () => {
 				description: "World Wide NFTs",
 			}}
 		>
-			<Suspense fallback={<div />}>
-				<HomeContents data={data} />
-			</Suspense>
+			<HomeContents data={data} />
 		</LayoutTemplate>
 	);
 };

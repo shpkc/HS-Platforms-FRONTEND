@@ -2,11 +2,14 @@ import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
-import HomeBanner from "./homeComponents/HomeBanner";
 import NftItem from "../common/NftItem";
+import dynamic from "next/dynamic";
+
+const HomeBanner = dynamic(
+	() => import("src/components/organisms/home/homeComponents/HomeBanner")
+);
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	console.log(data);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
