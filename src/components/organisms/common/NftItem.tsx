@@ -43,6 +43,7 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					fontSize={"1.2rem"}
 					margin="16px 0 12px 0"
 					lineHeight={1.2}
+					ellipsis
 				>
 					{item.title}
 				</HsText>
