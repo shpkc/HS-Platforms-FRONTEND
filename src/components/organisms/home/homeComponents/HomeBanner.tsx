@@ -51,8 +51,7 @@ const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 				justifyContent={"center"}
 				cursor="pointer"
 				onClick={() =>
-					currentPage + 1 < data.banner.length &&
-					setCurrentPage(currentPage + 1)
+					currentPage + 1 < data.length && setCurrentPage(currentPage + 1)
 				}
 			>
 				<IoIosArrowForward />
