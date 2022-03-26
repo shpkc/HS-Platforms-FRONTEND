@@ -7,12 +7,12 @@ import { AiOutlinePicture } from "react-icons/ai";
 import HsImage from "src/components/atoms/image/HsImage";
 import { FaEthereum } from "react-icons/fa";
 
-const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
+const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/nft/goods/detail?productId=${item.id}`}>
 			<HsContainer
 				width={[, "280px"]}
-				margin={"0 26px 50px 0"}
+				margin={["0 0 50px 0", "0 26px 50px 0"]}
 				css={css`
 					:nth-child(4n) {
 						margin: 0 0 50px 0;
@@ -90,4 +90,4 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	);
 };
 
-export default NftItem;
+export default ProductItem;

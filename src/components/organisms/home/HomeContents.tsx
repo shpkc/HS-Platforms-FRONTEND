@@ -2,7 +2,7 @@ import React from "react";
 import { AxiosResponse } from "axios";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
-import NftItem from "../common/NftItem";
+import ProductItem from "../common/ProductItem";
 import dynamic from "next/dynamic";
 
 const HomeBanner = dynamic(
@@ -43,12 +43,20 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsText>
 				</HsContainer>
 				<HsContainer>
-					<HsText variant="h4" margin="0 0 50px 0">
-						Explore
-					</HsText>
+					<HsContainer
+						margin="0 0 50px 0"
+						display={"flex"}
+						justifyContent="space-between"
+						alignItems={"center"}
+					>
+						<HsText variant="h4">Explore</HsText>
+						<HsContainer>
+							<HsText>Explore More NFTs</HsText>
+						</HsContainer>
+					</HsContainer>
 					<HsContainer display={"flex"} flexWrap={"wrap"}>
 						{data.trendNfts.map(item => (
-							<NftItem item={item} key={item.id} />
+							<ProductItem item={item} key={item.id} />
 						))}
 					</HsContainer>
 				</HsContainer>
