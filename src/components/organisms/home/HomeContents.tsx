@@ -6,7 +6,6 @@ import HomeBanner from "./homeComponents/HomeBanner";
 import NftItem from "../common/NftItem";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	console.log(data);
 	const temp = Array(10).fill(data.recommend[0]);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
