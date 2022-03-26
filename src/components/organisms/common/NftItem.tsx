@@ -60,7 +60,9 @@ const NftItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					<HsContainer display={"flex"} alignItems="center">
 						<FaEthereum />
 						<HsText fontWeight={500} margin="0 0 0 2px">
-							{item.price.toFixed(1)}
+							{Number.isInteger(item.price)
+								? item.price.toFixed(1)
+								: item.price}
 						</HsText>
 						<HsText fontWeight={500} margin="0 0 0 2px">
 							{item.currency}
