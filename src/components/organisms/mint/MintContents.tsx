@@ -65,9 +65,7 @@ const MintContents = () => {
 			NFTMarketplace.abi,
 			signer
 		);
-
-		let listingPrice = 1;
-		console.log(price);
+		console.log(contract);
 		let transaction = await contract.createToken(url, price);
 		console.log(transaction);
 		await transaction.wait();
