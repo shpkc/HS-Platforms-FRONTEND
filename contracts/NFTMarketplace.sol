@@ -34,23 +34,24 @@ contract NFTMarketplace is ERC721URIStorage {
       bool sold
     );
 
-    constructor() ERC721("Metaverse Tokens", "METT") {
+    constructor() ERC721("NFTIFY", "TOKEN") {
       owner = payable(msg.sender);
     }
 
-    /* Updates the listing price of the contract */
+   // NOTE : listing price 업데이트
     function updateListingPrice(uint _listingPrice) public payable {
       require(owner == msg.sender, "Only marketplace owner can update listing price.");
       listingPrice = _listingPrice;
     }
 
-    /* Returns the listing price of the contract */
+    // NOTE : listingPrice price get. view only 
     function getListingPrice() public view returns (uint256) {
       return listingPrice;
     }
 
-    /* Mints a token and lists it in the marketplace */
+    // NOTE : 토큰 생성과 동시에 marketItem 생성 
     function createToken(string memory tokenURI, uint256 price) public payable returns (uint) {
+      // NOTE : 해당 contract의 tokenId를 증가
       _tokenIds.increment();
       uint256 newTokenId = _tokenIds.current();
 
@@ -64,8 +65,7 @@ contract NFTMarketplace is ERC721URIStorage {
       uint256 tokenId,
       uint256 price
     ) private {
-      require(price > 0, "Price must be at least 1 wei");
-      // require(msg.value == listingPrice, "Price must be equal to listing price");
+      require(price > 0, "Price must be at least 0 prcie");
 
       idToMarketItem[tokenId] =  MarketItem(
         tokenId,
@@ -75,6 +75,7 @@ contract NFTMarketplace is ERC721URIStorage {
         false
       );
 
+      // NOTE : 해당 contract로 토큰 전송
       _transfer(msg.sender, address(this), tokenId);
       emit MarketItemCreated(
         tokenId,
@@ -85,7 +86,7 @@ contract NFTMarketplace is ERC721URIStorage {
       );
     }
 
-    /* allows someone to resell a token they have purchased */
+    // NOTE : 이전에 구입한 아이템 재 판매 요청
     function resellToken(uint256 tokenId, uint256 price) public payable {
       require(idToMarketItem[tokenId].owner == msg.sender, "Only item owner can perform this operation");
       require(msg.value == listingPrice, "Price must be equal to listing price");
@@ -98,8 +99,7 @@ contract NFTMarketplace is ERC721URIStorage {
       _transfer(msg.sender, address(this), tokenId);
     }
 
-    /* Creates the sale of a marketplace item */
-    /* Transfers ownership of the item, as well as funds between parties */
+    // NOTE : marketItem 구매 요청
     function createMarketSale(
       uint256 tokenId
       ) public payable {
@@ -115,7 +115,7 @@ contract NFTMarketplace is ERC721URIStorage {
       payable(seller).transfer(msg.value);
     }
 
-    /* Returns all unsold market items */
+    // NOTE : unsold인 제품들 fetch, 가스비 절감 memory 사용
     function fetchMarketItems() public view returns (MarketItem[] memory) {
       uint itemCount = _tokenIds.current();
       uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
@@ -133,7 +133,6 @@ contract NFTMarketplace is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items that a user has purchased */
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
       uint totalItemCount = _tokenIds.current();
       uint itemCount = 0;
@@ -157,7 +156,6 @@ contract NFTMarketplace is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items a user has listed */
     function fetchItemsListed() public view returns (MarketItem[] memory) {
       uint totalItemCount = _tokenIds.current();
       uint itemCount = 0;

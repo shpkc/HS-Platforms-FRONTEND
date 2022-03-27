@@ -9,7 +9,6 @@ import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner"
 import HsImage from "src/components/atoms/image/HsImage";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	console.log(data);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
