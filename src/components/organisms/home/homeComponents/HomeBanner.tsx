@@ -5,15 +5,10 @@ import { GameType } from "src/types/game";
 import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import BannerItem from "../../common/BannerItem";
-import { css } from "@emotion/react";
 
 const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = React.useState(0);
 
-	const indicator = () => {
-		const indicatorLength = data.length;
-	};
-	console.log(Array(data.length));
 	return (
 		<HsContainer position={"relative"}>
 			<Carousel
@@ -22,6 +17,7 @@ const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 				showIndicators={false}
 				showThumbs={false}
 				selectedItem={currentPage}
+				onChange={index => setCurrentPage(index)}
 			>
 				{data.map((item: GameType) => (
 					<BannerItem item={item} key={item.id} />
