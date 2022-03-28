@@ -59,6 +59,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 								borderRadius={"4px"}
 								padding="10px"
 								width={"48%"}
+								color="black"
 								backgroundColor="white"
 								border="1px solid rgb(229, 232, 235)"
 							>
@@ -69,7 +70,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 					<Link href={"/marketplace"}>
 						<HsContainer
 							display={"flex"}
-							margin="0 0 20px 0"
+							margin="0 0 30px 0"
 							alignItems={"center"}
 						>
 							<IoStorefront size={18} />
@@ -86,7 +87,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 					<Link href={"/drop"}>
 						<HsContainer
 							display={"flex"}
-							margin="0 0 20px 0"
+							margin="0 0 30px 0"
 							alignItems={"center"}
 						>
 							<MdCollections size={18} />

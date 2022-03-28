@@ -17,7 +17,6 @@ const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 				showIndicators={false}
 				showThumbs={false}
 				selectedItem={currentPage}
-				onChange={index => setCurrentPage(index)}
 			>
 				{data.map((item: GameType) => (
 					<BannerItem item={item} key={item.id} />
