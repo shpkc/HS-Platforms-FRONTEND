@@ -1,13 +1,13 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getMainNfts } from "src/domains/NftsDomain";
+import { getMain } from "src/domains/NftsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HomeContents from "src/components/organisms/home/HomeContents";
 import MainSkeleton from "src/components/organisms/skeleton/MainSkeleton";
 
 const Index = () => {
-	const { data, isFetching } = useFetch("main", () => getMainNfts());
+	const { data, isFetching } = useFetch("main", () => getMain());
 	if (isFetching) {
 		return <MainSkeleton />;
 	}
@@ -24,7 +24,7 @@ const Index = () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-	const queryClient = await usePreFetch("main", () => getMainNfts());
+	const queryClient = await usePreFetch("main", () => getMain());
 
 	return {
 		revalidate: 10,

@@ -9,7 +9,7 @@ import { FaEthereum } from "react-icons/fa";
 
 const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 	return (
-		<Link href={`/nft/goods/detail?productId=${item.id}`}>
+		<Link href={`/nft/products/${item.id}`}>
 			<HsContainer
 				width={[, "280px"]}
 				margin={["0 0 50px 0", "0 26px 50px 0"]}

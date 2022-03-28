@@ -5,7 +5,7 @@ import { getMethod } from "src/hooks/apiMethod/getMethod";
 import { infiniteScrollMapper } from "src/services/mapper/infiniteScrollMapper";
 
 // NOTE : 1페이지당 20개의 게임
-export const getNfts = ({ pageParam = 1 }: { pageParam?: number }) =>
+export const getProducts = ({ pageParam = 1 }: { pageParam?: number }) =>
 	getMethod({
 		url: queryParams(NFTS_API, [
 			["page", `${pageParam}`],
@@ -15,7 +15,7 @@ export const getNfts = ({ pageParam = 1 }: { pageParam?: number }) =>
 	})();
 
 // NOTE : get game detail by id
-export const getNftsDetailById = (id: string) =>
+export const getProductsDetailById = (id: string | string[]) =>
 	getMethod({
 		url: `${NFTS_API}/${id}`,
 	})();
@@ -26,8 +26,8 @@ export const getAllNftsId = () =>
 		url: `${NFTS_API}/all-id`,
 	})();
 
-// NOTE : STATIC PROPS를 위한 get ID
-export const getMainNfts = () =>
+// NOTE : main home api
+export const getMain = () =>
 	getMethod({
 		url: `${NFTS_API}/main`,
 	})();
