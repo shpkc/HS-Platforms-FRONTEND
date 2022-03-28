@@ -1,12 +1,11 @@
 import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient } from "react-query";
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import { dehydrate } from "react-query";
+import ProductsContents from "src/components/organisms/nft/products/ProductsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import { getProductsDetailById } from "src/domains/NftsDomain";
+import { getProductsDetailById } from "src/domains/ProductsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 
-const ProductDetail = ({ id }) => {
-	console.log(id);
+const Products = ({ id }) => {
 	const {
 		data: { result },
 	} = useFetch(`product${id}`, () => getProductsDetailById(id));
@@ -14,12 +13,12 @@ const ProductDetail = ({ id }) => {
 		<LayoutTemplate
 			seo={{ title: result.title, description: result.description }}
 		>
-			<HsContainer padding={"100px 0 0 0"}>{result.title}</HsContainer>
+			<ProductsContents data={result} />
 		</LayoutTemplate>
 	);
 };
 
-export default ProductDetail;
+export default Products;
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const {

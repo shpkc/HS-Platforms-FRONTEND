@@ -6,9 +6,10 @@ export default {
 			primary: "#E83E57",
 		},
 		gray: {
+			primary: "#222227",
 			gray10: "#bdbdbd",
 			gray20: "#707a8a",
-			primary: "#222227",
+			gray30: "#474d57",
 		},
 		purple: {
 			primary: "#6164ff",

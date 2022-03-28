@@ -50,7 +50,7 @@ const Footer = () => {
 					</HsContainer>
 					<HsContainer display={"flex"} margin="0 0 20px 0">
 						{MENU_LIST.map((item: MenuType) => (
-							<Link href={item.url}>
+							<Link href={item.url} key={item.url}>
 								<HsText
 									color={"gray.gray10"}
 									margin="0 10px 0 0"
