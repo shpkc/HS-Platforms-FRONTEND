@@ -13,7 +13,7 @@ const Header = () => {
 
 	return (
 		<header>
-			{isAsideOpen && <HeaderAside />}
+			{isAsideOpen && <HeaderAside close={() => setIsAsideOpen(false)} />}
 			<HsContainer
 				width={"100%"}
 				position={"fixed"}

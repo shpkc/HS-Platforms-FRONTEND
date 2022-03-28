@@ -70,7 +70,7 @@ const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 						backgroundColor={
 							currentPage == index ? "rgb(30, 35, 41)" : "rgb(183, 189, 198)"
 						}
-						width={currentPage == index ? "48px" : "16px"}
+						width={currentPage == index ? ["32px", "48px"] : "16px"}
 						height={"4px"}
 						margin="0 5px"
 					/>
