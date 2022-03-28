@@ -1,5 +1,5 @@
 export const MENU_LIST = [
-	{ name: "MARKETPLACE", url: "/explore" },
-	{ name: "ABOUT", url: "/about" },
+	{ name: "EXPLORE", url: "/explore" },
+	{ name: "COLLECTIONS", url: "/collections" },
 	{ name: "LOGIN", url: "/login" },
 ];

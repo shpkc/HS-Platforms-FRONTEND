@@ -80,7 +80,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 								margin="0 0 0 10px"
 								fontSize={"1.2rem"}
 							>
-								Marketplace
+								Explore
 							</HsText>
 						</HsContainer>
 					</Link>
@@ -97,7 +97,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 								margin="0 0 0 10px"
 								fontSize={"1.2rem"}
 							>
-								About
+								Collections
 							</HsText>
 						</HsContainer>
 					</Link>
