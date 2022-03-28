@@ -1,15 +1,11 @@
-# Basic Sample Hardhat Project
+<img src="https://i.imgur.com/dtck0ew.png"  width="700" height="394">
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+<br/>
 
-Try running some of the following tasks:
+# [NFTIFY](https://nftify.site/)
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+> NFT Marketplace for all over the world
+
+<br/>
+
+Various fields of NFT and Collection will be added.
