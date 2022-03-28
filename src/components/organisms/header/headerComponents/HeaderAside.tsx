@@ -97,7 +97,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 								margin="0 0 0 10px"
 								fontSize={"1.2rem"}
 							>
-								Collections
+								About
 							</HsText>
 						</HsContainer>
 					</Link>
