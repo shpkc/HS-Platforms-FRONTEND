@@ -37,8 +37,8 @@ const ButtonDefaultStyle = styled.button<ButtonDefaultProps>`
 		props.hover &&
 		`&:hover {
 		transition: 0.5s all;
-		color: #6164ff;
-		background-color: #222227;
+		color:  ${props.hoverColor};
+		background-color: ${props.hoverBackgroundColor};
 	}`}
 `;
 

@@ -14,6 +14,9 @@ export default {
 		purple: {
 			primary: "#6164ff",
 		},
+		sky: {
+			primary: "#fbfdff",
+		},
 		black: "#16151A",
 		white: "#fff",
 		blue: "#007ce0",

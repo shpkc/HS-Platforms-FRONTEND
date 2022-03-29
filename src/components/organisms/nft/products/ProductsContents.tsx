@@ -7,6 +7,7 @@ import { FaEthereum } from "react-icons/fa";
 import { getEthereumPrice } from "src/domains/ProductsDomain";
 import { useFetch } from "src/hooks/query/fetch";
 import { Suspense } from "react";
+import HsButton from "src/components/atoms/button/HsButton";
 
 const ProductsContents = ({ data }) => {
 	const { data: priceData } = useFetch("etherPrice", () => getEthereumPrice());
@@ -143,25 +144,34 @@ const ProductsContents = ({ data }) => {
 						<IoMdShare style={{ cursor: "pointer" }} size={24} />
 					</HsContainer>
 					<HsContainer
-						display={"flex"}
-						justifyContent="space-between"
-						alignItems="flex-start"
+						border="1px solid rgb(229, 232, 235)"
+						padding={"20px"}
+						borderRadius={"4px"}
+						backgroundColor="rgb(251, 253, 255)"
 					>
-						<HsText color={"gray.gray20"} fontSize="1.2rem" fontWeight={500}>
-							Price
+						<HsText
+							color={"gray.gray20"}
+							fontSize="1.1rem"
+							fontWeight={500}
+							margin="0 0 8px 0"
+						>
+							Current Price
 						</HsText>
-						<HsContainer>
+						<HsContainer
+							display={"flex"}
+							alignItems="flex-end"
+							margin={"0 0 40px 0"}
+						>
 							<HsContainer
 								display={"flex"}
 								alignItems="center"
-								margin={"0 0 8px 0"}
+								margin="0 3px 0 0"
 							>
 								<FaEthereum size={20} />
 								<HsText
 									fontWeight={"bold"}
 									fontSize={"1.5rem"}
-									margin="0 0 0 10px"
-									lineHeight={1.2}
+									margin="0 0 0 5px"
 								>
 									{`${data.price} ${data.currency}`}
 								</HsText>
@@ -171,11 +181,21 @@ const ProductsContents = ({ data }) => {
 									color="gray.gray20"
 									textAlign={"right"}
 									fontSize={"0.9rem"}
+									lineHeight={1.5}
 								>
-									≈ $ {(priceData.USD * data.price).toFixed(1)}
+									(${(priceData.USD * data.price).toFixed(1)})
 								</HsText>
 							)}
 						</HsContainer>
+						<HsButton
+							width={[, "300px"]}
+							height="50px"
+							borderRadius={"4px"}
+							backgroundColor="black"
+							color="white"
+						>
+							Buy Now
+						</HsButton>
 					</HsContainer>
 				</HsContainer>
 			</HsContainer>
