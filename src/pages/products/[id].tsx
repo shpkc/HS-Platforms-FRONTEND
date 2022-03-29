@@ -1,31 +1,33 @@
-import { GetServerSideProps } from "next";
+import { GetStaticPaths } from "next";
 import { dehydrate } from "react-query";
 import ProductsContents from "src/components/organisms/nft/products/ProductsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import { getProductsDetailById } from "src/domains/ProductsDomain";
+import {
+	getAllProductsId,
+	getProductsDetailById,
+} from "src/domains/ProductsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 
-const Products = ({ id }) => {
-	const {
-		data: { result },
-	} = useFetch(`product${id}`, () => getProductsDetailById(id));
+const Products = ({ id }: { id: string }) => {
+	const { data } = useFetch(`products${id}`, () => getProductsDetailById(id));
+	if (!data) {
+		return <div />;
+	}
 	return (
 		<LayoutTemplate
-			seo={{ title: result.title, description: result.description }}
+			seo={{ title: data.result.title, description: data.result.description }}
 		>
-			<ProductsContents data={result} />
+			<ProductsContents data={data.result} />
 		</LayoutTemplate>
 	);
 };
 
-export default Products;
-
-export const getServerSideProps: GetServerSideProps = async context => {
-	const {
-		query: { id },
-	} = context;
-
-	const queryClient = await usePreFetch(`product${id}`, () =>
+export const getStaticProps = async ({
+	params: { id },
+}: {
+	params: { id: string };
+}) => {
+	const queryClient = await usePreFetch(`products${id}`, () =>
 		getProductsDetailById(id)
 	);
 
@@ -36,3 +38,16 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 	};
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const { result } = await getAllProductsId();
+	const paths = result.map((item: any) => ({
+		params: { id: item.id.toString() },
+	}));
+	return {
+		paths,
+		fallback: true,
+	};
+};
+
+export default Products;
