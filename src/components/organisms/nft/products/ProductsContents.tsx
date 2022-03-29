@@ -153,7 +153,7 @@ const ProductsContents = ({ data }) => {
 							color={"gray.gray20"}
 							fontSize="1.1rem"
 							fontWeight={500}
-							margin="0 0 8px 0"
+							margin="0 0 10px 0"
 						>
 							Current Price
 						</HsText>

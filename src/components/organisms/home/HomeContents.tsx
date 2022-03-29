@@ -38,7 +38,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						You can create and transfer your own extraordinary NFTs
+						Discover NFTs in various categories and collect your own NFTs
 					</HsText>
 				</HsContainer>
 				<HsContainer
