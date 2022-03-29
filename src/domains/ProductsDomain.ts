@@ -10,7 +10,7 @@ export const getMain = () =>
 		url: `${BASE_API}/main`,
 	})();
 
-// NOTE : 1페이지당 20개의 게임
+// NOTE : infinite scroll get products
 export const getProducts = ({ pageParam = 1 }: { pageParam?: number }) =>
 	getMethod({
 		url: queryParams(BASE_API, [
@@ -20,7 +20,7 @@ export const getProducts = ({ pageParam = 1 }: { pageParam?: number }) =>
 		mapper: infiniteScrollMapper(pageParam),
 	})();
 
-// NOTE : get game detail by id
+// NOTE : get products detail by id
 export const getProductsDetailById = (id: string | string[]) =>
 	getMethod({
 		url: `${BASE_API}/${id}`,
@@ -30,4 +30,9 @@ export const getProductsDetailById = (id: string | string[]) =>
 export const getAllProductsId = () =>
 	getMethod({
 		url: `${BASE_API}/all-id`,
+	})();
+
+export const getEthereumPrice = () =>
+	getMethod({
+		url: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
 	})();

@@ -2,9 +2,14 @@ import HsImage from "src/components/atoms/image/HsImage";
 import HsContainer from "src/components/atoms/layout/HsContainer";
 import HsText from "src/components/atoms/text/HsText";
 import { AiOutlinePicture } from "react-icons/ai";
+import { IoMdShare } from "react-icons/io";
+import { FaEthereum } from "react-icons/fa";
+import { getEthereumPrice } from "src/domains/ProductsDomain";
+import { useFetch } from "src/hooks/query/fetch";
+import { Suspense } from "react";
 
 const ProductsContents = ({ data }) => {
-	console.log(data);
+	const { data: priceData } = useFetch("etherPrice", () => getEthereumPrice());
 	return (
 		<HsContainer padding={["80px 16px 0 16px", "140px 0 0 0"]}>
 			<HsContainer
@@ -77,19 +82,6 @@ const ProductsContents = ({ data }) => {
 							{`${data.owner.slice(0, 5)}...${data.owner.slice(-5)}`}
 						</HsText>
 					</HsContainer>
-
-					<HsContainer
-						display={"flex"}
-						justifyContent="space-between"
-						margin="0 0 10px 0"
-					>
-						<HsText color={"gray.gray20"} fontSize="0.9rem">
-							Contract Address
-						</HsText>
-						<HsText fontSize="0.9rem" fontWeight={500}>
-							{`${data.owner.slice(0, 5)}...${data.owner.slice(-5)}`}
-						</HsText>
-					</HsContainer>
 					<HsContainer
 						display={"flex"}
 						justifyContent="space-between"
@@ -102,9 +94,89 @@ const ProductsContents = ({ data }) => {
 							{data.tokenId}
 						</HsText>
 					</HsContainer>
+					<HsContainer
+						display={"flex"}
+						justifyContent="space-between"
+						margin="0 0 10px 0"
+					>
+						<HsText color={"gray.gray20"} fontSize="0.9rem">
+							Token Standard
+						</HsText>
+						<HsText fontSize="0.9rem" fontWeight={500}>
+							ERC-721
+						</HsText>
+					</HsContainer>
+					<HsContainer
+						display={"flex"}
+						justifyContent="space-between"
+						margin="0 0 10px 0"
+					>
+						<HsText color={"gray.gray20"} fontSize="0.9rem">
+							Blockchain
+						</HsText>
+						<HsText fontSize="0.9rem" fontWeight={500}>
+							Ethereum
+						</HsText>
+					</HsContainer>
 				</HsContainer>
 				<HsContainer width={[, "720px"]}>
-					<HsText variant="h3">{data.title}</HsText>
+					<HsContainer
+						display={"flex"}
+						justifyContent="space-between"
+						alignItems={"center"}
+						margin="0 0 50px 0"
+					>
+						<HsContainer display={"flex"} alignItems="center">
+							<HsText variant="h3" margin={"0 10px 0 0"}>
+								{data.title}
+							</HsText>
+							<HsContainer
+								backgroundColor={"rgb(245, 245, 245)"}
+								borderRadius={"4px"}
+								padding="5px 12px"
+							>
+								<HsText fontWeight={500} fontSize={"0.7rem"} margin="3px 0 0 0">
+									{data.category}
+								</HsText>
+							</HsContainer>
+						</HsContainer>
+						<IoMdShare style={{ cursor: "pointer" }} size={24} />
+					</HsContainer>
+					<HsContainer
+						display={"flex"}
+						justifyContent="space-between"
+						alignItems="flex-start"
+					>
+						<HsText color={"gray.gray20"} fontSize="1.2rem" fontWeight={500}>
+							Price
+						</HsText>
+						<HsContainer>
+							<HsContainer
+								display={"flex"}
+								alignItems="center"
+								margin={"0 0 8px 0"}
+							>
+								<FaEthereum size={20} />
+								<HsText
+									fontWeight={"bold"}
+									fontSize={"1.5rem"}
+									margin="0 0 0 10px"
+									lineHeight={1.2}
+								>
+									{`${data.price} ${data.currency}`}
+								</HsText>
+							</HsContainer>
+							{priceData && (
+								<HsText
+									color="gray.gray20"
+									textAlign={"right"}
+									fontSize={"0.9rem"}
+								>
+									≈ $ {(priceData.USD * data.price).toFixed(1)}
+								</HsText>
+							)}
+						</HsContainer>
+					</HsContainer>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>

@@ -9,12 +9,7 @@ export const fetch = (
 ) => {
 	const fetch = async () => {
 		const instance = axios.create({});
-		const hasToken = getCookie("accessToken");
-		const apiHeader = {
-			// accessToken: hasToken ?? store.userInfoStore.getUserToken(),
-			// "Cache-Control": "max-age=31536000",
-			// "Access-Control-Allow-Origin": "*",
-		};
+		const apiHeader = {};
 
 		try {
 			const response = await instance({
@@ -38,7 +33,6 @@ export const fetchCommon = (
 		needLogin,
 		isShowLoginAlert,
 		errorHandler,
-		customHeader = {},
 	}: {
 		mapper?: (data: AxiosResponse["data"]) => AxiosResponse["data"];
 		needLogin?: boolean;
@@ -49,18 +43,12 @@ export const fetchCommon = (
 ) => {
 	const fetch = async () => {
 		const instance = axios.create({});
-		const hasToken = getCookie("accessToken");
-		const apiHeader = {
-			// accessToken: hasToken ?? store.userInfoStore.getUserToken(),
-			// "Cache-Control": "max-age=31536000",
-			// "Access-Control-Allow-Origin": "*",
-		};
+		const apiHeader = {};
 		try {
 			const response = await instance({
 				...setting,
 				headers: { ...apiHeader },
 			});
-			// delete error message
 			queryClient.removeQueries("error", { exact: true });
 			return mapper ? mapper(response.data) : response.data;
 		} catch (error: AxiosResponse["data"]) {
@@ -83,7 +71,6 @@ export const fetchCommon = (
 	};
 
 	const loginService = async () => {
-		// isShowLoginAlert && needLoginAlert();
 		return await "needLogin";
 	};
 	const isAuth = getCookie("accessToken");
