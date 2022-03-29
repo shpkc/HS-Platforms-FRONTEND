@@ -7,9 +7,9 @@ import { AiOutlinePicture } from "react-icons/ai";
 import HsImage from "src/components/atoms/image/HsImage";
 import { FaEthereum } from "react-icons/fa";
 
-const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
+const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
-		<Link href={`/products/${item.id}`}>
+		<Link href={`/products/${data.id}`}>
 			<HsContainer
 				width={[, "280px"]}
 				margin={["0 0 50px 0", "0 26px 50px 0"]}
@@ -20,8 +20,8 @@ const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 				`}
 			>
 				<HsContainer position="relative" height={[, "280px"]}>
-					<HsImage src={item.image} borderRadius="4px" objectFit="cover" />
-					{item.mediaType == "IMAGE" && (
+					<HsImage src={data.image} borderRadius="4px" objectFit="cover" />
+					{data.mediaType == "IMAGE" && (
 						<HsContainer
 							position={"absolute"}
 							top={"12px"}
@@ -45,7 +45,7 @@ const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					lineHeight={1.2}
 					ellipsis
 				>
-					{item.title}
+					{data.title}
 				</HsText>
 				<HsContainer
 					display={"flex"}
@@ -60,12 +60,12 @@ const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					<HsContainer display={"flex"} alignItems="center">
 						<FaEthereum />
 						<HsText fontWeight={500} margin="0 0 0 2px">
-							{Number.isInteger(item.price)
-								? item.price.toFixed(1)
-								: item.price}
+							{Number.isInteger(data.price)
+								? data.price.toFixed(1)
+								: data.price}
 						</HsText>
 						<HsText fontWeight={500} margin="0 0 0 2px">
-							{item.currency}
+							{data.currency}
 						</HsText>
 					</HsContainer>
 				</HsContainer>
@@ -77,13 +77,17 @@ const ProductItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					<HsText color="gray.gray20" fontSize={"0.8rem"}>
 						Creator
 					</HsText>
-					<HsText>{item.seller.slice(0, 8)}...</HsText>
+					<HsText>{`${data.seller.slice(0, 5)}...${data.seller.slice(
+						-5
+					)}`}</HsText>
 				</HsContainer>
 				<HsContainer display={"flex"} justifyContent="space-between">
 					<HsText color="gray.gray20" fontSize={"0.8rem"}>
 						Owner
 					</HsText>
-					<HsText>{item.owner.slice(0, 8)}...</HsText>
+					<HsText>{`${data.owner.slice(0, 5)}...${data.owner.slice(
+						-5
+					)}`}</HsText>
 				</HsContainer>
 			</HsContainer>
 		</Link>
