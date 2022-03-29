@@ -27,7 +27,7 @@ export const getProductsDetailById = (id: string | string[]) =>
 	})();
 
 // NOTE : STATIC PROPS를 위한 get ID
-export const getAllNftsId = () =>
+export const getAllProductsId = () =>
 	getMethod({
 		url: `${BASE_API}/all-id`,
 	})();

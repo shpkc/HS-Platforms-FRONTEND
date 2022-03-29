@@ -17,11 +17,11 @@ const ProductsContents = ({ data }) => {
 						<HsText variant="h3">{data.title}</HsText>
 					</HsContainer>
 					<HsContainer height={[, "384px"]} margin="0 0 30px 0">
-						<HsImage
+						{/* <HsImage
 							src={data.image}
 							borderRadius={"4px"}
 							objectFit={"cover"}
-						/>
+						/> */}
 					</HsContainer>
 					<HsText fontWeight={"500"} fontSize={"1.2rem"} margin="0 0 10px 0">
 						Description
