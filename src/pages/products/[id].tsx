@@ -5,7 +5,7 @@ import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import {
 	getAllProductsId,
 	getProductsDetailById,
-} from "src/domains/ProductsDomain";
+} from "src/apis/ProductsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 
 const Products = ({ id }: { id: string }) => {

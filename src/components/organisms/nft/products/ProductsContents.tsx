@@ -4,13 +4,13 @@ import HsText from "src/components/atoms/text/HsText";
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoMdShare } from "react-icons/io";
 import { FaEthereum } from "react-icons/fa";
-import { getEthereumPrice } from "src/domains/ProductsDomain";
+import { getEthereumPrice } from "src/apis/ProductsDomain";
 import { useFetch } from "src/hooks/query/fetch";
-import { Suspense } from "react";
 import HsButton from "src/components/atoms/button/HsButton";
 
 const ProductsContents = ({ data }) => {
 	const { data: priceData } = useFetch("etherPrice", () => getEthereumPrice());
+
 	return (
 		<HsContainer padding={["80px 16px 0 16px", "140px 0 0 0"]}>
 			<HsContainer
