@@ -14,7 +14,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 			left={0}
 			top={0}
 			width={"100%"}
-			height={"100vh"}
+			height={"100%"}
 			backgroundColor="rgba(0,0,0,0.2)"
 			zIndex={1001}
 		>
@@ -25,7 +25,7 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 				display="flex"
 				justifyContent={[, "center"]}
 				width={"100%"}
-				height={"100vh"}
+				height={"100%"}
 				backgroundColor="white"
 				zIndex={1002}
 				css={RightToLeft}
