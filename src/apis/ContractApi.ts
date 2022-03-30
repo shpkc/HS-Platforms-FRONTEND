@@ -27,6 +27,7 @@ export const purchaseProductWithWeb3 = async ({
 		await transaction.wait();
 		// NOTE : purchase history add
 	} catch (e) {
-		console.log(e);
+		// NOTE : before create modal, expose alert
+		alert(e);
 	}
 };

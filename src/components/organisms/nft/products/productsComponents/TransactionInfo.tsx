@@ -6,10 +6,12 @@ import { getEthereumPrice } from "src/apis/ProductsDomain";
 import { FaEthereum } from "react-icons/fa";
 import HsButton from "src/components/atoms/button/HsButton";
 import { AiOutlineUnorderedList } from "react-icons/ai";
+import { purchaseProductWithWeb3 } from "src/apis/ContractApi";
 
 // NOTE : nft product transaction info
 const TransactionInfo = ({ data }) => {
 	const { data: priceData } = useFetch("etherPrice", () => getEthereumPrice());
+
 	return (
 		<HsContainer width={[, "720px"]}>
 			<HsContainer
@@ -59,11 +61,7 @@ const TransactionInfo = ({ data }) => {
 							margin="0 3px 0 0"
 						>
 							<FaEthereum size={20} />
-							<HsText
-								fontWeight={"bold"}
-								fontSize={"1.5rem"}
-								margin="0 0 0 5px"
-							>
+							<HsText fontWeight={"bold"} fontSize={"1.5rem"} margin="0 5px">
 								{`${data.price} ${data.currency}`}
 							</HsText>
 						</HsContainer>
@@ -84,6 +82,12 @@ const TransactionInfo = ({ data }) => {
 						borderRadius={"4px"}
 						backgroundColor="black"
 						color="white"
+						onClick={() =>
+							purchaseProductWithWeb3({
+								price: data.price,
+								tokenId: data.tokenId,
+							})
+						}
 					>
 						Buy Now
 					</HsButton>
