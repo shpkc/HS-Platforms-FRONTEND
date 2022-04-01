@@ -1,16 +1,22 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "strict": true,
-    "useUnknownInCatchVariables": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hs-platforms/hs-core-ui": ["libs/hs-core-ui/src/index.ts"]
+    }
   },
-  "exclude": ["**/node_modules", "**/.*/"]
+  "exclude": ["node_modules", "tmp"]
 }

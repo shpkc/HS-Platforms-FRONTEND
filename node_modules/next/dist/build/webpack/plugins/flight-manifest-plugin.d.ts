@@ -7,9 +7,11 @@
 declare type Options = {
     dev: boolean;
     clientComponentsRegex: RegExp;
+    runtime?: 'nodejs' | 'edge';
 };
 export declare class FlightManifestPlugin {
     dev: boolean;
+    runtime?: 'nodejs' | 'edge';
     clientComponentsRegex: RegExp;
     constructor(options: Options);
     apply(compiler: any): void;

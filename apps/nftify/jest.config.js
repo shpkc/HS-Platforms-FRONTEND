@@ -1,5 +1,10 @@
 module.exports = {
-	preset: "ts-jest",
-	testEnvironment: "jsdom",
-	testPathIgnorePatterns: ["/cjs/", "/dist/"],
+  displayName: 'nftify',
+  preset: '../../jest.preset.js',
+  transform: {
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
+    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nrwl/next/babel'] }],
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  coverageDirectory: '../../coverage/apps/nftify',
 };
