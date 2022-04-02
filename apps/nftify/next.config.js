@@ -1,15 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withNx = require('@nrwl/next/plugins/with-nx');
+const Dotenv = require("dotenv-webpack");
 
-/**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- **/
-const nextConfig = {
-  nx: {
-    // Set this to true if you would like to to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: false,
-  },
+module.exports = {
+	experimental: {
+		concurrentFeatures: true,
+	},
+	webpack: (config, { isServer }) => {
+		config.plugins.push(new Dotenv());
+		if (!isServer) {
+			config.resolve.fallback.fs = false;
+		}
+		return config;
+	},
 };
-
-module.exports = withNx(nextConfig);
