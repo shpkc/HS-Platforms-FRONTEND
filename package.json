@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "dev": "nx serve --port 8080",
     "build": "nx build",
     "test": "nx test"
   },
