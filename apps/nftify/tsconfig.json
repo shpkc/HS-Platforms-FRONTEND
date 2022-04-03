@@ -13,9 +13,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@hs-platforms/hs-core-ui/*": ["../../libs/hs-core-ui/src/index.ts"]
+      "@hs-platforms/hs-core-ui": ["../../libs/hs-core-ui/src/index.ts"]
     }
   },
   "include": [

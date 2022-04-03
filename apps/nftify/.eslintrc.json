@@ -6,6 +6,7 @@
     "next/core-web-vitals"
   ],
   "ignorePatterns": ["!**/*"],
+  "rules": { "no-sparse-arrays": "off", "singleQuote": false },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

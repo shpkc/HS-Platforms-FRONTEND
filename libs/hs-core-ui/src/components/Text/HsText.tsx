@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { textVariants } from 'libs/hs-core-ui/styles/variants';
+import { textVariants } from '../../../styles/variants';
 import {
   ColorProps,
   PositionProps,
