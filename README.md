@@ -2,9 +2,20 @@
 
 > Monorepo built with NX
 
+<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png" width="100%" height="100%">
+
 <br/>
 
-<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png" width="100%" height="100%">
+```
+├── apps
+│   ├── nftify
+│   └── other projects
+├── libs
+│   ├── hs-core-ui
+│   └── other libraries
+│
+└── tsconfig.base.json
+```
 
 <br/>
 <br/>
