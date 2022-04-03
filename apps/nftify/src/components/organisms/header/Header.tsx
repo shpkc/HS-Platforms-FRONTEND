@@ -2,11 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import HeaderAside from "./headerComponents/HeaderAside";
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import { IoSearch } from "react-icons/io5";
 import { MENU_LIST } from "src/constants/menu";
 import { MenuType } from "src/types/menu";
+import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 
 const Header = () => {
 	const [isAsideOpen, setIsAsideOpen] = React.useState(false);

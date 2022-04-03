@@ -1,10 +1,9 @@
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import Link from "next/link";
 import { MENU_LIST } from "src/constants/menu";
 import { MenuType } from "src/types/menu";
 import { BsInstagram } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 
 const Footer = () => {
 	return (

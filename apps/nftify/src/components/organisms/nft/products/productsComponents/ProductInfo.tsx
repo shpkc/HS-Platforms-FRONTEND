@@ -1,8 +1,6 @@
-import HsImage from "src/components/atoms/image/HsImage";
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoMdShare } from "react-icons/io";
+import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 
 // NOTE : nft product info
 const ProductInfo = ({ data }) => {

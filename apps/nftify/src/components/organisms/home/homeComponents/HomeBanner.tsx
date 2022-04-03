@@ -1,10 +1,10 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import HsContainer from "src/components/atoms/layout/HsContainer";
 import { GameType } from "src/types/game";
 import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import BannerItem from "../../common/BannerItem";
+import BannerItem from "src/components/organisms/common/BannerItem";
+import { HsContainer } from "@hs-platforms/hs-core-ui";
 
 const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = React.useState(0);

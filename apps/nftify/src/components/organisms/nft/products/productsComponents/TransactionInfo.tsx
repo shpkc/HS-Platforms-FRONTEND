@@ -1,12 +1,10 @@
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import { IoMdShare } from "react-icons/io";
 import { useFetch } from "src/hooks/query/fetch";
 import { getEthereumPrice } from "src/apis/ProductsDomain";
 import { FaEthereum } from "react-icons/fa";
-import HsButton from "src/components/atoms/button/HsButton";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { purchaseProductWithWeb3 } from "src/apis/ContractApi";
+import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
 
 // NOTE : nft product transaction info
 const TransactionInfo = ({ data }) => {

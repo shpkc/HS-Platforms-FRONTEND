@@ -1,3 +1,4 @@
+// NOTE : temp skeleton
 const MainSkeleton = () => {
 	return <div />;
 };

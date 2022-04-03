@@ -1,8 +1,6 @@
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
-import HsImage from "src/components/atoms/image/HsImage";
+import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 
 const CollectionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (

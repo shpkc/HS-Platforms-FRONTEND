@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { InView } from "react-intersection-observer";
 import { useQueryClient } from "react-query";
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import { HsContainer } from "@hs-platforms/hs-core-ui";
 
 // NOTE : query키값을 토대로 무한스크롤
 const InfiniteScrollTemplate = ({

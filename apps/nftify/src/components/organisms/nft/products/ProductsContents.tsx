@@ -1,4 +1,4 @@
-import HsContainer from "src/components/atoms/layout/HsContainer";
+import { HsContainer } from "@hs-platforms/hs-core-ui";
 import ProductInfo from "./productsComponents/ProductInfo";
 import TransactionInfo from "./productsComponents/TransactionInfo";
 

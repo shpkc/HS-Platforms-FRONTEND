@@ -1,12 +1,11 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import HsContainer from "src/components/atoms/layout/HsContainer";
-import HsText from "src/components/atoms/text/HsText";
 import ProductItem from "../common/ProductItem";
 import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
 import CollectionItem from "../common/CollectionItem";
+import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (

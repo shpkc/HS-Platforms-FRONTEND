@@ -1,11 +1,9 @@
 import React from "react";
-import HsContainer from "src/components/atoms/layout/HsContainer";
 import Link from "next/link";
-import HsText from "src/components/atoms/text/HsText";
 import { RightToLeft } from "styles/animation";
 import { IoStorefront, IoClose } from "react-icons/io5";
 import { MdCollections } from "react-icons/md";
-import HsButton from "src/components/atoms/button/HsButton";
+import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
 
 const HeaderAside = ({ close }: { close: () => void }) => {
 	return (
