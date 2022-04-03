@@ -1,8 +1,10 @@
 # HsPlatforms
 
-> Monorepo built with NX
+> Monorepo built with [NX](https://nx.dev/)
 
-<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png" width="100%" height="100%">
+<br/>
+
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
 <br/>
 
@@ -17,7 +19,6 @@
 └── tsconfig.base.json
 ```
 
-<br/>
 <br/>
 
 # [NFTIFY](https://nftify.site/)
