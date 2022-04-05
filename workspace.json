@@ -1,7 +1,8 @@
 {
-  "version": 2,
-  "projects": {
-    "hs-core-ui": "libs/hs-core-ui",
-    "nftify": "apps/nftify"
-  }
+	"version": 2,
+	"projects": {
+		"hs-core-ui": "libs/hs-core-ui",
+		"nftify": "apps/nftify",
+		"sercurate": "apps/sercurate"
+	}
 }

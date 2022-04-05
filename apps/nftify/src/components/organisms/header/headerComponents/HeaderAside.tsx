@@ -41,64 +41,56 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 						justifyContent="space-between"
 						margin={"0 0 30px 0"}
 					>
-						<Link href="login">
-							<HsButton
-								borderRadius={"4px"}
-								padding="10px"
-								width={"48%"}
-								backgroundColor="black"
-								color="white"
-							>
-								Login
-							</HsButton>
-						</Link>
-						<Link href="signUp">
-							<HsButton
-								borderRadius={"4px"}
-								padding="10px"
-								width={"48%"}
-								color="black"
-								backgroundColor="white"
-								border="1px solid rgb(229, 232, 235)"
-							>
-								Sign Up
-							</HsButton>
-						</Link>
+						<HsButton
+							borderRadius={"4px"}
+							padding="10px"
+							width={"48%"}
+							backgroundColor="black"
+							color="white"
+						>
+							Login
+						</HsButton>
+						<HsButton
+							borderRadius={"4px"}
+							padding="10px"
+							width={"48%"}
+							color="black"
+							backgroundColor="white"
+							border="1px solid rgb(229, 232, 235)"
+						>
+							Sign Up
+						</HsButton>
 					</HsContainer>
-					<Link href={"/marketplace"}>
-						<HsContainer
-							display={"flex"}
-							margin="0 0 30px 0"
-							alignItems={"center"}
+					<HsContainer
+						display={"flex"}
+						margin="0 0 30px 0"
+						alignItems={"center"}
+					>
+						<IoStorefront size={18} />
+						<HsText
+							cursor="pointer"
+							fontWeight={500}
+							margin="0 0 0 10px"
+							fontSize={"1.2rem"}
 						>
-							<IoStorefront size={18} />
-							<HsText
-								cursor="pointer"
-								fontWeight={500}
-								margin="0 0 0 10px"
-								fontSize={"1.2rem"}
-							>
-								Explore
-							</HsText>
-						</HsContainer>
-					</Link>
-					<Link href={"/drop"}>
-						<HsContainer
-							display={"flex"}
-							margin="0 0 30px 0"
-							alignItems={"center"}
+							Explore
+						</HsText>
+					</HsContainer>
+					<HsContainer
+						display={"flex"}
+						margin="0 0 30px 0"
+						alignItems={"center"}
+					>
+						<MdCollections size={18} />
+						<HsText
+							cursor="pointer"
+							fontWeight={500}
+							margin="0 0 0 10px"
+							fontSize={"1.2rem"}
 						>
-							<MdCollections size={18} />
-							<HsText
-								cursor="pointer"
-								fontWeight={500}
-								margin="0 0 0 10px"
-								fontSize={"1.2rem"}
-							>
-								Collections
-							</HsText>
-						</HsContainer>
-					</Link>
+							Collections
+						</HsText>
+					</HsContainer>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>

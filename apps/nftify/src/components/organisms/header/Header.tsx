@@ -41,19 +41,16 @@ const Header = () => {
 					<HsContainer>
 						<HsContainer display={["none", "flex"]} alignItems="center">
 							{MENU_LIST.map((item: MenuType) => (
-								<Link href={item.url} key={item.name}>
-									<HsText
-										cursor="pointer"
-										margin={"0 20px 0 0"}
-										fontWeight={500}
-									>
-										{item.name}
-									</HsText>
-								</Link>
+								<HsText
+									cursor="pointer"
+									margin={"0 20px 0 0"}
+									fontWeight={500}
+									key={item.name}
+								>
+									{item.name}
+								</HsText>
 							))}
-							<Link href={"/search"}>
-								<IoSearch size={22} style={{ cursor: "pointer" }} />
-							</Link>
+							<IoSearch size={22} style={{ cursor: "pointer" }} />
 						</HsContainer>
 						<HsContainer display={[, "none"]}>
 							<GiHamburgerMenu
