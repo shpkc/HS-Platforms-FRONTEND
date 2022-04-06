@@ -1,5 +1,6 @@
 export const MENU_LIST = [
-	{ name: "EXPLORE", url: "/explore" },
-	{ name: "COLLECTIONS", url: "/collections" },
-	{ name: "LOGIN", url: "/login" },
+	{ name: "탐색", url: "/explore" },
+	{ name: "컬렉션", url: "/collections" },
+	{ name: "서비스 등록", url: "/register" },
+	{ name: "로그인", url: "/login" },
 ];

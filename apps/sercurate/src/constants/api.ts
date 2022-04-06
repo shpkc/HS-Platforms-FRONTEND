@@ -9,4 +9,4 @@ export const BASE_URL = process.env.NEXT_PUBLIC_API_HOST;
 export const IMG_URL = process.env.IMG_HOST;
 
 // NOTE : base api
-export const BASE_API = `${BASE_URL}/nfts`;
+export const PRODUCTS_API = `${BASE_URL}/products`;

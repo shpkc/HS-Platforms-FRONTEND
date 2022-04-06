@@ -14,7 +14,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<HomeBanner data={data.banner} />
 			</HsContainer>
 			<HsContainer
-				width={[, "1200px"]}
+				width={[, "1100px"]}
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>

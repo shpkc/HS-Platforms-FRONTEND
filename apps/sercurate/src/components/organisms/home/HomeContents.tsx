@@ -5,16 +5,17 @@ import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
 import CollectionItem from "../common/CollectionItem";
-import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
+import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
+	console.log(data);
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
 				<HomeBanner data={data.banner} />
 			</HsContainer>
 			<HsContainer
-				width={[, "1200px"]}
+				width={[, "1100px"]}
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>
@@ -46,7 +47,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					justifyContent="space-between"
 					alignItems={"center"}
 				>
-					<HsText variant="h4">Collections</HsText>
+					<HsText variant="h4">추천 컬렉션</HsText>
 					<Link href={"/collections"}>
 						<HsContainer display={"flex"} alignItems="center" cursor="pointer">
 							<HsText
@@ -54,7 +55,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 								margin="0 10px 0 0"
 								display={["none", "block"]}
 							>
-								Explore More Collections
+								More Collections
 							</HsText>
 							<HsContainer
 								width={"24px"}
@@ -75,7 +76,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					justifyContent="space-between"
 					margin={"0 0 100px 0"}
 				>
-					{data.mainCollections.map(item => (
+					{data.recommendCollections.map(item => (
 						<CollectionItem data={item} key={item.id} />
 					))}
 				</HsContainer>
@@ -86,7 +87,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						justifyContent="space-between"
 						alignItems={"center"}
 					>
-						<HsText variant="h4">Explore</HsText>
+						<HsText variant="h4">추천 서비스</HsText>
 						<Link href={"/explore"}>
 							<HsContainer
 								display={"flex"}
@@ -98,7 +99,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 									margin="0 10px 0 0"
 									display={["none", "block"]}
 								>
-									Explore More NFTs
+									More Services
 								</HsText>
 								<HsContainer
 									width={"24px"}
@@ -115,7 +116,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						</Link>
 					</HsContainer>
 					<HsContainer display={"flex"} flexWrap={"wrap"}>
-						{data.mainProducts.map(item => (
+						{data.bestProducts.map(item => (
 							<ProductItem data={item} key={item.id} />
 						))}
 					</HsContainer>

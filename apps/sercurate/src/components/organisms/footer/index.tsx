@@ -10,7 +10,7 @@ const Footer = () => {
 		<footer>
 			<HsContainer backgroundColor="#222227">
 				<HsContainer
-					width={[, "1200px"]}
+					width={[, "1100px"]}
 					margin={["100px 0 0 0", "100px auto 0 auto"]}
 					padding={["40px 16px 60px 16px", "40px 0 60px"]}
 				>
