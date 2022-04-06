@@ -27,7 +27,7 @@ const Header = () => {
 				borderBottom="1px solid #ededed"
 			>
 				<HsContainer
-					width={["100%", "1100px"]}
+					width={["100%", "1200px"]}
 					display={"flex"}
 					alignItems={"center"}
 					justifyContent={"space-between"}

@@ -1,8 +1,6 @@
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 import { css } from "@emotion/react";
-import { AiOutlinePicture } from "react-icons/ai";
-import { FaEthereum } from "react-icons/fa";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 
 const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {

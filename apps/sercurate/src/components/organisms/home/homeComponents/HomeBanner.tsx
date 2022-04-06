@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import BannerItem from "src/components/organisms/common/BannerItem";
 import { HsContainer } from "@hs-platforms/hs-core-ui";
+import Link from "next/link";
 
 const HomeBanner = ({ data }: { data: AxiosResponse["data"] }) => {
 	const [currentPage, setCurrentPage] = React.useState(0);

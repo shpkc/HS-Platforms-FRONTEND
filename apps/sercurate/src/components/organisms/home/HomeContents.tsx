@@ -15,32 +15,10 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<HomeBanner data={data.banner} />
 			</HsContainer>
 			<HsContainer
-				width={[, "1100px"]}
+				width={[, "1200px"]}
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>
-				<HsContainer
-					padding={["30px 6px", "50px 0"]}
-					backgroundColor="#F8F9FA"
-					margin={["0 0 50px 0", "0 0 100px 0"]}
-				>
-					<HsText
-						textAlign={"center"}
-						fontWeight="bold"
-						fontSize={["1.2rem", "1.5rem"]}
-						margin="0 0 15px 0"
-					>
-						Start Your NFT Trade Here
-					</HsText>
-					<HsText
-						textAlign={"center"}
-						margin="0 0 10px 0"
-						fontSize={["1rem", "1.5rem"]}
-						lineHeight={"20px"}
-					>
-						Discover NFTs in various categories and collect your own NFTs
-					</HsText>
-				</HsContainer>
 				<HsContainer
 					margin="0 0 50px 0"
 					display={"flex"}
@@ -55,7 +33,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 								margin="0 10px 0 0"
 								display={["none", "block"]}
 							>
-								More Collections
+								전체 컬렉션
 							</HsText>
 							<HsContainer
 								width={"24px"}
@@ -80,6 +58,28 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						<CollectionItem data={item} key={item.id} />
 					))}
 				</HsContainer>
+				<HsContainer
+					padding={["30px 6px", "50px 0"]}
+					backgroundColor="#F8F9FA"
+					margin={["0 0 50px 0", "0 0 100px 0"]}
+				>
+					<HsText
+						textAlign={"center"}
+						fontWeight="bold"
+						fontSize={["1.2rem", "1.5rem"]}
+						margin="0 0 15px 0"
+					>
+						서비스를 위한 서비스, 서큐레잇
+					</HsText>
+					<HsText
+						textAlign={"center"}
+						margin="0 0 10px 0"
+						fontSize={["1rem", "1.5rem"]}
+						lineHeight={"20px"}
+					>
+						서큐레잇에서 당신만의 서비스를 찾고 즐기세요
+					</HsText>
+				</HsContainer>
 				<HsContainer>
 					<HsContainer
 						margin="0 0 50px 0"
@@ -99,7 +99,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 									margin="0 10px 0 0"
 									display={["none", "block"]}
 								>
-									More Services
+									전체 서비스
 								</HsText>
 								<HsContainer
 									width={"24px"}
