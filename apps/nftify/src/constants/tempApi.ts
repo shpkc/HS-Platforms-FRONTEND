@@ -1,5 +1,5 @@
-// NOTE : 임시 배너 API
-export const TEMP_BANNER_API = [
+// NOTE : 임시 컬렉션 API
+export const TEMP_COLLECTION_API = [
 	{
 		id: "1",
 		title: "Retro games NFT",

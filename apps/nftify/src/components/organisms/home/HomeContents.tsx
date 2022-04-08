@@ -6,13 +6,13 @@ import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
 import CollectionItem from "../common/CollectionItem";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
-import { TEMP_BANNER_API } from "src/constants/tempApi";
+import { TEMP_COLLECTION_API } from "src/constants/tempApi";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
-				<HomeBanner data={TEMP_BANNER_API} />
+				<HomeBanner data={TEMP_COLLECTION_API} />
 			</HsContainer>
 			<HsContainer
 				width={[, "1200px"]}
@@ -76,7 +76,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					justifyContent="space-between"
 					margin={"0 0 100px 0"}
 				>
-					{data.mainCollections.map(item => (
+					{TEMP_COLLECTION_API.map(item => (
 						<CollectionItem data={item} key={item.id} />
 					))}
 				</HsContainer>
