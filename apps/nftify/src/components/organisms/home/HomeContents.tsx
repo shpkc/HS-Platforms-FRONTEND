@@ -5,13 +5,14 @@ import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
 import CollectionItem from "../common/CollectionItem";
-import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
+import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
+import { TEMP_BANNER_API } from "src/constants/tempApi";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<HsContainer padding={"61px 0 0 0"}>
 			<HsContainer margin={["0 0 60px 0", "0 0 100px 0"]}>
-				<HomeBanner data={data.banner} />
+				<HomeBanner data={TEMP_BANNER_API} />
 			</HsContainer>
 			<HsContainer
 				width={[, "1200px"]}
