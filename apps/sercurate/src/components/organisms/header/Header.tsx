@@ -35,7 +35,7 @@ const Header = () => {
 				>
 					<Link href={"/"}>
 						<HsText variant={"h4"} cursor={"pointer"}>
-							SERCURATE
+							서큐레잇
 						</HsText>
 					</Link>
 					<HsContainer>

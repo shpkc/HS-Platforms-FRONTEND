@@ -12,7 +12,7 @@ const CollectionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				cursor="pointer"
 				margin={["0 0 20px 0", "0"]}
 			>
-				<HsContainer height={["200px", "120px"]}>
+				<HsContainer height={["200px", "150px"]}>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/collections/${data.id}/thumbnail.jpeg`}
 						objectFit={"cover"}
