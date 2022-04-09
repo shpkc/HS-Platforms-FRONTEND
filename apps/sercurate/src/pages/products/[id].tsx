@@ -1,6 +1,6 @@
 import { GetStaticPaths } from "next";
 import { dehydrate } from "react-query";
-import ProductsContents from "src/components/organisms/nft/products/ProductsContents";
+import ProductsContents from "src/components/organisms/products/ProductsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import {
 	getAllProductsId,
@@ -10,12 +10,13 @@ import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 
 const Products = ({ id }: { id: string }) => {
 	const { data } = useFetch(`products${id}`, () => getProductsDetailById(id));
+	console.log(data);
 	if (!data) {
 		return <div />;
 	}
 	return (
 		<LayoutTemplate
-			seo={{ title: data.result.title, description: data.result.description }}
+			seo={{ title: data.result.name, description: data.result.description }}
 		>
 			<ProductsContents data={data.result} />
 		</LayoutTemplate>

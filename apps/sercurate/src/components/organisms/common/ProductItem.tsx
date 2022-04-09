@@ -2,8 +2,8 @@ import { AxiosResponse } from "axios";
 import Link from "next/link";
 import { css } from "@emotion/react";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
-import { categoryHelper } from "src/services/helper/CategoryHelper";
 import { AiFillStar } from "react-icons/ai";
+import { categoryHelper } from "src/services/helper/categoryHelper";
 
 const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
