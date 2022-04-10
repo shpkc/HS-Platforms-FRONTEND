@@ -1,5 +1,5 @@
 import { IoMdShare } from "react-icons/io";
-import { FaEthereum } from "react-icons/fa";
+import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
 
@@ -14,7 +14,7 @@ const PlatformInfo = ({ data }) => {
 				margin="0 0 50px 0"
 			>
 				<HsText variant="h3" margin={"0 10px 0 0"}>
-					{data.name}
+					{data.title}
 				</HsText>
 				<IoMdShare style={{ cursor: "pointer" }} size={24} />
 			</HsContainer>
@@ -28,7 +28,7 @@ const PlatformInfo = ({ data }) => {
 					padding="20px"
 				>
 					<HsText color={"gray.gray20"} fontSize="1.1rem" fontWeight={500}>
-						Current Price
+						서비스 평점
 					</HsText>
 				</HsContainer>
 				<HsContainer backgroundColor="rgb(251, 253, 255)" padding={"20px"}>
@@ -42,10 +42,19 @@ const PlatformInfo = ({ data }) => {
 							alignItems="center"
 							margin="0 3px 0 0"
 						>
-							<FaEthereum size={20} />
-							<HsText fontWeight={"bold"} fontSize={"1.5rem"} margin="0 5px">
-								{`${data.price} ${data.currency}`}
-							</HsText>
+							<BsFillStarFill size={20} />
+							<HsContainer display={"flex"} alignItems="flex-end">
+								<HsText fontWeight={"bold"} fontSize={"1.5rem"} margin="0 5px">
+									{data.reviewScore.toFixed(1)}
+								</HsText>
+								<HsText
+									color="gray.gray20"
+									fontSize={"0.9rem"}
+									lineHeight={1.2}
+								>
+									({data.reviewParticipants}명)
+								</HsText>
+							</HsContainer>
 						</HsContainer>
 					</HsContainer>
 					<HsButton
@@ -55,7 +64,7 @@ const PlatformInfo = ({ data }) => {
 						backgroundColor="black"
 						color="white"
 					>
-						Buy Now
+						평가하기
 					</HsButton>
 				</HsContainer>
 			</HsContainer>

@@ -77,7 +77,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						서큐레잇에서 당신만의 서비스를 찾고 즐기세요
+						서큐레잇에서 당신만의 서비스를 찾아드릴게요
 					</HsText>
 				</HsContainer>
 				<HsContainer>

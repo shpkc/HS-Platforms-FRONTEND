@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import Link from "next/link";
 import { css } from "@emotion/react";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
-import { AiFillStar } from "react-icons/ai";
+import { BsFillStarFill } from "react-icons/bs";
 import { categoryHelper } from "src/services/helper/categoryHelper";
 
 const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
@@ -32,7 +32,7 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 					lineHeight={1.2}
 					ellipsis
 				>
-					{data.name}
+					{data.title}
 				</HsText>
 				<HsContainer
 					borderBottom={"1px solid rgba(34,34,34,.05)"}
@@ -40,7 +40,7 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 					margin="0 0 12px 0"
 				>
 					<HsText fontWeight={500} fontSize={"1.1rem"}>
-						내 손안의 수의사 소환 !
+						{data.subTitle}
 					</HsText>
 				</HsContainer>
 				<HsContainer
@@ -51,15 +51,10 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 					<HsText color={"#555555"} fontSize={"0.9rem"}>
 						{categoryHelper(data.category)}
 					</HsText>
-					<HsContainer display={"flex"}>
-						<AiFillStar size={20} />
-						<HsText
-							lineHeight={0.9}
-							margin="0 0 0 3px"
-							fontWeight={500}
-							fontSize={"1.2	rem"}
-						>
-							4.0
+					<HsContainer display={"flex"} alignItems="center">
+						<BsFillStarFill size={20} />
+						<HsText margin="0 0 0 3px" fontWeight={500} fontSize={"1.2	rem"}>
+							{data.reviewScore.toFixed(1)}
 						</HsText>
 					</HsContainer>
 				</HsContainer>

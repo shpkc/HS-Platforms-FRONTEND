@@ -9,7 +9,7 @@ const ProductInfo = ({ data }) => {
 		<HsContainer width={[, "384px"]}>
 			<HsContainer display={["block", "none"]}>
 				<HsText variant="h3" margin="0 0 15px 0">
-					{data.title}
+					{data.name}
 				</HsText>
 				<HsContainer
 					display={"flex"}
@@ -22,7 +22,7 @@ const ProductInfo = ({ data }) => {
 						padding="5px 12px"
 					>
 						<HsText fontWeight={500} fontSize={"0.7rem"} margin="3px 0 0 0">
-							{data.category}
+							{categoryHelper(data.category)}
 						</HsText>
 					</HsContainer>
 					<IoMdShare style={{ cursor: "pointer" }} size={24} />
@@ -67,10 +67,10 @@ const ProductInfo = ({ data }) => {
 				margin="0 0 10px 0"
 			>
 				<HsText color={"gray.gray20"} fontSize="0.9rem">
-					Owner
+					출시일
 				</HsText>
 				<HsText fontSize="0.9rem" fontWeight={500}>
-					{categoryHelper(data.category)}
+					{data.releaseDate}
 				</HsText>
 			</HsContainer>
 			<HsContainer
@@ -79,10 +79,10 @@ const ProductInfo = ({ data }) => {
 				margin="0 0 10px 0"
 			>
 				<HsText color={"gray.gray20"} fontSize="0.9rem">
-					Token ID
+					회사명
 				</HsText>
 				<HsText fontSize="0.9rem" fontWeight={500}>
-					{data.tokenId}
+					{data.companyName}
 				</HsText>
 			</HsContainer>
 			<HsContainer
@@ -91,10 +91,10 @@ const ProductInfo = ({ data }) => {
 				margin="0 0 10px 0"
 			>
 				<HsText color={"gray.gray20"} fontSize="0.9rem">
-					Token Standard
+					대표
 				</HsText>
 				<HsText fontSize="0.9rem" fontWeight={500}>
-					ERC-721
+					{data.companyCeoName}
 				</HsText>
 			</HsContainer>
 			<HsContainer
@@ -103,10 +103,16 @@ const ProductInfo = ({ data }) => {
 				margin="0 0 10px 0"
 			>
 				<HsText color={"gray.gray20"} fontSize="0.9rem">
-					Blockchain
+					홈페이지
 				</HsText>
 				<HsText fontSize="0.9rem" fontWeight={500}>
-					Ethereum
+					<a
+						href={data.homepage}
+						target="_blank"
+						style={{ textDecoration: "none", color: "black" }}
+					>
+						링크
+					</a>
 				</HsText>
 			</HsContainer>
 		</HsContainer>
