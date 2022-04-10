@@ -15,7 +15,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<HomeBanner data={data.banner} />
 			</HsContainer>
 			<HsContainer
-				width={[, "1200px"]}
+				width={[, "1100px"]}
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>
@@ -52,7 +52,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<HsContainer
 					display={[, "flex"]}
 					justifyContent="space-between"
-					margin={"0 0 100px 0"}
+					margin={["0 0 80px 0", "0 0 100px 0"]}
 				>
 					{data.recommendCollections.map(item => (
 						<CollectionItem data={item} key={item.id} />
@@ -61,7 +61,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<HsContainer
 					padding={["30px 6px", "50px 0"]}
 					backgroundColor="#F8F9FA"
-					margin={["0 0 50px 0", "0 0 100px 0"]}
+					margin={["0 0 80px 0", "0 0 100px 0"]}
 				>
 					<HsText
 						textAlign={"center"}
@@ -115,7 +115,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 							</HsContainer>
 						</Link>
 					</HsContainer>
-					<HsContainer display={"flex"} flexWrap={"wrap"}>
+					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
 						{data.bestProducts.map(item => (
 							<ProductItem data={item} key={item.id} />
 						))}

@@ -106,12 +106,8 @@ const ProductInfo = ({ data }) => {
 					홈페이지
 				</HsText>
 				<HsText fontSize="0.9rem" fontWeight={500}>
-					<a
-						href={data.homepage}
-						target="_blank"
-						style={{ textDecoration: "none", color: "black" }}
-					>
-						링크
+					<a href={data.homepage} target="_blank">
+						방문하기
 					</a>
 				</HsText>
 			</HsContainer>

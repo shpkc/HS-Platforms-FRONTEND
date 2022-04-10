@@ -9,8 +9,8 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/products/${data.id}`}>
 			<HsContainer
-				width={[, "290px"]}
-				margin={["0 0 50px 0", "0 13px 50px 0"]}
+				width={[, "260px"]}
+				margin={["0 0 50px 0", "0 20px 50px 0"]}
 				css={css`
 					:nth-child(4n) {
 						margin: 0 0 50px 0;
@@ -18,7 +18,7 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				`}
 				cursor="pointer"
 			>
-				<HsContainer height={[, "170px"]}>
+				<HsContainer height={["180px", "150px"]}>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/products/${data.id}/thumbnail.jpeg`}
 						borderRadius="4px"
@@ -27,8 +27,8 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				</HsContainer>
 				<HsText
 					fontWeight={"bold"}
-					fontSize={"1.3rem"}
-					margin="16px 0 12px 0"
+					fontSize={"1.1rem"}
+					margin="16px 0 8px 0"
 					lineHeight={1.2}
 					ellipsis
 				>
@@ -39,7 +39,7 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 					padding="0 0 12px 0"
 					margin="0 0 12px 0"
 				>
-					<HsText fontWeight={500} fontSize={"1.1rem"}>
+					<HsText fontWeight={500} fontSize="0.9rem">
 						{data.subTitle}
 					</HsText>
 				</HsContainer>

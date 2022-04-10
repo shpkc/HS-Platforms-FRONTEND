@@ -2,13 +2,14 @@ import { IoMdShare } from "react-icons/io";
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
-import { FaApple } from "react-icons/fa";
+import { FaApple, FaChrome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoLogoGooglePlaystore } from "react-icons/io5";
 
 // NOTE : Product's Platform Info
 const PlatformInfo = ({ data }) => {
 	return (
-		<HsContainer width={[, "720px"]}>
+		<HsContainer width={[, "650px"]}>
 			<HsContainer
 				display={["none", "flex"]}
 				justifyContent="space-between"
@@ -89,44 +90,111 @@ const PlatformInfo = ({ data }) => {
 					</HsContainer>
 				</HsContainer>
 				<HsContainer width={"100%"}>
-					<HsContainer>
-						<HsContainer
-							display={"flex"}
-							backgroundColor="rgb(251, 253, 255)"
-							borderBottom={"1px solid rgb(229, 232, 235)"}
-						>
-							<HsContainer
-								padding={"12px 20px"}
-								display="flex"
-								justifyContent={"space-between"}
-								alignItems="center"
-								width="100%"
-							>
-								<HsContainer display={"flex"} alignItems="center">
-									<FaApple size={24} />
-									<HsText margin={"0 0 0 8px"}>App Store</HsText>
-								</HsContainer>
-								<HsContainer display={"flex"} alignItems="center">
-									<HsText
-										fontSize={"0.9rem"}
-										fontWeight={500}
-										margin="0 3px 0 0"
-										color="gray.gray20"
+					{data.isAppStore && (
+						<a href={data.appStoreLink} target="_blank">
+							<HsContainer>
+								<HsContainer
+									display={"flex"}
+									backgroundColor="rgb(251, 253, 255)"
+									borderBottom={"1px solid rgb(229, 232, 235)"}
+								>
+									<HsContainer
+										padding={"12px 20px"}
+										display="flex"
+										justifyContent={"space-between"}
+										alignItems="center"
+										width="100%"
 									>
-										다운로드
-									</HsText>
-									<IoIosArrowForward />
+										<HsContainer display={"flex"} alignItems="center">
+											<FaApple size={24} />
+											<HsText margin={"0 0 0 8px"}>App Store</HsText>
+										</HsContainer>
+										<HsContainer display={"flex"} alignItems="center">
+											<HsText
+												fontSize={"0.9rem"}
+												fontWeight={500}
+												margin="0 3px 0 0"
+												color="gray.gray20"
+											>
+												다운로드
+											</HsText>
+											<IoIosArrowForward />
+										</HsContainer>
+									</HsContainer>
 								</HsContainer>
 							</HsContainer>
-						</HsContainer>
-					</HsContainer>
-					<HsContainer padding={"12px 20px"}>
-						<HsContainer display={"flex"}>
-							<HsContainer width={"20%"}>
-								<HsText>IOS</HsText>
+						</a>
+					)}
+					{data.isPlayStore && (
+						<a href={data.playStoreLink} target="_blank">
+							<HsContainer>
+								<HsContainer
+									display={"flex"}
+									backgroundColor="rgb(251, 253, 255)"
+									borderBottom={"1px solid rgb(229, 232, 235)"}
+								>
+									<HsContainer
+										padding={"12px 20px"}
+										display="flex"
+										justifyContent={"space-between"}
+										alignItems="center"
+										width="100%"
+									>
+										<HsContainer display={"flex"} alignItems="center">
+											<IoLogoGooglePlaystore size={24} />
+											<HsText margin={"0 0 0 8px"}>Play Store</HsText>
+										</HsContainer>
+										<HsContainer display={"flex"} alignItems="center">
+											<HsText
+												fontSize={"0.9rem"}
+												fontWeight={500}
+												margin="0 3px 0 0"
+												color="gray.gray20"
+											>
+												다운로드
+											</HsText>
+											<IoIosArrowForward />
+										</HsContainer>
+									</HsContainer>
+								</HsContainer>
 							</HsContainer>
-						</HsContainer>
-					</HsContainer>
+						</a>
+					)}
+					{data.isWebService && (
+						<a href={data.webServiceLink} target="_blank">
+							<HsContainer>
+								<HsContainer
+									display={"flex"}
+									backgroundColor="rgb(251, 253, 255)"
+									borderBottom={"1px solid rgb(229, 232, 235)"}
+								>
+									<HsContainer
+										padding={"12px 20px"}
+										display="flex"
+										justifyContent={"space-between"}
+										alignItems="center"
+										width="100%"
+									>
+										<HsContainer display={"flex"} alignItems="center">
+											<FaChrome size={24} />
+											<HsText margin={"0 0 0 8px"}>Web Service</HsText>
+										</HsContainer>
+										<HsContainer display={"flex"} alignItems="center">
+											<HsText
+												fontSize={"0.9rem"}
+												fontWeight={500}
+												margin="0 3px 0 0"
+												color="gray.gray20"
+											>
+												보러가기
+											</HsText>
+											<IoIosArrowForward />
+										</HsContainer>
+									</HsContainer>
+								</HsContainer>
+							</HsContainer>
+						</a>
+					)}
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>

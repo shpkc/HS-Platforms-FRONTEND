@@ -10,7 +10,7 @@ const BannerItem = ({ item }: { item: AxiosResponse["data"] }) => {
 					src={`${process.env.NEXT_PUBLIC_IMG_HOST}/collections/${item.id}/thumbnail.jpeg`}
 					objectFit={"cover"}
 				/>
-				<HsContainer width={[, "1200px"]} position={"relative"} margin="0 auto">
+				<HsContainer width={[, "1100px"]} position={"relative"} margin="0 auto">
 					<HsContainer
 						position={"absolute"}
 						left={[0, 0]}

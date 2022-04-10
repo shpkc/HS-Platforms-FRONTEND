@@ -6,13 +6,13 @@ const CollectionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/collections/${data.id}`}>
 			<HsContainer
-				width={[, "280px"]}
+				width={[, "260px"]}
 				border="1px solid rgb(229, 232, 235)"
 				borderRadius={"8px"}
 				cursor="pointer"
 				margin={["0 0 20px 0", "0"]}
 			>
-				<HsContainer height={["200px", "150px"]}>
+				<HsContainer height={["180px", "150px"]}>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/collections/${data.id}/thumbnail.jpeg`}
 						objectFit={"cover"}
