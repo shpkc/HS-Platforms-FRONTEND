@@ -1,4 +1,3 @@
-import { AiOutlinePicture } from "react-icons/ai";
 import { IoMdShare } from "react-icons/io";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 import { categoryHelper } from "src/services/helper/categoryHelper";
