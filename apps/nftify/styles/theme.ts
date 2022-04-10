@@ -1,6 +1,6 @@
 export default {
 	// NOTE : 1100px 기준으로 모바일, 데스크탑
-	breakpoints: ["1100px"],
+	breakpoints: ["1200px"],
 	colors: {
 		red: {
 			primary: "#E83E57",
