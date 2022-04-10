@@ -2,6 +2,8 @@ import { IoMdShare } from "react-icons/io";
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
+import { FaApple } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 // NOTE : Product's Platform Info
 const PlatformInfo = ({ data }) => {
@@ -82,74 +84,46 @@ const PlatformInfo = ({ data }) => {
 							fontWeight={500}
 							margin="0 0 0 10px"
 						>
-							Item Activity
+							서비스 플랫폼
 						</HsText>
 					</HsContainer>
 				</HsContainer>
-				<HsContainer width={"100%"} overflowX="auto">
+				<HsContainer width={"100%"}>
 					<HsContainer>
-						<HsContainer display={"flex"}>
+						<HsContainer
+							display={"flex"}
+							backgroundColor="rgb(251, 253, 255)"
+							borderBottom={"1px solid rgb(229, 232, 235)"}
+						>
 							<HsContainer
-								minWidth={["110px", "20%"]}
-								maxWidth={["110px", "20%"]}
-								borderBottom={"1px solid rgb(229, 232, 235)"}
-								backgroundColor="rgb(251, 253, 255)"
-								padding={["12px 20px", "12px 0"]}
+								padding={"12px 20px"}
+								display="flex"
+								justifyContent={"space-between"}
+								alignItems="center"
+								width="100%"
 							>
-								<HsText fontWeight={500} padding={[, "0 20px"]}>
-									Event
-								</HsText>
-							</HsContainer>
-							<HsContainer
-								minWidth={["110px", "20%"]}
-								maxWidth={["110px", "20%"]}
-								borderBottom={"1px solid rgb(229, 232, 235)"}
-								backgroundColor="rgb(251, 253, 255)"
-								padding={["12px 20px", "12px 0"]}
-							>
-								<HsText fontWeight={500} padding={[, "0 20px"]}>
-									Price
-								</HsText>
-							</HsContainer>
-							<HsContainer
-								minWidth={["110px", "20%"]}
-								maxWidth={["110px", "20%"]}
-								borderBottom={"1px solid rgb(229, 232, 235)"}
-								backgroundColor="rgb(251, 253, 255)"
-								padding={["12px 20px", "12px 0"]}
-							>
-								<HsText fontWeight={500} padding={[, "0 20px"]}>
-									From
-								</HsText>
-							</HsContainer>
-							<HsContainer
-								minWidth={["130px", "20%"]}
-								maxWidth={["130px", "20%"]}
-								borderBottom={"1px solid rgb(229, 232, 235)"}
-								backgroundColor="rgb(251, 253, 255)"
-								padding={["12px 20px", "12px 0"]}
-							>
-								<HsText fontWeight={500} padding={[, "0 20px"]}>
-									To
-								</HsText>
-							</HsContainer>
-							<HsContainer
-								minWidth={["130px", "20%"]}
-								maxWidth={["130px", "20%"]}
-								borderBottom={"1px solid rgb(229, 232, 235)"}
-								backgroundColor="rgb(251, 253, 255)"
-								padding={["12px 20px", "12px 0"]}
-							>
-								<HsText fontWeight={500} padding={[, "0 20px"]}>
-									Date
-								</HsText>
+								<HsContainer display={"flex"} alignItems="center">
+									<FaApple size={24} />
+									<HsText margin={"0 0 0 8px"}>App Store</HsText>
+								</HsContainer>
+								<HsContainer display={"flex"} alignItems="center">
+									<HsText
+										fontSize={"0.9rem"}
+										fontWeight={500}
+										margin="0 3px 0 0"
+										color="gray.gray20"
+									>
+										다운로드
+									</HsText>
+									<IoIosArrowForward />
+								</HsContainer>
 							</HsContainer>
 						</HsContainer>
 					</HsContainer>
 					<HsContainer padding={"12px 20px"}>
 						<HsContainer display={"flex"}>
 							<HsContainer width={"20%"}>
-								<HsText>Minted</HsText>
+								<HsText>IOS</HsText>
 							</HsContainer>
 						</HsContainer>
 					</HsContainer>

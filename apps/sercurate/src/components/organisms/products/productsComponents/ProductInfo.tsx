@@ -42,7 +42,7 @@ const ProductInfo = ({ data }) => {
 				color={"gray.gray30"}
 				lineHeight={1.4}
 				margin="0 0 50px 0"
-				fontSize={"1.1rem"}
+				fontSize={"0.9rem"}
 			>
 				{data.description}
 			</HsText>
