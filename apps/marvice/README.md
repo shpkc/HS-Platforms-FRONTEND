@@ -1,11 +1,7 @@
-<img src="https://i.imgur.com/dtck0ew.png"  width="100%" height="100%">
-
 <br/>
 
-# [NFTIFY](https://nftify.site/)
+# [MARVICE](https://sercurate-frontend.vercel.app/)
 
-> NFT Marketplace for all over the world
+> 서비스를 위한 서비스
 
 <br/>
-
-Various fields of NFT and Collection will be added.

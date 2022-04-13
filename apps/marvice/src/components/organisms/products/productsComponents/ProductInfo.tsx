@@ -9,7 +9,7 @@ const ProductInfo = ({ data }) => {
 		<HsContainer width={[, "384px"]}>
 			<HsContainer display={["block", "none"]}>
 				<HsText variant="h3" margin="0 0 15px 0">
-					{data.name}
+					{data.title}
 				</HsText>
 				<HsContainer
 					display={"flex"}
