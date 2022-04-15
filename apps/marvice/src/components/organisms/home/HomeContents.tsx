@@ -19,44 +19,50 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				margin={[, "0 auto"]}
 				padding={"0 16px"}
 			>
-				<HsContainer
-					margin="0 0 50px 0"
-					display={"flex"}
-					justifyContent="space-between"
-					alignItems={"center"}
-				>
-					<HsText variant="h4">추천 컬렉션</HsText>
-					<Link href={"/collections"}>
-						<HsContainer display={"flex"} alignItems="center" cursor="pointer">
-							<HsText
-								fontWeight={500}
-								margin="0 10px 0 0"
-								display={["none", "block"]}
-							>
-								전체 컬렉션
-							</HsText>
+				<HsContainer>
+					<HsContainer
+						margin="0 0 50px 0"
+						display={"flex"}
+						justifyContent="space-between"
+						alignItems={"center"}
+					>
+						<HsText variant="h4">추천 컬렉션</HsText>
+						<Link href={"/collections"}>
 							<HsContainer
-								width={"24px"}
-								height={"24px"}
-								borderRadius={"50%"}
-								display="flex"
-								alignItems={"center"}
-								justifyContent="center"
-								backgroundColor={"black"}
+								display={"flex"}
+								alignItems="center"
+								cursor="pointer"
 							>
-								<BsArrowRightShort size={24} color="white" />
+								<HsText
+									fontWeight={500}
+									margin="0 10px 0 0"
+									display={["none", "block"]}
+								>
+									전체 컬렉션
+								</HsText>
+								<HsContainer
+									width={"24px"}
+									height={"24px"}
+									borderRadius={"50%"}
+									display="flex"
+									alignItems={"center"}
+									justifyContent="center"
+									backgroundColor={"black"}
+								>
+									<BsArrowRightShort size={24} color="white" />
+								</HsContainer>
 							</HsContainer>
-						</HsContainer>
-					</Link>
-				</HsContainer>
-				<HsContainer
-					display={[, "flex"]}
-					justifyContent="space-between"
-					margin={["0 0 80px 0", "0 0 100px 0"]}
-				>
-					{data.recommendCollections.map(item => (
-						<CollectionItem data={item} key={item.id} />
-					))}
+						</Link>
+					</HsContainer>
+					<HsContainer
+						display={[, "flex"]}
+						justifyContent="space-between"
+						margin={["0 0 80px 0", "0 0 100px 0"]}
+					>
+						{data.recommendCollections.map(item => (
+							<CollectionItem data={item} key={item.id} />
+						))}
+					</HsContainer>
 				</HsContainer>
 				<HsContainer
 					padding={["30px 6px", "50px 0"]}
@@ -80,7 +86,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						마비스에서 당신만의 서비스를 찾아드릴게요
 					</HsText>
 				</HsContainer>
-				<HsContainer>
+				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
 					<HsContainer
 						margin="0 0 50px 0"
 						display={"flex"}
@@ -117,6 +123,47 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsContainer>
 					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
 						{data.bestProducts.map(item => (
+							<ProductItem data={item} key={item.id} />
+						))}
+					</HsContainer>
+				</HsContainer>
+				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
+					<HsContainer
+						margin="0 0 50px 0"
+						display={"flex"}
+						justifyContent="space-between"
+						alignItems={"center"}
+					>
+						<HsText variant="h4">새로 출시했어요</HsText>
+						<Link href={"/explore"}>
+							<HsContainer
+								display={"flex"}
+								alignItems="center"
+								cursor="pointer"
+							>
+								<HsText
+									fontWeight={500}
+									margin="0 10px 0 0"
+									display={["none", "block"]}
+								>
+									새로운 서비스
+								</HsText>
+								<HsContainer
+									width={"24px"}
+									height={"24px"}
+									borderRadius={"50%"}
+									display="flex"
+									alignItems={"center"}
+									justifyContent="center"
+									backgroundColor={"black"}
+								>
+									<BsArrowRightShort size={24} color="white" />
+								</HsContainer>
+							</HsContainer>
+						</Link>
+					</HsContainer>
+					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
+						{data.newProducts.map(item => (
 							<ProductItem data={item} key={item.id} />
 						))}
 					</HsContainer>
