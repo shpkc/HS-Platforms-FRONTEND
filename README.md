@@ -11,7 +11,7 @@
 ```
 ├── apps
 │   ├── nftify
-│   └── other projects
+│   └── marvice
 ├── libs
 │   ├── hs-core-ui
 │   └── other libraries
