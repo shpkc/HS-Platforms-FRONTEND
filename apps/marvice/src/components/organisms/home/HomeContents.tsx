@@ -75,7 +75,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1.2rem", "1.5rem"]}
 						margin="0 0 15px 0"
 					>
-						서비스를 위한 서비스, 마비스
+						서비스를 위한 서비스, MARVICE
 					</HsText>
 					<HsText
 						textAlign={"center"}
@@ -83,7 +83,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						마비스에서 당신만의 서비스를 찾아드릴게요
+						MARVICE에서 당신만의 서비스를 찾아드릴게요
 					</HsText>
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
@@ -126,6 +126,9 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 							<ProductItem data={item} key={item.id} />
 						))}
 					</HsContainer>
+				</HsContainer>
+				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
+					카테고리 자리
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
 					<HsContainer
