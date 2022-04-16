@@ -4,8 +4,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import HeaderAside from "./headerComponents/HeaderAside";
 import { IoSearch } from "react-icons/io5";
 import { MENU_LIST } from "src/constants/menu";
-import { MenuType } from "src/types/menu";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
+import { MENU_TYPE } from "src/types/menu";
 
 const Header = () => {
 	const [isAsideOpen, setIsAsideOpen] = React.useState(false);
@@ -40,14 +40,14 @@ const Header = () => {
 					</Link>
 					<HsContainer>
 						<HsContainer display={["none", "flex"]} alignItems="center">
-							{MENU_LIST.map((item: MenuType) => (
-								<Link href={item.url} key={item.name}>
+							{MENU_LIST.map((item: MENU_TYPE) => (
+								<Link href={item.link} key={item.id}>
 									<HsText
 										cursor="pointer"
 										margin={"0 20px 0 0"}
 										fontWeight={500}
 									>
-										{item.name}
+										{item.title}
 									</HsText>
 								</Link>
 							))}

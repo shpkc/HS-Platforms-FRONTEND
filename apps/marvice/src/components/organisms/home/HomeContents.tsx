@@ -1,11 +1,13 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import ProductItem from "../common/ProductItem";
+import ProductItem from "src/components/organisms/common/ProductItem";
 import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
-import CollectionItem from "../common/CollectionItem";
+import CollectionItem from "src/components/organisms/common/CollectionItem";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
+import { CATEGORY_LIST } from "src/constants/category";
+import { CATEGORY_TYPE } from "src/types/category";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	console.log(data);
@@ -65,8 +67,9 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsContainer>
 				</HsContainer>
 				<HsContainer
+					borderRadius={"4px"}
 					padding={["30px 6px", "50px 0"]}
-					backgroundColor="#F8F9FA"
+					backgroundColor="gray.gray50"
 					margin={["0 0 80px 0", "0 0 100px 0"]}
 				>
 					<HsText
@@ -128,7 +131,41 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsContainer>
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
-					카테고리 자리
+					<HsText variant="h4" margin={"0 0 50px 0"}>
+						인기 카테고리
+					</HsText>
+					<HsContainer
+						display={"flex"}
+						flexWrap={"wrap"}
+						justifyContent="space-between"
+					>
+						{CATEGORY_LIST.map((item: CATEGORY_TYPE) => (
+							<Link href={item.link} key={item.id}>
+								<HsContainer
+									width={["48%", "24%"]}
+									backgroundColor="gray.gray50"
+									padding="24px 0"
+									margin={"0 0 20px 0"}
+									cursor="pointer"
+								>
+									<HsText
+										textAlign={"center"}
+										margin="0 0 5px 0"
+										fontSize={"0.9rem"}
+									>
+										{item.subTitle}
+									</HsText>
+									<HsText
+										textAlign={"center"}
+										fontWeight="bold"
+										fontSize={"1.1rem"}
+									>
+										{item.title}
+									</HsText>
+								</HsContainer>
+							</Link>
+						))}
+					</HsContainer>
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
 					<HsContainer

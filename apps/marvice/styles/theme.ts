@@ -10,6 +10,7 @@ export default {
 			gray10: "#bdbdbd",
 			gray20: "#707a8a",
 			gray30: "#474d57",
+			gray50: "#f8f8f8",
 		},
 		purple: {
 			primary: "#6164ff",

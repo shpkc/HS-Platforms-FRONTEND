@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MENU_LIST } from "src/constants/menu";
-import { MenuType } from "src/types/menu";
+import { MENU_TYPE } from "src/types/menu";
 import { BsInstagram } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
@@ -48,19 +48,19 @@ const Footer = () => {
 						</HsContainer>
 					</HsContainer>
 					<HsContainer display={"flex"} margin="0 0 20px 0">
-						{MENU_LIST.map((item: MenuType) => (
-							<Link href={item.url} key={item.url}>
+						{MENU_LIST.map((item: MENU_TYPE) => (
+							<Link href={item.link} key={item.id}>
 								<HsText
 									color={"gray.gray10"}
 									margin="0 10px 0 0"
 									cursor="pointer"
 								>
-									{item.name}
+									{item.title}
 								</HsText>
 							</Link>
 						))}
 					</HsContainer>
-					<HsText color="white">© SERCURATE</HsText>
+					<HsText color="white">© MARVICE</HsText>
 				</HsContainer>
 			</HsContainer>
 		</footer>

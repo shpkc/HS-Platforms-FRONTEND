@@ -13,6 +13,12 @@ export const categoryHelper = (category: string) => {
 			return "부동산";
 		case category === "commerce":
 			return "커머스";
+		case category === "food":
+			return "미식";
+		case category === "car":
+			return "자동차";
+		case category === "sns":
+			return "SNS";
 		case category === "health":
 			return "건강";
 		default:

@@ -61,36 +61,6 @@ const HeaderAside = ({ close }: { close: () => void }) => {
 							Sign Up
 						</HsButton>
 					</HsContainer>
-					<HsContainer
-						display={"flex"}
-						margin="0 0 30px 0"
-						alignItems={"center"}
-					>
-						<IoStorefront size={18} />
-						<HsText
-							cursor="pointer"
-							fontWeight={500}
-							margin="0 0 0 10px"
-							fontSize={"1.2rem"}
-						>
-							Explore
-						</HsText>
-					</HsContainer>
-					<HsContainer
-						display={"flex"}
-						margin="0 0 30px 0"
-						alignItems={"center"}
-					>
-						<MdCollections size={18} />
-						<HsText
-							cursor="pointer"
-							fontWeight={500}
-							margin="0 0 0 10px"
-							fontSize={"1.2rem"}
-						>
-							Collections
-						</HsText>
-					</HsContainer>
 				</HsContainer>
 			</HsContainer>
 		</HsContainer>
