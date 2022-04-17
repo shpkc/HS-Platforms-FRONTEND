@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { RightToLeft } from "styles/animation";
-import { IoStorefront, IoClose } from "react-icons/io5";
-import { MdCollections } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
 import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
 
 const HeaderAside = ({ close }: { close: () => void }) => {

@@ -107,7 +107,9 @@ const PlatformInfo = ({ data }) => {
 									>
 										<HsContainer display={"flex"} alignItems="center">
 											<FaApple size={24} />
-											<HsText margin={"0 0 0 8px"}>App Store</HsText>
+											<HsText margin={"0 0 0 8px"} minWidth="100px">
+												App Store
+											</HsText>
 										</HsContainer>
 										<HsContainer display={"flex"} alignItems="center">
 											<HsText
@@ -142,7 +144,9 @@ const PlatformInfo = ({ data }) => {
 									>
 										<HsContainer display={"flex"} alignItems="center">
 											<IoLogoGooglePlaystore size={24} />
-											<HsText margin={"0 0 0 8px"}>Play Store</HsText>
+											<HsText margin={"0 0 0 8px"} minWidth="100px">
+												Play Store
+											</HsText>
 										</HsContainer>
 										<HsContainer display={"flex"} alignItems="center">
 											<HsText
@@ -177,7 +181,9 @@ const PlatformInfo = ({ data }) => {
 									>
 										<HsContainer display={"flex"} alignItems="center">
 											<FaChrome size={24} />
-											<HsText margin={"0 0 0 8px"}>Web Service</HsText>
+											<HsText margin={"0 0 0 8px"} minWidth="100px">
+												Web Service
+											</HsText>
 										</HsContainer>
 										<HsContainer display={"flex"} alignItems="center">
 											<HsText
