@@ -5,9 +5,17 @@ import { HsContainer, HsText, HsButton } from "@hs-platforms/hs-core-ui";
 import { FaApple, FaChrome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
+import { useMutate } from "src/hooks/query/mutate";
+import { productRate } from "src/apis/ProductsDomain";
 
 // NOTE : Product's Platform Info
 const PlatformInfo = ({ data }) => {
+	// NOTE : product 별점 rate
+	const { setter } = useMutate({
+		getFetch: productRate,
+		onSuccess: res => console.log(res),
+		refetch: "reviewReplies",
+	});
 	return (
 		<HsContainer width={[, "650px"]}>
 			<HsContainer
