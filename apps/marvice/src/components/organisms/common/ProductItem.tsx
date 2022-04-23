@@ -52,7 +52,7 @@ const ProductItem = ({ data }: { data: AxiosResponse["data"] }) => {
 						{categoryHelper(data.category)}
 					</HsText>
 					<HsContainer display={"flex"} alignItems="center">
-						<BsFillStarFill size={20} />
+						<BsFillStarFill size={18} />
 						<HsText margin="0 0 0 3px" fontWeight={500} fontSize={"1.2	rem"}>
 							{data.reviewScore.toFixed(1)}
 						</HsText>

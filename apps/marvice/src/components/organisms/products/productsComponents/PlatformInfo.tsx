@@ -6,16 +6,31 @@ import { FaApple, FaChrome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { useMutate } from "src/hooks/query/mutate";
+import { useRouter } from "next/router";
 import { productRate } from "src/apis/ProductsDomain";
+import { useState } from "react";
 
 // NOTE : Product's Platform Info
 const PlatformInfo = ({ data }) => {
+	const router = useRouter();
+	const { id } = router.query;
+
+	const [score, setScore] = useState<number>(0);
+
 	// NOTE : product 별점 rate
-	const { setter } = useMutate({
+	const { setter: rate } = useMutate({
 		getFetch: productRate,
 		onSuccess: res => console.log(res),
-		refetch: "reviewReplies",
+		refetch: `products${id}`,
 	});
+
+	// NOTE : 로그인 완성 시 로그인 처리
+	const onClickRate = () => {
+		rate({
+			id,
+			score,
+		});
+	};
 	return (
 		<HsContainer width={[, "650px"]}>
 			<HsContainer
@@ -74,6 +89,7 @@ const PlatformInfo = ({ data }) => {
 						borderRadius={"4px"}
 						backgroundColor="black"
 						color="white"
+						onClick={onClickRate}
 					>
 						평가하기
 					</HsButton>
