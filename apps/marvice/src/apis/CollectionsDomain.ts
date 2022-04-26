@@ -1,5 +1,5 @@
 import React from "react";
-import { PRODUCTS_API } from "src/constants/api";
+import { COLLECTIONS_API, PRODUCTS_API } from "src/constants/api";
 import { queryParams } from "src/helper/queryParamHelper";
 import { getMethod } from "src/hooks/apiMethod/getMethod";
 import { post } from "src/hooks/apiMethod/post";
@@ -8,7 +8,7 @@ import { infiniteScrollMapper } from "src/services/mapper/infiniteScrollMapper";
 // NOTE : infinite scroll get products
 export const getCollections = ({ pageParam = 1 }: { pageParam?: number }) =>
 	getMethod({
-		url: queryParams(PRODUCTS_API, [
+		url: queryParams(COLLECTIONS_API, [
 			["page", `${pageParam}`],
 			["perPage", "20"],
 		]),

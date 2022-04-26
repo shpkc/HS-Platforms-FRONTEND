@@ -1,15 +1,23 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
-import { useFetch, usePreFetch } from "src/hooks/query/fetch";
+import {
+	useFetch,
+	useFetchInfinite,
+	usePreFetch,
+	usePreFetchInfinite,
+} from "src/hooks/query/fetch";
 import { getMain } from "src/apis/ProductsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import HomeContents from "src/components/organisms/home/HomeContents";
-import MainSkeleton from "src/components/organisms/skeleton/MainSkeleton";
+import { getCollections } from "src/apis/CollectionsDomain";
+import CollectionsContents from "src/components/organisms/collections/CollectionsContents";
 
 const Index = () => {
-	const { data, isFetching } = useFetch("main", () => getMain());
+	const { data, isFetching, fetchNextPage } = useFetchInfinite(
+		"collections",
+		() => getCollections({ pageParam: 1 })
+	);
 	if (isFetching) {
-		return <MainSkeleton />;
+		return <div />;
 	}
 	return (
 		<LayoutTemplate
@@ -18,13 +26,13 @@ const Index = () => {
 				description: "서비스를 위한 서비스",
 			}}
 		>
-			<HomeContents data={data} />
+			<CollectionsContents data={data} nextPage={fetchNextPage} />
 		</LayoutTemplate>
 	);
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-	const queryClient = await usePreFetch("main", () => getMain());
+	const queryClient = await usePreFetchInfinite("main", () => getMain());
 
 	return {
 		revalidate: 10,
