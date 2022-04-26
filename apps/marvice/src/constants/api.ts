@@ -8,5 +8,8 @@ export const BASE_URL = process.env.NEXT_PUBLIC_API_HOST;
 // NOTE :이미지 호스트
 export const IMG_URL = process.env.IMG_HOST;
 
-// NOTE : base api
+// NOTE : products api
 export const PRODUCTS_API = `${BASE_URL}/products`;
+
+// NOTE : collections api
+export const COLLECTIONS_API = `${BASE_URL}/collections`;
