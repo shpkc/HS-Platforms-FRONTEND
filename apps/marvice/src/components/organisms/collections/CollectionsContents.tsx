@@ -30,9 +30,9 @@ const CollectionsContents = ({
 				>
 					컬렉션
 				</HsText>
-				<HsText>취향에 맞는 컬렉션을 살펴보세요</HsText>
+				<HsText margin={"0 0 50px 0"}>취향에 맞는 컬렉션을 살펴보세요</HsText>
 				<InfiniteScrollTemplate query="collections" nextPage={nextPage}>
-					<HsContainer>
+					<HsContainer display={[, "flex"]} justifyContent="space-between">
 						{data?.pages
 							.map((item: AxiosResponse["data"]) => item.data)
 							.flat()
