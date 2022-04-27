@@ -10,7 +10,7 @@ const CollectionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				border="1px solid rgb(229, 232, 235)"
 				borderRadius={"8px"}
 				cursor="pointer"
-				margin={["0 0 20px 0", "0"]}
+				margin={"0 0 20px 0"}
 			>
 				<HsContainer height={["180px", "150px"]}>
 					<HsImage
