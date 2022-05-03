@@ -19,7 +19,7 @@ const Footer = () => {
 						justifyContent={[, "space-between"]}
 					>
 						<HsText color={"white"} variant="h4" margin={"0 0 20px 0"}>
-							MARVICE
+							EVENTRIA
 						</HsText>
 						<HsContainer
 							margin={"0 0 20px 0"}

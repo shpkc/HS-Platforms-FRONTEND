@@ -96,7 +96,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						justifyContent="space-between"
 						alignItems={"center"}
 					>
-						<HsText variant="h4">BEST 서비스</HsText>
+						<HsText variant="h4">BEST 전시회</HsText>
 						<Link href={"/explore"}>
 							<HsContainer
 								display={"flex"}

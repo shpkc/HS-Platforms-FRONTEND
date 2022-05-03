@@ -18,7 +18,7 @@ const LayoutTemplate = ({
 	return (
 		<>
 			<NextSeo
-				title={`${seo.title} | MARVICE`}
+				title={`${seo.title} | EVENTRIA`}
 				description={seo.description}
 				openGraph={{
 					type: "website",

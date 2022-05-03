@@ -35,7 +35,7 @@ const Header = () => {
 				>
 					<Link href={"/"}>
 						<HsText variant={"h4"} cursor={"pointer"}>
-							MARVICE
+							EVENTRIA
 						</HsText>
 					</Link>
 					<HsContainer>
