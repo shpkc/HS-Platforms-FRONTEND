@@ -14,7 +14,7 @@ const CollectionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 			>
 				<HsContainer height={["180px", "150px"]}>
 					<HsImage
-						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/exhibitions/${data.id}/thumbnail.jpeg`}
+						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/collections/${data.id}/thumbnail.jpeg`}
 						objectFit={"cover"}
 						borderTopLeftRadius={"8px"}
 						borderTopRightRadius={"8px"}

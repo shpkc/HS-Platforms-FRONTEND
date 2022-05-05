@@ -22,48 +22,50 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				padding={"0 16px"}
 			>
 				<HsContainer>
-					<HsContainer
-						margin="0 0 50px 0"
-						display={"flex"}
-						justifyContent="space-between"
-						alignItems={"center"}
-					>
-						<HsText variant="h4">추천 컬렉션</HsText>
-						<Link href={"/collections"}>
-							<HsContainer
-								display={"flex"}
-								alignItems="center"
-								cursor="pointer"
-							>
-								<HsText
-									fontWeight={500}
-									margin="0 10px 0 0"
-									display={["none", "block"]}
-								>
-									전체 컬렉션
-								</HsText>
+					<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
+						<HsContainer
+							margin="0 0 50px 0"
+							display={"flex"}
+							justifyContent="space-between"
+							alignItems={"center"}
+						>
+							<HsText variant="h4">BEST 전시회</HsText>
+							<Link href={"/explore"}>
 								<HsContainer
-									width={"24px"}
-									height={"24px"}
-									borderRadius={"50%"}
-									display="flex"
-									alignItems={"center"}
-									justifyContent="center"
-									backgroundColor={"black"}
+									display={"flex"}
+									alignItems="center"
+									cursor="pointer"
 								>
-									<BsArrowRightShort size={24} color="white" />
+									<HsText
+										fontWeight={500}
+										margin="0 10px 0 0"
+										display={["none", "block"]}
+									>
+										전체 전시회
+									</HsText>
+									<HsContainer
+										width={"24px"}
+										height={"24px"}
+										borderRadius={"50%"}
+										display="flex"
+										alignItems={"center"}
+										justifyContent="center"
+										backgroundColor={"black"}
+									>
+										<BsArrowRightShort size={24} color="white" />
+									</HsContainer>
 								</HsContainer>
-							</HsContainer>
-						</Link>
-					</HsContainer>
-					<HsContainer
-						display={[, "flex"]}
-						justifyContent="space-between"
-						margin={["0 0 80px 0", "0 0 100px 0"]}
-					>
-						{data.recommendCollections.map(item => (
-							<CollectionItem data={item} key={item.id} />
-						))}
+							</Link>
+						</HsContainer>
+						<HsContainer
+							display={"flex"}
+							flexWrap={"wrap"}
+							justifyContent="space-between"
+						>
+							{data.bestExhibitions.map(item => (
+								<ExhibitionItem data={item} key={item.id} />
+							))}
+						</HsContainer>
 					</HsContainer>
 				</HsContainer>
 				<HsContainer
@@ -78,7 +80,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1.2rem", "1.5rem"]}
 						margin="0 0 15px 0"
 					>
-						서비스를 위한 서비스, MARVICE
+						전시회 플랫폼 EVENTRIA
 					</HsText>
 					<HsText
 						textAlign={"center"}
@@ -86,87 +88,10 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						MARVICE에서 당신만의 서비스를 찾아드릴게요
+						EVENTRIA에서 당신만의 전시회를 찾아보세요
 					</HsText>
 				</HsContainer>
-				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
-					<HsContainer
-						margin="0 0 50px 0"
-						display={"flex"}
-						justifyContent="space-between"
-						alignItems={"center"}
-					>
-						<HsText variant="h4">BEST 전시회</HsText>
-						<Link href={"/explore"}>
-							<HsContainer
-								display={"flex"}
-								alignItems="center"
-								cursor="pointer"
-							>
-								<HsText
-									fontWeight={500}
-									margin="0 10px 0 0"
-									display={["none", "block"]}
-								>
-									전체 서비스
-								</HsText>
-								<HsContainer
-									width={"24px"}
-									height={"24px"}
-									borderRadius={"50%"}
-									display="flex"
-									alignItems={"center"}
-									justifyContent="center"
-									backgroundColor={"black"}
-								>
-									<BsArrowRightShort size={24} color="white" />
-								</HsContainer>
-							</HsContainer>
-						</Link>
-					</HsContainer>
-					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
-						{data.bestExhibitions.map(item => (
-							<ExhibitionItem data={item} key={item.id} />
-						))}
-					</HsContainer>
-				</HsContainer>
-				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
-					<HsText variant="h4" margin={"0 0 50px 0"}>
-						인기 카테고리
-					</HsText>
-					<HsContainer
-						display={"flex"}
-						flexWrap={"wrap"}
-						justifyContent="space-between"
-					>
-						{CATEGORY_LIST.map((item: CATEGORY_TYPE) => (
-							<Link href={item.link} key={item.id}>
-								<HsContainer
-									width={["48%", "24%"]}
-									backgroundColor="gray.gray50"
-									padding="24px 0"
-									margin={"0 0 20px 0"}
-									cursor="pointer"
-								>
-									<HsText
-										textAlign={"center"}
-										margin="0 0 5px 0"
-										fontSize={"0.9rem"}
-									>
-										{item.subTitle}
-									</HsText>
-									<HsText
-										textAlign={"center"}
-										fontWeight="bold"
-										fontSize={"1.1rem"}
-									>
-										{item.title}
-									</HsText>
-								</HsContainer>
-							</Link>
-						))}
-					</HsContainer>
-				</HsContainer>
+
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
 					<HsContainer
 						margin="0 0 50px 0"
@@ -205,6 +130,43 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
 						{data.newExhibitions.map(item => (
 							<ExhibitionItem data={item} key={item.id} />
+						))}
+					</HsContainer>
+				</HsContainer>
+				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
+					<HsText variant="h4" margin={"0 0 50px 0"}>
+						인기 카테고리
+					</HsText>
+					<HsContainer
+						display={"flex"}
+						flexWrap={"wrap"}
+						justifyContent="space-between"
+					>
+						{CATEGORY_LIST.map((item: CATEGORY_TYPE) => (
+							<Link href={item.link} key={item.id}>
+								<HsContainer
+									width={["48%", "24%"]}
+									backgroundColor="gray.gray50"
+									padding="24px 0"
+									margin={"0 0 20px 0"}
+									cursor="pointer"
+								>
+									<HsText
+										textAlign={"center"}
+										margin="0 0 5px 0"
+										fontSize={"0.9rem"}
+									>
+										{item.subTitle}
+									</HsText>
+									<HsText
+										textAlign={"center"}
+										fontWeight="bold"
+										fontSize={"1.1rem"}
+									>
+										{item.title}
+									</HsText>
+								</HsContainer>
+							</Link>
 						))}
 					</HsContainer>
 				</HsContainer>

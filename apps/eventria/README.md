@@ -1,7 +1,7 @@
 <br/>
 
-# [MARVICE](https://marvice.vercel.app/)
+# [EVENTRIA](https://eventria.vercel.app/)
 
-> 서비스를 위한 서비스, MARVICE
+> 전시회 플랫폼 EVENTRIA
 
 <br/>

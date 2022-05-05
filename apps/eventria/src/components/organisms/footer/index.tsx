@@ -60,7 +60,7 @@ const Footer = () => {
 							</Link>
 						))}
 					</HsContainer>
-					<HsText color="white">© MARVICE</HsText>
+					<HsText color="white">© EVENTRIA</HsText>
 				</HsContainer>
 			</HsContainer>
 		</footer>

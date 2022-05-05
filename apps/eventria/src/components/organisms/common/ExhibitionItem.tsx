@@ -9,7 +9,7 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
 		<Link href={`/exhibitions/${data.id}`}>
 			<HsContainer
-				width={[, "260px"]}
+				width={["48%", "260px"]}
 				margin={["0 0 50px 0", "0 20px 50px 0"]}
 				css={css`
 					:nth-child(4n) {
@@ -18,7 +18,7 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				`}
 				cursor="pointer"
 			>
-				<HsContainer height={["180px", "320px"]}>
+				<HsContainer height={["auto", "320px"]}>
 					<HsImage
 						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/exhibitions/${data.id}/thumbnail.jpeg`}
 						borderRadius="4px"
@@ -56,11 +56,11 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				</HsText>
 				<HsContainer display={"flex"} alignItems="center">
 					<AiFillHeart size={14} />
-					<HsText margin={"0 3px"} lineHeight={0.9}>
+					<HsText margin={"0 3px"} lineHeight={0.9} fontSize="0.9rem">
 						0
 					</HsText>
 					<AiFillStar size={16} />
-					<HsText margin={"0 3px"} lineHeight={0.9}>
+					<HsText margin={"0 3px"} lineHeight={0.9} fontSize="0.9rem">
 						{data.reviewScore.toFixed(1)}
 					</HsText>
 				</HsContainer>
