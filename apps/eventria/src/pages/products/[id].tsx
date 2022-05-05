@@ -5,7 +5,7 @@ import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import {
 	getAllProductsId,
 	getProductsDetailById,
-} from "src/apis/ProductsDomain";
+} from "src/apis/ExhibitionsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import ProductsSkeleton from "src/components/organisms/skeleton/ProductsSkeleton";
 

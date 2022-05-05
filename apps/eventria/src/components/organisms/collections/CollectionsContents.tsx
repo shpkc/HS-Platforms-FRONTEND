@@ -1,6 +1,6 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import ProductItem from "src/components/organisms/common/ProductItem";
+import ProductItem from "src/components/organisms/common/ExhibitionItem";
 import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";

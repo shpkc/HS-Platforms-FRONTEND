@@ -7,7 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { useMutate } from "src/hooks/query/mutate";
 import { useRouter } from "next/router";
-import { productRate } from "src/apis/ProductsDomain";
+import { productRate } from "src/apis/ExhibitionsDomain";
 import { useState } from "react";
 
 // NOTE : Product's Platform Info

@@ -1,6 +1,6 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import ProductItem from "src/components/organisms/common/ProductItem";
+import ExhibitionItem from "src/components/organisms/common/ExhibitionItem";
 import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
@@ -125,8 +125,8 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						</Link>
 					</HsContainer>
 					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
-						{data.bestProducts.map(item => (
-							<ProductItem data={item} key={item.id} />
+						{data.bestExhibitions.map(item => (
+							<ExhibitionItem data={item} key={item.id} />
 						))}
 					</HsContainer>
 				</HsContainer>
@@ -174,7 +174,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						justifyContent="space-between"
 						alignItems={"center"}
 					>
-						<HsText variant="h4">새로 출시했어요</HsText>
+						<HsText variant="h4">새로 시작했어요</HsText>
 						<Link href={"/explore"}>
 							<HsContainer
 								display={"flex"}
@@ -186,7 +186,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 									margin="0 10px 0 0"
 									display={["none", "block"]}
 								>
-									새로운 서비스
+									새로운 전시회
 								</HsText>
 								<HsContainer
 									width={"24px"}
@@ -203,8 +203,8 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						</Link>
 					</HsContainer>
 					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
-						{data.newProducts.map(item => (
-							<ProductItem data={item} key={item.id} />
+						{data.newExhibitions.map(item => (
+							<ExhibitionItem data={item} key={item.id} />
 						))}
 					</HsContainer>
 				</HsContainer>

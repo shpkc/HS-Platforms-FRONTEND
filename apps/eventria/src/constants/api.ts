@@ -9,7 +9,7 @@ export const BASE_URL = process.env.NEXT_PUBLIC_API_HOST;
 export const IMG_URL = process.env.IMG_HOST;
 
 // NOTE : products api
-export const PRODUCTS_API = `${BASE_URL}/products`;
+export const EXHIBITIONS_API = `${BASE_URL}/exhibitions`;
 
 // NOTE : collections api
 export const COLLECTIONS_API = `${BASE_URL}/collections`;
