@@ -17,7 +17,7 @@ const CourtItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				`}
 				cursor="pointer"
 			>
-				<HsContainer height={["auto", "187px"]}>
+				<HsContainer height={["34vw", "187px"]}>
 					<HsImage
 						src={
 							data.isThumbnail

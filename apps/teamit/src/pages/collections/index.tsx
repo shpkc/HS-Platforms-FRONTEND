@@ -23,7 +23,7 @@ const Index = () => {
 		<LayoutTemplate
 			seo={{
 				title: "컬렉션",
-				description: "서비스를 위한 서비스",
+				description: "테니스 플랫폼",
 			}}
 		>
 			<CollectionsContents data={data} nextPage={fetchNextPage} />

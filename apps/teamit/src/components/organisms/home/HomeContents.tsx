@@ -80,7 +80,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1.2rem", "1.5rem"]}
 						margin="0 0 15px 0"
 					>
-						전시회 플랫폼 TEAMIT
+						테니스 플랫폼 TEAMIT
 					</HsText>
 					<HsText
 						textAlign={"center"}
@@ -88,7 +88,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						TEAMIT에서 당신만의 전시회를 찾아보세요
+						TEAMIT에서 당신만의 테니스 코트를 찾아보세요
 					</HsText>
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
