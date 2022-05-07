@@ -35,7 +35,7 @@ const Header = () => {
 				>
 					<Link href={"/"}>
 						<HsText variant={"h4"} cursor={"pointer"}>
-							EVENTRIA
+							TEAMIT
 						</HsText>
 					</Link>
 					<HsContainer>

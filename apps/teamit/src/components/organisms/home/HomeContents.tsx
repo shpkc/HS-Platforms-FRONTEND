@@ -80,7 +80,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1.2rem", "1.5rem"]}
 						margin="0 0 15px 0"
 					>
-						전시회 플랫폼 EVENTRIA
+						전시회 플랫폼 TEAMIT
 					</HsText>
 					<HsText
 						textAlign={"center"}
@@ -88,7 +88,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={["1rem", "1.5rem"]}
 						lineHeight={"20px"}
 					>
-						EVENTRIA에서 당신만의 전시회를 찾아보세요
+						TEAMIT에서 당신만의 전시회를 찾아보세요
 					</HsText>
 				</HsContainer>
 
@@ -143,7 +143,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 						justifyContent="space-between"
 					>
 						{CATEGORY_LIST.map((item: CATEGORY_TYPE) => (
-							<Link href={item.link} key={item.id}>
+							<Link href={`/category/${item.category}`} key={item.id}>
 								<HsContainer
 									width={["48%", "24%"]}
 									backgroundColor="gray.gray50"

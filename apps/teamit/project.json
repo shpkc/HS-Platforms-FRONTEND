@@ -1,6 +1,6 @@
 {
-	"root": "apps/eventria",
-	"sourceRoot": "apps/eventria",
+	"root": "apps/teamit",
+	"sourceRoot": "apps/teamit",
 	"projectType": "application",
 	"targets": {
 		"build": {
@@ -8,8 +8,8 @@
 			"outputs": ["{options.outputPath}"],
 			"defaultConfiguration": "production",
 			"options": {
-				"root": "apps/eventria",
-				"outputPath": "dist/apps/eventria"
+				"root": "apps/teamit",
+				"outputPath": "dist/apps/teamit"
 			},
 			"configurations": {
 				"production": {}
@@ -18,12 +18,12 @@
 		"serve": {
 			"executor": "@nrwl/next:server",
 			"options": {
-				"buildTarget": "eventria:build",
+				"buildTarget": "teamit:build",
 				"dev": true
 			},
 			"configurations": {
 				"production": {
-					"buildTarget": "eventria:build:production",
+					"buildTarget": "teamit:build:production",
 					"dev": false
 				}
 			}
@@ -31,12 +31,12 @@
 		"export": {
 			"executor": "@nrwl/next:export",
 			"options": {
-				"buildTarget": "eventria:build:production"
+				"buildTarget": "teamit:build:production"
 			}
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/apps/eventria"],
+			"outputs": ["coverage/apps/teamit"],
 			"options": {
 				"jestConfig": "apps/marvice/jest.config.js",
 				"passWithNoTests": true
