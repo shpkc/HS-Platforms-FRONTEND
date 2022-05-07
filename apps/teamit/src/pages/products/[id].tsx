@@ -2,10 +2,7 @@ import { GetStaticPaths } from "next";
 import { dehydrate } from "react-query";
 import ProductsContents from "src/components/organisms/products/ProductsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
-import {
-	getAllProductsId,
-	getProductsDetailById,
-} from "src/apis/ExhibitionsDomain";
+import { getAllProductsId, getProductsDetailById } from "src/apis/CourtsDomain";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import ProductsSkeleton from "src/components/organisms/skeleton/ProductsSkeleton";
 

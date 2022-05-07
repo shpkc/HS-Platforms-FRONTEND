@@ -7,7 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { useMutate } from "src/hooks/query/mutate";
 import { useRouter } from "next/router";
-import { productRate } from "src/apis/ExhibitionsDomain";
+import { courtsRate } from "src/apis/CourtsDomain";
 import { useState } from "react";
 
 // NOTE : Product's Platform Info
@@ -19,7 +19,7 @@ const PlatformInfo = ({ data }) => {
 
 	// NOTE : product 별점 rate
 	const { setter: rate } = useMutate({
-		getFetch: productRate,
+		getFetch: courtsRate,
 		onSuccess: res => console.log(res),
 		refetch: `products${id}`,
 	});

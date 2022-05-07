@@ -3,11 +3,10 @@ import Link from "next/link";
 import { css } from "@emotion/react";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
-import { categoryHelper } from "src/services/helper/categoryHelper";
 
-const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
+const CourtItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
-		<Link href={`/exhibitions/${data.id}`}>
+		<Link href={`/courts/${data.id}`}>
 			<HsContainer
 				width={["48%", "260px"]}
 				margin={["0 0 50px 0", "0 20px 50px 0"]}
@@ -18,9 +17,13 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 				`}
 				cursor="pointer"
 			>
-				<HsContainer height={["auto", "320px"]}>
+				<HsContainer height={["auto", "187px"]}>
 					<HsImage
-						src={`${process.env.NEXT_PUBLIC_IMG_HOST}/exhibitions/${data.id}/thumbnail.jpeg`}
+						src={
+							data.isThumbnail
+								? `${process.env.NEXT_PUBLIC_IMG_HOST}/courts/${data.id}/thumbnail.jpeg`
+								: "static/images/court_default.jpeg"
+						}
 						borderRadius="4px"
 					/>
 				</HsContainer>
@@ -33,27 +36,41 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 						fontSize={"1.1rem"}
 						margin="16px 0 8px 0"
 						lineHeight={1.3}
-						height={"47px"}
+						ellipsis
 					>
-						{data.title}
+						{data.name}
 					</HsText>
 				</HsContainer>
-				<HsText
-					color={"#19316e"}
-					fontSize={"0.9rem"}
-					fontWeight="500"
-					margin={"0 0 5px 0"}
-				>
-					{data.location}
+				<HsText fontSize={"0.9rem"} fontWeight="500" margin={"0 0 6px 0"}>
+					{data.city}
 				</HsText>
 				<HsText
-					color={"#888888"}
+					color={"gray.primary"}
 					fontSize={"0.9rem"}
 					fontWeight="500"
-					margin="0 0 10px 0"
+					margin="0 0 6px 0"
 				>
-					{data.duration}
+					{data.courtType} | {data.numberOfCourts}
 				</HsText>
+				{data.isOnlineReservation ? (
+					<HsText
+						fontSize={"0.9rem"}
+						fontWeight={"500"}
+						color={"#19316e"}
+						margin={"0 0 10px 0"}
+					>
+						{data.reservation}
+					</HsText>
+				) : (
+					<HsText
+						fontSize={"0.9rem"}
+						fontWeight={"500"}
+						color={"#19316e"}
+						margin={"0 0 10px 0"}
+					>
+						{data.reservation}
+					</HsText>
+				)}
 				<HsContainer display={"flex"} alignItems="center">
 					<AiFillHeart size={14} />
 					<HsText margin={"0 3px"} lineHeight={0.9} fontSize="0.9rem">
@@ -61,7 +78,7 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 					</HsText>
 					<AiFillStar size={16} />
 					<HsText margin={"0 3px"} lineHeight={0.9} fontSize="0.9rem">
-						{data.reviewScore.toFixed(1)}
+						5.0
 					</HsText>
 				</HsContainer>
 			</HsContainer>
@@ -69,4 +86,4 @@ const ExhibitionItem = ({ data }: { data: AxiosResponse["data"] }) => {
 	);
 };
 
-export default ExhibitionItem;
+export default CourtItem;

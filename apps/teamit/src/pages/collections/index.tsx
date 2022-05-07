@@ -6,7 +6,7 @@ import {
 	usePreFetch,
 	usePreFetchInfinite,
 } from "src/hooks/query/fetch";
-import { getMain } from "src/apis/ExhibitionsDomain";
+import { getMain } from "src/apis/CourtsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { getCollections } from "src/apis/CollectionsDomain";
 import CollectionsContents from "src/components/organisms/collections/CollectionsContents";

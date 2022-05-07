@@ -1,6 +1,6 @@
 import React from "react";
 import { AxiosResponse } from "axios";
-import ExhibitionItem from "src/components/organisms/common/ExhibitionItem";
+import ExhibitionItem from "src/components/organisms/common/CourtItem";
 import { BsArrowRightShort } from "react-icons/bs";
 import Link from "next/link";
 import HomeBanner from "src/components/organisms/home/homeComponents/HomeBanner";
@@ -29,7 +29,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 							justifyContent="space-between"
 							alignItems={"center"}
 						>
-							<HsText variant="h4">BEST 전시회</HsText>
+							<HsText variant="h4">BEST 코트</HsText>
 							<Link href={"/explore"}>
 								<HsContainer
 									display={"flex"}
@@ -41,7 +41,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 										margin="0 10px 0 0"
 										display={["none", "block"]}
 									>
-										전체 전시회
+										전체 코트
 									</HsText>
 									<HsContainer
 										width={"24px"}
@@ -62,7 +62,7 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 							flexWrap={"wrap"}
 							justifyContent="space-between"
 						>
-							{data.bestExhibitions.map(item => (
+							{data.bestCourts.map(item => (
 								<ExhibitionItem data={item} key={item.id} />
 							))}
 						</HsContainer>
@@ -90,48 +90,6 @@ const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 					>
 						TEAMIT에서 당신만의 전시회를 찾아보세요
 					</HsText>
-				</HsContainer>
-
-				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
-					<HsContainer
-						margin="0 0 50px 0"
-						display={"flex"}
-						justifyContent="space-between"
-						alignItems={"center"}
-					>
-						<HsText variant="h4">새로 시작했어요</HsText>
-						<Link href={"/explore"}>
-							<HsContainer
-								display={"flex"}
-								alignItems="center"
-								cursor="pointer"
-							>
-								<HsText
-									fontWeight={500}
-									margin="0 10px 0 0"
-									display={["none", "block"]}
-								>
-									새로운 전시회
-								</HsText>
-								<HsContainer
-									width={"24px"}
-									height={"24px"}
-									borderRadius={"50%"}
-									display="flex"
-									alignItems={"center"}
-									justifyContent="center"
-									backgroundColor={"black"}
-								>
-									<BsArrowRightShort size={24} color="white" />
-								</HsContainer>
-							</HsContainer>
-						</Link>
-					</HsContainer>
-					<HsContainer display={[, "flex"]} flexWrap={"wrap"}>
-						{data.newExhibitions.map(item => (
-							<ExhibitionItem data={item} key={item.id} />
-						))}
-					</HsContainer>
 				</HsContainer>
 				<HsContainer margin={["0 0 80px 0", "0 0 100px 0"]}>
 					<HsText variant="h4" margin={"0 0 50px 0"}>

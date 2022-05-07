@@ -1,7 +1,7 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getMain } from "src/apis/ExhibitionsDomain";
+import { getMain } from "src/apis/CourtsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HomeContents from "src/components/organisms/home/HomeContents";
 import MainSkeleton from "src/components/organisms/skeleton/MainSkeleton";
