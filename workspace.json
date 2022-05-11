@@ -3,6 +3,7 @@
 	"projects": {
 		"hs-core-ui": "libs/hs-core-ui",
 		"nftify": "apps/nftify",
-		"teamit": "apps/teamit"
+		"teamit": "apps/teamit",
+		"blog": "apps/blog"
 	}
 }
