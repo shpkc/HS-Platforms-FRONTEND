@@ -5,10 +5,10 @@ import { IoSearch } from "react-icons/io5";
 import { MENU_LIST } from "src/constants/menu";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { useScroll } from "src/hooks/scroll/useScroll";
+import { css } from "@emotion/react";
 
 const Header = () => {
 	const { scrollY } = useScroll();
-	console.log(scrollY);
 	return (
 		<header>
 			<HsContainer
@@ -19,12 +19,18 @@ const Header = () => {
 				zIndex={1000}
 			>
 				<HsContainer
-					borderRadius={"4px"}
+					borderRadius={"8px"}
 					padding={"16px 24px"}
-					boxShadow={"0 1px 15px #d8d8d8"}
 					margin={"0 auto"}
 					maxWidth={"740px"}
-					backgroundColor={"hsla(0,0%,100%,.7)"}
+					transition={"all 0.4s"}
+					css={
+						scrollY > 0 &&
+						css`
+							background-color: hsla(0, 0%, 100%, 0.7);
+							box-shadow: 0 1px 15px #d8d8d8;
+						`
+					}
 				>
 					<HsContainer
 						display={"flex"}
