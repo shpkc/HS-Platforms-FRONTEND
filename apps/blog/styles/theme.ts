@@ -7,6 +7,7 @@ export default {
 		},
 		blue: {
 			blue10: "#5e67eb",
+			blue20: "#427EFA",
 		},
 		gray: {
 			primary: "#888888",

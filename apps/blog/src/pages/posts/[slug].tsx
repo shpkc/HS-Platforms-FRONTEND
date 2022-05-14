@@ -3,7 +3,7 @@ import { dehydrate } from "react-query";
 import PostsContents from "src/components/organisms/posts/PostsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import ProductsSkeleton from "src/components/organisms/skeleton/ProductsSkeleton";
+import ProductsSkeleton from "src/components/organisms/skeleton/Skeleton";
 import { getAllPostsSlug, getPostsBySlug } from "src/apis/PostsDomain";
 
 const Posts = ({ slug }: { slug: string }) => {

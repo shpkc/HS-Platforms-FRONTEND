@@ -1,15 +1,17 @@
 import { dehydrate } from "react-query";
 import { GetStaticProps } from "next";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getMain } from "src/apis/PostsDomain";
+import { getPosts } from "src/apis/PostsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HomeContents from "src/components/organisms/home/HomeContents";
-import MainSkeleton from "src/components/organisms/skeleton/MainSkeleton";
+import Skeleton from "src/components/organisms/skeleton/Skeleton";
 
 const Index = () => {
-	const { data, isFetching } = useFetch("main", () => getMain());
+	const { data, isFetching } = useFetch("posts", () =>
+		getPosts({ pageParam: 1 })
+	);
 	if (isFetching) {
-		return <MainSkeleton />;
+		return <Skeleton />;
 	}
 	return (
 		<LayoutTemplate
@@ -24,7 +26,9 @@ const Index = () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-	const queryClient = await usePreFetch("main", () => getMain());
+	const queryClient = await usePreFetch("posts", () =>
+		getPosts({ pageParam: 1 })
+	);
 
 	return {
 		revalidate: 10,

@@ -42,8 +42,23 @@ const Header = () => {
 							</HsText>
 						</Link>
 						<HsContainer display={"flex"} alignItems={"center"}>
+							<Link href={"/blog"}>
+								<HsText
+									cursor={"pointer"}
+									margin={"0 5px"}
+									color={"gray.gray20"}
+									fontWeight={"500"}
+								>
+									BLOG
+								</HsText>
+							</Link>
 							<Link href={"/about"}>
-								<HsText cursor={"pointer"} margin={"0 5px"}>
+								<HsText
+									cursor={"pointer"}
+									margin={"0 10px 0 5px"}
+									color={"gray.gray20"}
+									fontWeight={"500"}
+								>
 									ABOUT
 								</HsText>
 							</Link>
