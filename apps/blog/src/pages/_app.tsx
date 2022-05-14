@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<QueryClientProvider client={queryClient} contextSharing>
 				<Hydrate state={pageProps.dehydratedState}>
-					<HsContainer margin={"0 auto"} maxWidth={"740px"}>
+					<HsContainer margin={"0 auto"} maxWidth={"1024px"}>
 						<Component {...pageProps} />
 					</HsContainer>
 				</Hydrate>

@@ -1,7 +1,7 @@
 import { HsContainer } from "@hs-platforms/hs-core-ui";
 import ReactMarkdown from "react-markdown";
 
-const ProductsContents = ({ data }) => {
+const PostsContents = ({ data }) => {
 	console.log(data);
 	return (
 		<HsContainer
@@ -13,4 +13,4 @@ const ProductsContents = ({ data }) => {
 	);
 };
 
-export default ProductsContents;
+export default PostsContents;

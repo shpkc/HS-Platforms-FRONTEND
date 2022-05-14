@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoSearch } from "react-icons/io5";
-import { MENU_LIST } from "src/constants/menu";
+import { AiFillGithub } from "react-icons/ai";
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { useScroll } from "src/hooks/scroll/useScroll";
 import { css } from "@emotion/react";
@@ -22,7 +20,7 @@ const Header = () => {
 					borderRadius={"8px"}
 					padding={"16px 24px"}
 					margin={"0 auto"}
-					maxWidth={"740px"}
+					maxWidth={"1024px"}
 					transition={"all 0.4s"}
 					css={
 						scrollY > 0 &&
@@ -43,11 +41,15 @@ const Header = () => {
 								TEVELOPER
 							</HsText>
 						</Link>
-						<HsContainer display={"flex"}>
+						<HsContainer display={"flex"} alignItems={"center"}>
 							<Link href={"/about"}>
-								<HsText cursor={"pointer"}>ABOUT</HsText>
+								<HsText cursor={"pointer"} margin={"0 5px"}>
+									ABOUT
+								</HsText>
 							</Link>
-							<HsText>GITHUB</HsText>
+							<a href="https://github.com/shpkc" target={"_blank"}>
+								<AiFillGithub size={24} />
+							</a>
 						</HsContainer>
 					</HsContainer>
 				</HsContainer>

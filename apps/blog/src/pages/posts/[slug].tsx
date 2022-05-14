@@ -1,6 +1,6 @@
 import { GetStaticPaths } from "next";
 import { dehydrate } from "react-query";
-import ProductsContents from "src/components/organisms/products/ProductsContents";
+import PostsContents from "src/components/organisms/posts/PostsContents";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import { useFetch, usePreFetch } from "src/hooks/query/fetch";
 import ProductsSkeleton from "src/components/organisms/skeleton/ProductsSkeleton";
@@ -15,7 +15,7 @@ const Posts = ({ slug }: { slug: string }) => {
 		<LayoutTemplate
 			seo={{ title: data.result.title, description: data.result.description }}
 		>
-			<ProductsContents data={data.result} />
+			<PostsContents data={data.result} />
 		</LayoutTemplate>
 	);
 };
