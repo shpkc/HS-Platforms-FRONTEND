@@ -1,9 +1,44 @@
 import styled from "@emotion/styled";
 import ReactMarkdown from "react-markdown";
 
+// NOTE : custom markdown wrapper
 export const MarkdownWrapper = styled(ReactMarkdown)`
+	p {
+		color: #555770;
+		font-size: 1.3rem;
+		line-height: 1.4;
+		margin: 0.2rem 0 0.4rem;
+		font-weight: 300;
+	}
+	em {
+		color: black;
+		font-size: 1.1rem;
+		line-height: 1.4;
+		font-weight: bold;
+		min-width: 90px;
+		max-width: 90px;
+		display: inline-block;
+	}
 	h1 {
-		font-size: 2rem;
+		color: #555770;
+		font-size: 2.25rem;
+		line-height: 1.4;
+		font-weight: bold;
+	}
+	h3 {
+		color: #555770;
+		font-size: 1.9rem;
+		line-height: 1.4;
+		font-weight: bold;
+	}
+	h4 {
+	}
+	h5 {
+		color: #555770;
+		font-size: 1.1rem;
+		line-height: 1.4;
+		margin: 0.2rem 0 0.4rem;
+		font-weight: 500;
 	}
 	li::before {
 		content: "";
@@ -23,5 +58,10 @@ export const MarkdownWrapper = styled(ReactMarkdown)`
 		font-weight: 500;
 		padding: 0 0 0 1.5rem;
 		margin: 0 0 0.5rem 0;
+	}
+	hr {
+		border-top: 1px solid #e3e9ed;
+		margin: 1rem 0;
+		width: 600px;
 	}
 `;
