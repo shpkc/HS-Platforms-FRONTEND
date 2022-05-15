@@ -1,6 +1,7 @@
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { AxiosResponse } from "axios";
 import ReactMarkdown from "react-markdown";
+import { MarkdownWrapper } from "../markdown";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
@@ -21,7 +22,7 @@ const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<br />
 				박시형 입니다.
 			</HsText>
-			<ReactMarkdown children={data.contents} />
+			<MarkdownWrapper children={data.contents} />
 		</HsContainer>
 	);
 };
