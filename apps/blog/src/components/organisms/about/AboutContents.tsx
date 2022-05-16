@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { MarkdownWrapper } from "../markdown";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
+	console.log(data);
 	return (
 		<HsContainer
 			padding={["100px 16px 0 16px", "140px 0 0 0"]}
@@ -22,7 +23,7 @@ const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<br />
 				박시형 입니다.
 			</HsText>
-			<MarkdownWrapper children={data.contents} />
+			<MarkdownWrapper children={data.compiledSource} />
 		</HsContainer>
 	);
 };

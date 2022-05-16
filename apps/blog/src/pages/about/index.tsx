@@ -1,27 +1,31 @@
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import AboutContents from "src/components/organisms/about/AboutContents";
-import { useFetch, usePreFetch } from "src/hooks/query/fetch";
-import { getPostsBySlug } from "src/apis/PostsDomain";
-import { dehydrate } from "react-query";
-import Skeleton from "src/components/organisms/skeleton/Skeleton";
+import { getPostsByAbsolutePath } from "src/apis/PostsDomain";
+import { serialize } from "next-mdx-remote/serialize";
 
-const About = () => {
-	const { data } = useFetch("about", () => getPostsBySlug("about"));
-	if (!data) {
-		return <Skeleton />;
-	}
+const About = ({ title, date, description, content }) => {
 	return (
-		<LayoutTemplate seo={{ title: "about", description: "about" }}>
-			<AboutContents data={data.result} />
+		<LayoutTemplate seo={{ title, description }}>
+			<AboutContents data={content} />
 		</LayoutTemplate>
 	);
 };
 export const getStaticProps = async () => {
-	const queryClient = await usePreFetch("about", () => getPostsBySlug("about"));
+	// NOTE : about 페이지 static about
+	const post = getPostsByAbsolutePath("about", [
+		"title",
+		"date",
+		"content",
+		"description",
+	]);
+	const mdxSource = await serialize(post.content);
 
 	return {
 		props: {
-			dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+			title: post.title,
+			date: post.date,
+			description: post.description,
+			content: mdxSource,
 		},
 	};
 };
