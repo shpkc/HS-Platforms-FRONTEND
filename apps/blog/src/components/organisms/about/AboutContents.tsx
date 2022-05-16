@@ -1,6 +1,6 @@
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { AxiosResponse } from "axios";
-import ReactMarkdown from "react-markdown";
+import { MDXRemote } from "next-mdx-remote";
 import { MarkdownWrapper } from "../markdown";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
@@ -23,7 +23,9 @@ const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<br />
 				박시형 입니다.
 			</HsText>
-			<MarkdownWrapper children={data.compiledSource} />
+			<MarkdownWrapper>
+				<MDXRemote {...data} />
+			</MarkdownWrapper>
 		</HsContainer>
 	);
 };

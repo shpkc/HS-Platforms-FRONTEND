@@ -18,7 +18,7 @@ const Header = () => {
 			>
 				<HsContainer
 					borderRadius={"8px"}
-					padding={"16px 24px"}
+					padding={"16px 12px"}
 					margin={"0 auto"}
 					maxWidth={"1024px"}
 					transition={"all 0.4s"}

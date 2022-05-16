@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import ReactMarkdown from "react-markdown";
 
 // NOTE : custom markdown wrapper
-export const MarkdownWrapper = styled(ReactMarkdown)`
+export const MarkdownWrapper = styled.div`
 	p {
 		color: #555770;
-		font-size: 1.3rem;
+		font-size: 1.1rem;
 		line-height: 1.4;
 		margin: 0.2rem 0 0.4rem;
 		font-weight: 300;
@@ -32,6 +32,11 @@ export const MarkdownWrapper = styled(ReactMarkdown)`
 		font-weight: bold;
 	}
 	h4 {
+		color: #555770;
+		font-size: 1.5rem;
+		line-height: 1.3;
+		font-weight: bold;
+		margin: 0.5em 0 0.2em;
 	}
 	h5 {
 		color: #555770;
@@ -62,6 +67,6 @@ export const MarkdownWrapper = styled(ReactMarkdown)`
 	hr {
 		border-top: 1px solid #e3e9ed;
 		margin: 1rem 0;
-		width: 600px;
+		width: 700px;
 	}
 `;
