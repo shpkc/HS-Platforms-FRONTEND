@@ -1,0 +1,54 @@
+{
+	"root": "apps/teamit",
+	"sourceRoot": "apps/teamit",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/next:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"root": "apps/teamit",
+				"outputPath": "dist/apps/teamit"
+			},
+			"configurations": {
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/next:server",
+			"options": {
+				"buildTarget": "teamit:build",
+				"dev": true
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "teamit:build:production",
+					"dev": false
+				}
+			}
+		},
+		"export": {
+			"executor": "@nrwl/next:export",
+			"options": {
+				"buildTarget": "teamit:build:production"
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/teamit"],
+			"options": {
+				"jestConfig": "apps/marvice/jest.config.js",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/nftify/**/*.{ts,tsx,js,jsx}"]
+			}
+		}
+	},
+	"tags": []
+}
