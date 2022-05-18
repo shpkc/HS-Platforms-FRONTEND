@@ -11,12 +11,14 @@ const Header = () => {
 		<header>
 			<HsContainer
 				width={"100%"}
+				margin={"0 auto"}
 				position={"fixed"}
 				left={0}
 				top={12}
 				zIndex={1000}
 			>
 				<HsContainer
+					width={["94%", "100%"]}
 					borderRadius={"8px"}
 					padding={"16px 12px"}
 					margin={"0 auto"}

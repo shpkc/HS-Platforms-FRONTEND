@@ -36,7 +36,7 @@ export const MarkdownWrapper = styled.div`
 		font-size: 1.5rem;
 		line-height: 1.3;
 		font-weight: bold;
-		margin: 0.5em 0 0.2em;
+		margin: 0.4rem 0;
 	}
 	h5 {
 		color: #555770;
@@ -60,7 +60,6 @@ export const MarkdownWrapper = styled.div`
 		font-size: 1.2rem;
 		line-height: 1.3;
 		color: #555770;
-		font-weight: 500;
 		padding: 0 0 0 1.5rem;
 		margin: 0 0 0.5rem 0;
 	}
@@ -68,5 +67,9 @@ export const MarkdownWrapper = styled.div`
 		border-top: 1px solid #e3e9ed;
 		margin: 1rem 0;
 		width: 700px;
+	}
+	a {
+		color: #58acfa;
+		font-weight: 6001;
 	}
 `;
