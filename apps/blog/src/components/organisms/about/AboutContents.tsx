@@ -4,12 +4,8 @@ import { MDXRemote } from "next-mdx-remote";
 import { MarkdownWrapper } from "../markdown";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
-	console.log(data);
 	return (
-		<HsContainer
-			padding={["100px 16px 0 16px", "140px 0 0 0"]}
-			minHeight={"100vh"}
-		>
+		<HsContainer padding={["100px 16px 0 16px", "140px 0 0 0"]}>
 			<HsText
 				color={"blue.blue20"}
 				fontWeight={"bold"}
