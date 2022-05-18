@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import ReactMarkdown from "react-markdown";
 
 // NOTE : custom markdown wrapper
 export const MarkdownWrapper = styled.div`
@@ -66,7 +65,9 @@ export const MarkdownWrapper = styled.div`
 	hr {
 		border-top: 1px solid #e3e9ed;
 		margin: 1rem 0;
-		width: 700px;
+		@media (min-width: 1024px) {
+			width: 600px;
+		}
 	}
 	a {
 		color: #58acfa;
