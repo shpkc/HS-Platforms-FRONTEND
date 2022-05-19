@@ -1,6 +1,5 @@
 import "../../styles/globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { AppProps } from "next/app";
 import { Hydrate } from "react-query/hydration";
 import { ThemeProvider } from "@emotion/react";
 import theme from "styles/theme";
@@ -16,7 +15,7 @@ export const queryClient = new QueryClient({
 	},
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }) {
 	return (
 		<ThemeProvider theme={theme}>
 			<QueryClientProvider client={queryClient} contextSharing>
@@ -29,5 +28,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 		</ThemeProvider>
 	);
 }
-
-export default MyApp;
