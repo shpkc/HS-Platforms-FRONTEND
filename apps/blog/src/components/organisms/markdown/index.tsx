@@ -44,13 +44,30 @@ export const MarkdownWrapper = styled.div`
 		margin: 0.2rem 0 0.4rem;
 		font-weight: 500;
 	}
+	h6::before {
+		content: "";
+		position: absolute;
+		left: 0px;
+		top: 3px;
+		width: 15px;
+		height: 40px;
+		background-color: #427efa;
+	}
+	h6 {
+		position: relative;
+		color: #555770;
+		font-size: 1.9rem;
+		line-height: 1.4;
+		font-weight: bold;
+		padding: 0 0 0 1.5rem;
+	}
 	li::before {
 		content: "";
 		position: absolute;
-		top: 0.375em;
-		left: 0.25em;
-		width: 0.375em;
-		height: 0.375em;
+		top: 10px;
+		left: 0px;
+		width: 8px;
+		height: 8px;
 		border-radius: 50%;
 		background-color: #f2f2f2;
 	}
