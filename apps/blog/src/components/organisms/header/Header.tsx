@@ -18,7 +18,7 @@ const Header = () => {
 				zIndex={1000}
 			>
 				<HsContainer
-					width={["94%", "100%"]}
+					width={["90%", "100%"]}
 					borderRadius={"8px"}
 					padding={"16px 12px"}
 					margin={"0 auto"}
@@ -44,7 +44,7 @@ const Header = () => {
 							</HsText>
 						</Link>
 						<HsContainer display={"flex"} alignItems={"center"}>
-							<Link href={"/blog"}>
+							{/* <Link href={"/blog"}>
 								<HsText
 									cursor={"pointer"}
 									margin={"0 5px"}
@@ -53,7 +53,7 @@ const Header = () => {
 								>
 									BLOG
 								</HsText>
-							</Link>
+							</Link> */}
 							<Link href={"/about"}>
 								<HsText
 									cursor={"pointer"}

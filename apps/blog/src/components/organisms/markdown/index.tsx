@@ -4,10 +4,14 @@ import styled from "@emotion/styled";
 export const MarkdownWrapper = styled.div`
 	p {
 		color: #555770;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		line-height: 1.4;
 		margin: 0.2rem 0 0.4rem;
 		font-weight: 300;
+		@media (min-width: 1024px) {
+			font-size: 1.1rem;
+			line-height: 1.4;
+		}
 	}
 	em {
 		color: black;
@@ -64,20 +68,27 @@ export const MarkdownWrapper = styled.div`
 	li::before {
 		content: "";
 		position: absolute;
-		top: 10px;
+		top: 8px;
 		left: 0px;
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
 		background-color: #f2f2f2;
+		@media (min-width: 1024px) {
+			top: 10px;
+		}
 	}
 	li {
 		position: relative;
-		font-size: 1.2rem;
+		font-size: 1rem;
 		line-height: 1.3;
 		color: #555770;
-		padding: 0 0 0 1.5rem;
+		padding: 0 0 0 1.2rem;
 		margin: 0 0 0.5rem 0;
+		@media (min-width: 1024px) {
+			font-size: 1.2rem;
+			padding: 0 0 0 1.5rem;
+		}
 	}
 	hr {
 		border-top: 1px solid #e3e9ed;

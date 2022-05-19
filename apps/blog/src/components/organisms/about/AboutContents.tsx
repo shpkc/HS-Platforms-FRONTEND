@@ -11,7 +11,7 @@ const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				fontWeight={"bold"}
 				fontSize={["35px", "64px"]}
 				lineHeight={1.4}
-				margin={"0 0 150px 0"}
+				margin={["0 0 80px 0", "0 0 150px 0"]}
 			>
 				안녕하세요
 				<br />
