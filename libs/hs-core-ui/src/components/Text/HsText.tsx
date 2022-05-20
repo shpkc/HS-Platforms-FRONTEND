@@ -36,6 +36,7 @@ interface TextProps
 	cursor?: "pointer";
 	ellipsis?: boolean;
 	ellipsisLine?: number;
+	whiteSpace?: "nowrap" | "pre" | "pre-wrap" | "pre-line";
 }
 
 const DefaultTextStyle = styled.p<TextProps>`
@@ -50,6 +51,7 @@ const DefaultTextStyle = styled.p<TextProps>`
 		 overflow : hidden;
 	`};
 	${props => props.ellipsisLine && `-webkit-line-clamp: ${props.ellipsisLine}`};
+	${props => props.whiteSpace && `white-space:${props.whiteSpace}`};
 `;
 
 const HsText = styled(DefaultTextStyle)<TextProps>(
