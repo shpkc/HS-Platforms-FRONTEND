@@ -16,8 +16,8 @@ const Index = () => {
 	return (
 		<LayoutTemplate
 			seo={{
-				title: "테니스 플랫폼",
-				description: "테니스 플랫폼",
+				title: "Home",
+				description: "Home",
 			}}
 		>
 			<HomeContents data={data} />
