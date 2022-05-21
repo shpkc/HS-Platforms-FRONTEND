@@ -41,16 +41,17 @@ export const getPostsByAbsolutePath = ({
 };
 
 // NOTE : all mdx file path
-export const getAbsoluteArticles = (directory: string) => {
+export const getAbsoluteArticles = (directory: string, category?: string) => {
+	const categoryGlobPattern = category == null ? "**" : category;
 	const files = glob
-		.sync(`${directory}/**/*.mdx`)
+		.sync(`${directory}/${categoryGlobPattern}/*.mdx`)
 		.reduce<string[]>((acc, cur) => [...acc, cur], []);
 	return files;
 };
 
 // NOTE : SSG paths
-export const getPostPaths = (fields: string[] = [], category?: string) => {
-	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH);
+export const getPosts = (fields: string[] = [], category?: string) => {
+	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH, category);
 	const articles = paths
 		.map(path => getPostsByAbsolutePath({ path, category, fields }))
 		.sort((article1, article2) => (article1.date > article2.date ? -1 : 1));

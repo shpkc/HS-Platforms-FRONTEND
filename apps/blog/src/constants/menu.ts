@@ -1,4 +1,4 @@
-import { MENU_TYPE } from "src/types/menu";
+import { MENU_TYPE } from "src/types/post";
 
 export const MENU_LIST: Array<MENU_TYPE> = [
 	{ id: "1", title: "카테고리", link: "category" },
