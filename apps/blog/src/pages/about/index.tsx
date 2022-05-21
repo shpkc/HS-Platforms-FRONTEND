@@ -12,7 +12,7 @@ const About = ({ title, date, description, content }) => {
 };
 export const getStaticProps = async () => {
 	// NOTE : about 페이지 static about
-	const post = getPostsByAbsolutePath("about", [
+	const post = getPostsByAbsolutePath("about", "about", [
 		"title",
 		"date",
 		"content",

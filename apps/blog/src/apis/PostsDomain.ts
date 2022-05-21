@@ -30,8 +30,12 @@ export const getAllPostsSlug = () =>
 	})();
 
 // NOTE : get post by path
-export const getPostsByAbsolutePath = (path: string, fields: string[] = []) => {
-	const prefix = "apps/blog/posts";
+export const getPostsByAbsolutePath = (
+	path: string,
+	category: string,
+	fields: string[] = []
+) => {
+	const prefix = `apps/blog/posts/${category}/`;
 	const fileUrl = join(process.cwd(), `${prefix}/${path}.mdx`);
 	const fileContents = fs.readFileSync(fileUrl, "utf8");
 	const { data, content } = matter(fileContents);
