@@ -1,43 +1,29 @@
 import React from "react";
-import { POSTS_API } from "src/constants/api";
-import { queryParams } from "src/helper/queryParamHelper";
-import { getMethod } from "src/hooks/apiMethod/getMethod";
-import { infiniteScrollMapper } from "src/services/mapper/infiniteScrollMapper";
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import glob from "glob";
 
-// NOTE : infinite scroll get products
-export const getPosts = ({ pageParam = 1 }: { pageParam?: number }) =>
-	getMethod({
-		url: queryParams(POSTS_API, [
-			["page", `${pageParam}`],
-			["perPage", "20"],
-		]),
-		mapper: infiniteScrollMapper(pageParam),
-	})();
-
-// NOTE : get posts by id
-export const getPostsBySlug = (slug: string) =>
-	getMethod({
-		url: `${POSTS_API}/${slug}`,
-	})();
-
-// NOTE : STATIC PROPS를 위한 get slug
-export const getAllPostsSlug = () =>
-	getMethod({
-		url: `${POSTS_API}/all-slug`,
-	})();
+export const POSTS_DIRECTORY_PATH = join(process.cwd(), "apps/blog/posts");
 
 // NOTE : get post by path
-export const getPostsByAbsolutePath = (
-	path: string,
-	category: string,
-	fields: string[] = []
-) => {
-	const prefix = `apps/blog/posts/${category}/`;
-	const fileUrl = join(process.cwd(), `${prefix}/${path}.mdx`);
-	const fileContents = fs.readFileSync(fileUrl, "utf8");
+export const getPostsByAbsolutePath = ({
+	path,
+	category,
+	fields,
+	needPrefix,
+}: {
+	path: string;
+	category: string;
+	fields: string[];
+	needPrefix?: boolean;
+}) => {
+	const prefixPath = `apps/blog/posts/${category}/`;
+	const prefixFilePath = join(process.cwd(), `${prefixPath}/${path}.mdx`);
+	const fileContents = needPrefix
+		? fs.readFileSync(prefixFilePath, "utf8")
+		: fs.readFileSync(path, "utf8");
+
 	const { data, content } = matter(fileContents);
 
 	const items: Record<string, any> = {};
@@ -52,4 +38,21 @@ export const getPostsByAbsolutePath = (
 	});
 
 	return items;
+};
+
+// NOTE : all mdx file path
+export const getAbsoluteArticles = (directory: string) => {
+	const files = glob
+		.sync(`${directory}/**/*.mdx`)
+		.reduce<string[]>((acc, cur) => [...acc, cur], []);
+	return files;
+};
+
+// NOTE : SSG paths
+export const getPostPaths = (fields: string[] = [], category?: string) => {
+	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH);
+	const articles = paths
+		.map(path => getPostsByAbsolutePath({ path, category, fields }))
+		.sort((article1, article2) => (article1.date > article2.date ? -1 : 1));
+	return articles;
 };

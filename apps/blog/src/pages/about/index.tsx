@@ -12,12 +12,12 @@ const About = ({ title, date, description, content }) => {
 };
 export const getStaticProps = async () => {
 	// NOTE : about 페이지 static about
-	const post = getPostsByAbsolutePath("about", "about", [
-		"title",
-		"date",
-		"content",
-		"description",
-	]);
+	const post = getPostsByAbsolutePath({
+		path: "about",
+		category: "about",
+		fields: ["title", "date", "content", "description"],
+		needPrefix: true,
+	});
 	const mdxSource = await serialize(post.content);
 
 	return {

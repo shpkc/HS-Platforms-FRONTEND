@@ -11,7 +11,7 @@ const Footer = () => {
 				<HsText
 					padding={"30px 0"}
 					fontWeight={"bold"}
-					fontSize={"1.2rem"}
+					fontSize={["1rem", "1.2rem"]}
 					whiteSpace={"nowrap"}
 				>
 					©TEVELOPER
