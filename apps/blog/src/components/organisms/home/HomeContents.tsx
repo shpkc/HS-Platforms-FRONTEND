@@ -6,7 +6,7 @@ import { PostType } from "src/types/post";
 
 const HomeContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
-		<HsContainer padding={"120px 0 0 0"}>
+		<HsContainer padding={"150px 0 0 0"}>
 			{data.map((item: PostType) => (
 				<PostsItem data={item} key={item.id} />
 			))}

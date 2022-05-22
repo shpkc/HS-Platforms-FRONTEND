@@ -18,7 +18,7 @@ const About = ({ title, date, description, content }) => {
 };
 export const getStaticProps = async ({ params }) => {
 	// NOTE : about 페이지 static about
-	const path = join(POSTS_DIRECTORY_PATH, "dev", `${params.slug}.mdx`);
+	const path = join(POSTS_DIRECTORY_PATH, "articles", `${params.slug}.mdx`);
 	const post = getPostsByAbsolutePath({
 		path: path,
 		category: "dev",

@@ -8,7 +8,7 @@ const PostsItem = ({ data }: { data: PostType }) => {
 	return (
 		<Link href={`/posts/${data.slug}`}>
 			<HsContainer
-				maxWidth={"700px"}
+				maxWidth={"670px"}
 				margin={"0 auto 50px auto"}
 				borderBottom={"1px solid #f2f2f2"}
 				padding={"0 20px 30px 20px"}
@@ -24,7 +24,7 @@ const PostsItem = ({ data }: { data: PostType }) => {
 				<HsText variant={"h4"} margin={"0 0 20px 0"}>
 					{data.title}
 				</HsText>
-				<HsText color={"gray.gray20"} margin={"0 0 16px 0"}>
+				<HsText color={"gray.gray20"} margin={"0 0 12px 0"}>
 					{data.description}
 				</HsText>
 				<HsText color={"gray.gray20"} fontSize={"1.1rem"}>
