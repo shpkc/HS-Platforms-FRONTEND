@@ -2,21 +2,35 @@ import { AxiosResponse } from "axios";
 import Link from "next/link";
 import { css } from "@emotion/react";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
-import { AiFillHeart, AiFillStar } from "react-icons/ai";
+import { PostType } from "src/types/post";
 
-const PostsItem = ({ data }: { data: AxiosResponse["data"] }) => {
+const PostsItem = ({ data }: { data: PostType }) => {
 	return (
-		<Link href={`/courts/${data.id}`}>
+		<Link href={`/posts/${data.slug}`}>
 			<HsContainer
-				width={["48%", "260px"]}
-				margin={["0 0 50px 0", "0 20px 50px 0"]}
-				css={css`
-					:nth-child(4n) {
-						margin: 0 0 50px 0;
-					}
-				`}
-				cursor="pointer"
-			></HsContainer>
+				maxWidth={"670px"}
+				margin={"0 auto 50px auto"}
+				borderBottom={"1px solid #f2f2f2"}
+				padding={"0 20px 30px 20px"}
+				cursor={"pointer"}
+			>
+				<HsContainer
+					cursor="pointer"
+					border={"1px solid #f2f2f2"}
+					margin={"0 0 30px 0"}
+				>
+					<HsImage src={data.thumbnail} borderRadius={"8px"} height={"100%"} />
+				</HsContainer>
+				<HsText variant={"h4"} margin={"0 0 20px 0"}>
+					{data.title}
+				</HsText>
+				<HsText color={"gray.gray20"} margin={"0 0 12px 0"}>
+					{data.description}
+				</HsText>
+				<HsText color={"gray.gray20"} fontSize={"1.1rem"}>
+					{data.date}
+				</HsText>
+			</HsContainer>
 		</Link>
 	);
 };
