@@ -13,7 +13,12 @@ const PostsContents = ({
 }) => {
 	return (
 		<HsContainer padding={["140px 16px 0 16px", "140px 0 0 0"]}>
-			<HsText fontSize={"2rem"} fontWeight={"bold"} margin={"0 0 18px 0"}>
+			<HsText
+				fontSize={"2rem"}
+				fontWeight={"bold"}
+				margin={"0 0 18px 0"}
+				lineHeight={1.2}
+			>
 				{title}
 			</HsText>
 			<HsText color={"gray.gray20"}>{date}</HsText>
