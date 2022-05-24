@@ -9,7 +9,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { GetStaticPaths } from "next";
 import { join } from "path";
 
-const About = ({ title, date, description, content }) => {
+const Post = ({ title, date, description, content }) => {
 	return (
 		<LayoutTemplate seo={{ title, description }}>
 			<PostsContents source={content} title={title} date={date} />
@@ -21,7 +21,7 @@ export const getStaticProps = async ({ params }) => {
 	const path = join(POSTS_DIRECTORY_PATH, "articles", `${params.slug}.mdx`);
 	const post = getPostsByAbsolutePath({
 		path: path,
-		category: "dev",
+		category: "articles",
 		fields: ["title", "date", "content", "description"],
 	});
 	const mdxSource = await serialize(post.content);
@@ -48,4 +48,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 };
 
-export default About;
+export default Post;

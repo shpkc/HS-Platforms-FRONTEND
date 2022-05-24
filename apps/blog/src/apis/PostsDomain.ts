@@ -52,6 +52,7 @@ export const getAbsoluteArticles = (directory: string, category?: string) => {
 // NOTE : SSG paths
 export const getPosts = (fields: string[] = [], category?: string) => {
 	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH, category);
+	console.log(paths);
 	const articles = paths
 		.map(path => getPostsByAbsolutePath({ path, category, fields }))
 		.sort((article1, article2) => (article1.date > article2.date ? -1 : 1));
