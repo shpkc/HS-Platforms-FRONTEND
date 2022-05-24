@@ -24,12 +24,10 @@ const PostsItem = ({ data }: { data: PostType }) => {
 				<HsText variant={"h4"} margin={"0 0 20px 0"}>
 					{data.title}
 				</HsText>
-				<HsText color={"gray.gray20"} margin={"0 0 12px 0"}>
+				<HsText color={"gray.gray20"} margin={"0 0 12px 0"} fontSize={"1.1rem"}>
 					{data.description}
 				</HsText>
-				<HsText color={"gray.gray20"} fontSize={"1.1rem"}>
-					{data.date}
-				</HsText>
+				<HsText color={"gray.gray20"}>{data.date}</HsText>
 			</HsContainer>
 		</Link>
 	);
