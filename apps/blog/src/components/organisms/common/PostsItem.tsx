@@ -1,6 +1,4 @@
-import { AxiosResponse } from "axios";
 import Link from "next/link";
-import { css } from "@emotion/react";
 import { HsContainer, HsText, HsImage } from "@hs-platforms/hs-core-ui";
 import { PostType } from "src/types/post";
 

@@ -12,7 +12,7 @@ import { join } from "path";
 const About = ({ title, date, description, content }) => {
 	return (
 		<LayoutTemplate seo={{ title, description }}>
-			<PostsContents source={content} date={date} />
+			<PostsContents source={content} title={title} date={date} />
 		</LayoutTemplate>
 	);
 };

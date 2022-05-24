@@ -4,6 +4,7 @@ import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HomeContents from "src/components/organisms/home/HomeContents";
 
 const Index = ({ posts }) => {
+	console.log(posts);
 	return (
 		<LayoutTemplate
 			seo={{

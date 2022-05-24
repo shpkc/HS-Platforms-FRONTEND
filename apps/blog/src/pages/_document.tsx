@@ -5,10 +5,6 @@ export default class MyDocument extends Document {
 		return (
 			<Html lang="ko">
 				<Head>
-					<script
-						type="text/javascript"
-						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=438805b1515722f904ec339200da67d7"
-					></script>
 					<link rel="shortcut icon" href="/static/icons/favicon.ico" />
 					<link
 						href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
