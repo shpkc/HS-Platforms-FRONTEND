@@ -23,9 +23,9 @@ const PostsItem = ({ data }: { data: PostType }) => {
 					{data.title}
 				</HsText>
 				<HsText color={"gray.gray20"} margin={"0 0 12px 0"} fontSize={"1.1rem"}>
-					{data.description}
+					{data.subTitle}
 				</HsText>
-				<HsText color={"gray.gray20"}>{data.date}</HsText>
+				<HsText color={"gray.gray20"}>{data.createdAt.slice(0, 10)}</HsText>
 			</HsContainer>
 		</Link>
 	);

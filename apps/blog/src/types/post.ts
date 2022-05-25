@@ -1,9 +1,9 @@
 export interface PostType {
 	id: string;
 	title: string;
+	subTitle: string;
 	slug: string;
 	category: string;
-	description: string;
 	thumbnail: string;
-	date: string;
+	createdAt: string;
 }

@@ -1,8 +1,15 @@
 import { GetStaticProps } from "next";
-import { getPosts } from "src/apis/PostsDomain";
+import { getMain } from "src/apis/PostsDomain";
 import LayoutTemplate from "src/components/templates/LayoutTemplate";
 import HomeContents from "src/components/organisms/home/HomeContents";
-const Index = ({ posts }) => {
+import { useFetch, usePreFetch } from "src/hooks/query/fetch";
+import { dehydrate } from "react-query";
+import Skeleton from "src/components/organisms/skeleton/Skeleton";
+const Index = () => {
+	const { data, isFetching } = useFetch("main", () => getMain());
+	if (isFetching) {
+		return <Skeleton />;
+	}
 	return (
 		<LayoutTemplate
 			seo={{
@@ -10,19 +17,19 @@ const Index = ({ posts }) => {
 				description: "Home",
 			}}
 		>
-			<HomeContents data={posts} />
+			<HomeContents data={data.result} />
 		</LayoutTemplate>
 	);
 };
 
-export const getStaticProps: GetStaticProps = async => {
-	const posts = getPosts(
-		["id", "title", "description", "category", "slug", "date", "thumbnail"],
-		"articles"
-	);
+export const getStaticProps: GetStaticProps = async context => {
+	const queryClient = await usePreFetch("main", () => getMain());
+
 	return {
 		revalidate: 10,
-		props: { posts },
+		props: {
+			dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+		},
 	};
 };
 export default Index;

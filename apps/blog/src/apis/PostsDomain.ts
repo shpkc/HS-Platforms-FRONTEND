@@ -3,8 +3,16 @@ import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import glob from "glob";
+import { getMethod } from "src/hooks/apiMethod/getMethod";
+import { POSTS_API } from "src/constants/api";
 
 export const POSTS_DIRECTORY_PATH = join(process.cwd(), "apps/blog/posts");
+
+// NOTE : main(home) api
+export const getMain = () =>
+	getMethod({
+		url: `${POSTS_API}/main`,
+	})();
 
 // NOTE : get post by path
 export const getPostsByAbsolutePath = ({
@@ -48,7 +56,6 @@ export const getAbsoluteArticles = (directory: string, category?: string) => {
 		.reduce<string[]>((acc, cur) => [...acc, cur], []);
 	return files;
 };
-
 // NOTE : SSG paths
 export const getPosts = (fields: string[] = [], category?: string) => {
 	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH, category);
