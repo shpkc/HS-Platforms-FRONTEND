@@ -59,8 +59,6 @@ export const getAbsoluteArticles = (directory: string, category?: string) => {
 // NOTE : SSG paths
 export const getPosts = (fields: string[] = [], category?: string) => {
 	const paths = getAbsoluteArticles(POSTS_DIRECTORY_PATH, category);
-	console.log(POSTS_DIRECTORY_PATH);
-	console.log(paths);
 
 	const articles = paths
 		.map(path => getPostsByAbsolutePath({ path, category, fields }))

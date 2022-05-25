@@ -22,7 +22,7 @@ const Header = () => {
 					borderRadius={"8px"}
 					padding={"16px 12px"}
 					margin={"0 auto"}
-					maxWidth={"1024px"}
+					maxWidth={"900px"}
 					transition={"all 0.4s"}
 					css={
 						scrollY > 0 &&

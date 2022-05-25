@@ -6,10 +6,9 @@ const PostsItem = ({ data }: { data: PostType }) => {
 	return (
 		<Link href={`/posts/${data.slug}`}>
 			<HsContainer
-				maxWidth={"670px"}
 				margin={"0 auto 50px auto"}
 				borderBottom={"1px solid #f2f2f2"}
-				padding={"0 20px 30px 20px"}
+				padding={["0 20px 30px 20px", "0 0 30px"]}
 				cursor={"pointer"}
 			>
 				<HsContainer
