@@ -101,4 +101,16 @@ export const MarkdownWrapper = styled.div`
 		color: #58acfa;
 		font-weight: 6001;
 	}
+	center {
+		color: #555770;
+		font-size: 1rem;
+		line-height: 1.4;
+		margin: 0.2rem 0 0.4rem;
+		font-weight: bold;
+	}
+	blockquote {
+		border-left: 7px solid #20c997;
+		padding: 10px 0 10px 25px;
+		background-color: #f8f9fa;
+	}
 `;
