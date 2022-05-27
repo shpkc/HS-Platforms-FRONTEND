@@ -12,7 +12,7 @@ const PostsContents = ({
 	date: string;
 }) => {
 	return (
-		<HsContainer padding={["140px 16px 0 16px", "140px 0 0 0"]}>
+		<HsContainer padding={["120px 16px 0 16px", "120px 0 0 0"]}>
 			<HsText
 				fontSize={"2rem"}
 				fontWeight={"bold"}
