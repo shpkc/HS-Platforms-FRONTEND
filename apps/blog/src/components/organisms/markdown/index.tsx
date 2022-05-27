@@ -86,7 +86,7 @@ export const MarkdownWrapper = styled.div`
 		padding: 0 0 0 1.2rem;
 		margin: 0 0 0.5rem 0;
 		@media (min-width: 1024px) {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			padding: 0 0 0 1.5rem;
 		}
 	}
