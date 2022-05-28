@@ -2,7 +2,7 @@
 id: "1"
 title: Nx를 활용한 모노레포 도입기
 category: dev
-date: "2022-05-27"
+date: "2022-05-28"
 description: 모노레포를 도입해 프로젝트 개발환경을 개선해보자
 slug: nx-monorepo
 thumbnail: "https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png"
@@ -136,8 +136,8 @@ CI/CD를 포함해 구축과정을 거칠 필요가 없습니다.
 이쯤되니 Nx를 채택하길 잘했다는 생각이 듭니다.
 
 <br />
-지금부터는 Nx를 활용해 간단한 모노레포를 구축해보고 Next.js기반의 프로젝트를 Vercel로
-배포하는 과정까지 다뤄보도록 하겠습니다.
+지금부터는 Nx를 활용해 간단한 모노레포를 구축해보겠습니다. Next.js 기반의 프로젝트에
+design-system 패키지를 생성해 컴포넌트를 불러오는 방식을 구현해보겠습니다.
 
 <br />
 <br />
@@ -226,16 +226,184 @@ yarn start (npm run start)를 실행하고 localhost:4200을 들어가면 다음
 <div style={{ display: "flex" }}>
 	<img
 		src="/static/images/posts/nx_first_page.png"
-		width="50%"
+		width="80%"
 		style={{ margin: "0 auto" }}
 	/>
 </div>
 <br />
-<center>(역시 Nx는 깔끔하다)</center>
+<center>(Nx는 역시 깔끔하다)</center>
 
 <br />
 <br />
 
-### 모노레포 구축하기
+### Nx 모노레포 구축하기
 
+<br />
+셋팅과 설치까지 완료되었으니 본격적으로 Nx 기반의 모노레포를 구축해보겠습니다. 우리가
+셋팅할 모노레포의 폴더구조는 다음과 같습니다.
+<br />
+
+```
+├── apps
+│   └── sample1
+|     └── tsconfig.json
+│   └── sample2
+|     └── tsconfig.json
+|
+├── libs
+│   └── design-system
+│   └── backend-server
+│
+├── package.json
+└── tsconfig.base.json
+```
+
+<br />
+apps 폴더에는 여러 프로젝트들이 존재하며 libs 폴더에 디자인 시스템을 만들어 sample
+프로젝트에서 의존하는 형태의 폴더구조 입니다. 루트 폴더에 있는 package.json에서 패키지들의
+중복 의존을 방지하고 각각의 프로젝트는 루트폴더의 tsconfig.base.json을 상속받아 각
+프로젝트에 맞게 tsconfig를 설정할 수 있습니다.
+<br />
+첫번째로 libs 폴더에 React 기반의 design-stystem 라이브러리를 설치해보겠습니다. css는
+styled-components를 선택합니다.
+<br />
+
+```
+npx nx g @nrwl/react:lib deisn-system
+
+// select styled-components
+
+CSS
+SASS(.scss) [ http://sass-lang.com ]
+Stylus(.styl) [ http://stylus-lang.com ]
+LESS [ http://lesscss.org ]
+❯ styled-components [ https://styled-components.com ]
+```
+
+<br />
+설치가 완료되면 libs 폴더에 React, styled-components 기반의 design-system 패키지가
+설치됩니다. 간단하게 CoreButton이라는 컴포넌트를 만들어 보겠습니다.
+
+<br />
+
+```
+/libs/design-system/src/components/CoreButton.tsx*
+
+import styled from "styled-components";
+
+export const CoreButton = () => {
+	return <CoreButtonContainer>버튼입니다</CoreButtonContainer>;
+};
+
+export default CoreButton;
+
+const CoreButtonContainer = styled.button`
+width: 200px;
+height: 100px;
+border-radius: 4px;
+margin: 10px;
+font-weight: bold;
+font-size: 1.5rem;
+`;
+```
+
+<br />
+
+그리고 해당 컴포넌트를 첫번째로 만들었던 sample 패키지에서 사용 해 보겠습니다.
+
+<br />
+
+```
+/apps/sample/pages/index.tsx
+
+import CoreButton from '../../../libs/design-system/src/components/CoreButton';
+
+export const Index = () => {
+  return <CoreButton />;
+};
+
+export default Index;
+```
+
+<br />
+다시 localhost:4200으로 들어가보면 정상적으로 컴포넌트를 불러오는 것을 확인할 수
+있습니다.
+
+<br />
+
+<div style={{ display: "flex" }}>
+	<img
+		src="/static/images/posts/button.png"
+		width="50%"
+		style={{ margin: "0 auto" }}
+	/>
+</div>
+<center>(컴포넌트가 정상적으로 노출)</center>
+<br />
+<br />
+컴포넌트는 정상적으로 불러오지만 절대경로를 따로 설정하지 않아 import 경로가
+상당히 지저분합니다. 따라서 sample 프로젝트의 tsconfig에 baseUrl과 path를 수정
+및 추가해서 절대경로 방식으로 깔끔하게 import 할 수 있게 수정해보겠습니다.
+<br />
+
+```
+/apps/sample/tsconfig.json
+
+"compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/design-system": ["../../libs/design-system/src/index.ts"]
+    }
+  },
+  "include": [
+    "../../libs/design-system/src/index.ts"
+  ],
+}
+```
+
+<br />
+tsconfig.json의 compilerOptions와 include 부분에 design-system의 경로를 주입해 다음과
+같이 깔끔하게 디자인 시스템의 컴포넌트를 불러올 수 있습니다.
+
+<br />
+
+```
+/apps/sample/pages/index.ts
+
+import { CoreButton } from '@monorepo/design-system';
+
+export const Index = () => {
+  return (
+      <CoreButton />
+  );
+};
+```
+
+<br />
+<br />
+<br />
+<br />
+### 마치며
+<br />
+지금까지 Nx를 활용해 모노레포를 구축해보고 간단한 디자인 시스템을 만들어 Next.js
+프로젝트에서 활용해보는 시간을 가졌습니다. Nx는 프레임워크의 성격이 짙습니다.
+CLI로 많은 기능들을 제공하고 제공하는 플러그인도 많은 장점도 있지만 기존
+모노레포를 개선하거나 도와주는 툴이 아니기 때문에 자칫 Nx의 틀에 갇히기
+쉽습니다. 규모가 작은 프로젝트에서는 확실한 이점이 있지만 규모가 더욱 커지고
+추후에 리팩토링하는 과정에서는 편리함이 비용 증가로 이뤄질 수도 있습니다. 하지만
+최근 Lerna를 인수하고 개발진들이 구글의 Core 구성원이었기에 Nx는 계속 발전 할
+것이고 시장의 파이를 점차 늘려갈 것입니다.
+
+<br />
+모노레포의 생태계는 무궁무진합니다. 최근에는 [Turborepo](https://turborepo.org/)라는
+강력한 라이벌이 등장해 더욱 치열한 경쟁을 벌이고 있습니다. 우리는 규모와 상황에 맞게,
+각각의 라이브러리의 장단점과 특징을 살펴보고 모노레포 도입을 하면 좋을 것 같습니다.
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
