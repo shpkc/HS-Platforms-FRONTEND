@@ -1,7 +1,7 @@
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { AxiosResponse } from "axios";
 import { MDXRemote } from "next-mdx-remote";
-import { MarkdownWrapper } from "../markdown";
+import { AboutMarkdownWrapper } from "../markdown/AboutMarkdownWrapper";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
@@ -19,9 +19,9 @@ const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 				<br />
 				박시형 입니다.
 			</HsText>
-			<MarkdownWrapper>
+			<AboutMarkdownWrapper>
 				<MDXRemote {...data} />
-			</MarkdownWrapper>
+			</AboutMarkdownWrapper>
 		</HsContainer>
 	);
 };

@@ -1,8 +1,8 @@
 ---
 id: "1"
-title: NX를 활용한 모노레포 도입기
+title: Nx를 활용한 모노레포 도입기
 category: dev
-date: "2022-05-16"
+date: "2022-05-28"
 description: 모노레포를 도입해 프로젝트 개발환경을 개선해보자
 slug: nx-monorepo
 thumbnail: "https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png"
@@ -17,6 +17,393 @@ thumbnail: "https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png"
 
 />
 
-&nbsp;
+<br />
+<br />
+<br />
+<br />
 
-# 작성중
+# Nx 모노레포 도입기
+
+<br />
+
+최근 개인 프로젝트에 Nx를 활용해 모노레포를 도입했습니다. 이 블로그 또한 모노레포의 구성 중 일부인데 2~3개의 프로젝트를 관리하던 중 코드의 재사용 및 공통된 개발환경 구축,
+디자인 시스템의 용이한 활용의 필요성을 느꼈습니다. 예전에 읽었던 [모노레포 관련 글](https://tech.kakao.com/2020/12/03/frontend-growth-03)이
+떠올라 모노레포를 구축하기 위해 여러 방법론 및 라이브러리를 서치했고 결과적으로 Nx를 채택해 도입했습니다. Nx에 대해 서술하기 전에 레포지터리 관리 방법에 대해 먼저 알아보겠습니다.
+
+<br />
+
+<br />
+
+#### 모노레포란 ?
+
+<br />
+<br />
+
+<div style={{display:"flex"}}>
+<img
+	src="https://miro.medium.com/max/691/0*joulAAdTFGe-chHP.png"
+	width="80%"
+	style={{margin:"0 auto"}}
+/>
+
+</div>
+<center>(많이들 보신 그 그림)</center>
+
+<br />
+<br />
+
+그림과 같이 레포지터리를 관리하는 방식은 크게 3가지로 나눌 수 있습니다.
+
+<br />
+<br />
+
+#### 모놀리스
+
+<br />
+최초의 모놀리식 방식은 소스 코드를 모듈화 하지 않고 하나의 레포지터리에서 모든 프로젝트를
+관리합니다. 모든 코드가 단일버전으로 직접 의존하고 있기 때문에 코드의 재사용이 용이하고
+빌드와 배포 과정도 단순하지만, 관심 분리가 어렵고 자칫 작업 과정에서 레포지터리 전체에
+영향을 줄 수 있습니다. 프로젝트의 규모가 커지면 커질수록 이러한 위험성은 증가하고
+설계, 배포등을 매번 거대한 단위로 처리해야 하므로 많은 제약과 비효율이 존재합니다.
+
+<br />
+<br />
+
+#### 멀티레포
+
+<br />
+이런 모놀리스의 단점을 극복하고자 멀티레포 방식이 등장했습니다. 멀티레포는 여러 모듈을
+분리하고 분리된 모듈은 각각 독립적인 레포지터리에서 독자적 프로젝트가 됩니다. 모놀리스의
+단점은 극복을 했지만 매번 새로운 프로젝트를 생성할 때마다 CI/CD를 포함해 번거로운
+생성 과정을 거쳐야 하고, 패키지의 중복 가능성과 관리 포인트 증가 및 여러 문제점이
+발생하게 됩니다. 이러한 문제점을 극복하고자 적절히 모듈을 분리하고 분리된 모듈을
+쉽게 참조, 테스트, 배포를 쉽게 해주는 모노레포 방식이 등장하였습니다.
+
+<br />
+<br />
+
+#### 모노레포
+
+<br />
+
+[위키백과]("https://en.wikipedia.org/wiki/Monorepo")에 따르면 모노레포의 정의는 다음과 같습니다.
+
+<br />
+<br />
+
+> 모노레포란 버전 관리 시스템에서 두 개 이상의 프로젝트 코드가 동일한 레포지터리에 저장되는 소프트웨어 개발 전략
+
+<br />
+모노레포는 두 개 이상의 프로젝트가 동일한 레포지터리에서 관리되는 개발 전략입니다.
+분리된 모듈들은 모노레포 안에서 독자 프로젝트로 존재하지만 레포지터리는 단일 레포지터리를
+사용합니다. 모노레포를 사용하면 프로젝트를 시작할 때 마다 매번 레포지터리를 생성하고
+CI/CD를 포함해 구축과정을 거칠 필요가 없습니다.
+<br />
+모노레포의 또 다른 장점은 프로젝트간의 의존성 관리가 용이해지는 것 입니다. 서로 같은
+레포지터리안에 존재하므로 굳이 npm registry와 같은 곳에 publish할 필요가 없어집니다.
+이를 활용해 사내에 디자인 시스템을 구축한다면 굳이 새로운 레포지터리를 만들어 npm에
+배포하지 않고 공통된 레포지터리에 존재하므로 import만 해서 손쉽게 사용할 수 있습니다.
+
+<br />
+<br />
+<br />
+<br />
+
+#### Nx
+
+<br />
+모노레포를 구축하는 도구에는 여러가지가 있습니다. 가장 메이저한 라이브러리로는 [Lerna](https://github.com/lerna/lerna)가
+존재했고 npm workspace, yarn berry workspace 등 다양한 도구가 존재하고 있습니다.
+저는 이중에서 조금은 마이너한 [Nx](https://nx.dev/)를 선택했습니다. 왜 Nx를 선택했는지에
+대해서는 다음과 같습니다.
+
+<br />
+
+- CLI로 많은 기능을 제공한다. 몇번의 명령어 입력을 통해 손쉽게 모노레포를 구축할 수 있고 특정 패키지 실행부터 프로젝트 추가까지 손쉽게 관리할 수 있다.
+- 여러 플러그인을 제공한다. Next.js, NestJS, Angular 등 여러 패키지를 사용할 수 있다.
+- 공식문서가 깔끔하게 잘 정돈되어있다. 개발자에게 잘 정리된 공식문서는 네비게이션과도 같다. Vercel로 Nx를 배포하는 과정까지 친절히 설명해준다.
+
+<br />
+<br />
+
+#### Nx의 Learna 인수하다 !
+
+<br />
+
+최근에는 Nx의 개발사 Nwrl이 Lerna를 인수했다는 놀라운 [소식](https://github.com/lerna/lerna/issues/3121)이
+들려왔습니다. 알고보니 Learna를 유지하고 관리하는데 [이슈](https://github.com/lerna/lerna/issues/2703)가
+있었던 것 같고 결과적으로 Nx와 Learna가 통합되는 방향으로 진행이 되는 것 같습니다. 알고보니 Nx의 개발진들은 구글 출신이었고 (어쩐지 공식문서부터 예사롭지 않더라)
+이쯤되니 Nx를 채택하길 잘했다는 생각이 듭니다.
+
+<br />
+지금부터는 Nx를 활용해 간단한 모노레포를 구축해보겠습니다. Next.js 기반의 프로젝트에
+design-system 패키지를 생성해 컴포넌트를 불러오는 방식을 구현해보겠습니다.
+
+<br />
+<br />
+<br />
+<br />
+
+#### Create Workspace
+
+<br />
+Nx Cli를 활용해 Nx Workspace를 생성합니다.
+
+<br />
+
+```
+npx create-nx-workspace@latest
+```
+
+<br />
+
+모노레포가 되는 Worspace 이름은 monorepo로 설정을 합니다.
+
+<br />
+
+```
+? Workspace name (e.g., org name)     › monorepo
+```
+
+<br />
+
+Next.js 기반으로 프로젝트를 진행하기 위해 최초의 app 베이스는 Next.js로 설정해줍니다.
+
+<br />
+
+```
+apps              [an empty workspace with no plugins with a layout that works best for building apps]
+  core              [an empty workspace with no plugins set up to publish npm packages (similar to yarn workspaces)]
+  ts                [an empty workspace with the JS/TS plugin preinstalled]
+  react             [a workspace with a single React application]
+  angular           [a workspace with a single Angular application]
+❯ next.js           [a workspace with a single Next.js application]
+  nest              [a workspace with a single Nest application]
+```
+
+<br />
+모노레포 최초의 프로젝트 app 이름은 sample로 설정합니다. CSS는 기본적인 CSS 설정과
+Nx Cloud는 이번에는 사용하지 않는걸로 선택합니다.
+
+<br />
+
+```
+? Application name : sample
+
+❯ CSS
+SASS(.scss) [ http://sass-lang.com ]
+
+? Use Nx Cloud? (It's free and doesn't require registration.) …
+Yes Faster builds, run details, GitHub integration. Learn more at https://nx.app
+❯ No
+```
+
+<br />
+설정을 마무리하고 설치가 완료되면 monorepo 워크스페이스가 생성이 됩니다. 폴더를 들어가
+yarn start를 입력하면 설정단계에서 지정한 sample 프로젝트가 실행이 됩니다. <br />
+<br />
+Nx는 최초에 설정한 프로젝트(sample)를 디폴트 프로젝트로 지정합니다. 만약 다른 프로젝트를
+생성하고 default 프로젝트로 설정하고 싶다면 nx.json에서 defaultProject를 수정해주시면
+됩니다.
+
+<br />
+
+```
+// nx.json (root)
+
+"defaultProject": "other project name"
+```
+
+<br />
+yarn start (npm run start)를 실행하고 localhost:4200을 들어가면 다음과 같은 Nx 페이지가
+정상적으로 등장합니다.
+
+<br />
+<br />
+<br />
+<br />
+
+<div style={{ display: "flex" }}>
+	<img
+		src="/static/images/posts/nx_first_page.png"
+		width="80%"
+		style={{ margin: "0 auto" }}
+	/>
+</div>
+<br />
+<center>(Nx는 역시 깔끔하다)</center>
+
+<br />
+<br />
+
+### Nx 모노레포 구축하기
+
+<br />
+셋팅과 설치까지 완료되었으니 본격적으로 Nx 기반의 모노레포를 구축해보겠습니다. 우리가
+셋팅할 모노레포의 폴더구조는 다음과 같습니다.
+<br />
+
+```
+├── apps
+│   └── sample1
+|     └── tsconfig.json
+│   └── sample2
+|     └── tsconfig.json
+|
+├── libs
+│   └── design-system
+│   └── backend-server
+│
+├── package.json
+└── tsconfig.base.json
+```
+
+<br />
+apps 폴더에는 여러 프로젝트들이 존재하며 libs 폴더에 디자인 시스템을 만들어 sample
+프로젝트에서 의존하는 형태의 폴더구조 입니다. 루트 폴더에 있는 package.json에서 패키지들의
+중복 의존을 방지하고 각각의 프로젝트는 루트폴더의 tsconfig.base.json을 상속받아 각
+프로젝트에 맞게 tsconfig를 설정할 수 있습니다.
+<br />
+첫번째로 libs 폴더에 React 기반의 design-stystem 라이브러리를 설치해보겠습니다. css는
+styled-components를 선택합니다.
+<br />
+
+```
+npx nx g @nrwl/react:lib deisn-system
+
+// select styled-components
+
+CSS
+SASS(.scss) [ http://sass-lang.com ]
+Stylus(.styl) [ http://stylus-lang.com ]
+LESS [ http://lesscss.org ]
+❯ styled-components [ https://styled-components.com ]
+```
+
+<br />
+설치가 완료되면 libs 폴더에 React, styled-components 기반의 design-system 패키지가
+설치됩니다. 간단하게 CoreButton이라는 컴포넌트를 만들어 보겠습니다.
+
+<br />
+
+```
+/libs/design-system/src/components/CoreButton.tsx*
+
+import styled from "styled-components";
+
+export const CoreButton = () => {
+	return <CoreButtonContainer>버튼입니다</CoreButtonContainer>;
+};
+
+export default CoreButton;
+
+const CoreButtonContainer = styled.button`
+width: 200px;
+height: 100px;
+border-radius: 4px;
+margin: 10px;
+font-weight: bold;
+font-size: 1.5rem;
+`;
+```
+
+<br />
+
+그리고 해당 컴포넌트를 첫번째로 만들었던 sample 패키지에서 사용 해 보겠습니다.
+
+<br />
+
+```
+/apps/sample/pages/index.tsx
+
+import CoreButton from '../../../libs/design-system/src/components/CoreButton';
+
+export const Index = () => {
+  return <CoreButton />;
+};
+
+export default Index;
+```
+
+<br />
+다시 localhost:4200으로 들어가보면 정상적으로 컴포넌트를 불러오는 것을 확인할 수
+있습니다.
+
+<br />
+
+<div style={{ display: "flex" }}>
+	<img
+		src="/static/images/posts/button.png"
+		width="50%"
+		style={{ margin: "0 auto" }}
+	/>
+</div>
+<center>(컴포넌트가 정상적으로 노출)</center>
+<br />
+<br />
+컴포넌트는 정상적으로 불러오지만 절대경로를 따로 설정하지 않아 import 경로가
+상당히 지저분합니다. 따라서 sample 프로젝트의 tsconfig에 baseUrl과 path를 수정
+및 추가해서 절대경로 방식으로 깔끔하게 import 할 수 있게 수정해보겠습니다.
+<br />
+
+```
+/apps/sample/tsconfig.json
+
+"compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/design-system": ["../../libs/design-system/src/index.ts"]
+    }
+  },
+  "include": [
+    "../../libs/design-system/src/index.ts"
+  ],
+}
+```
+
+<br />
+tsconfig.json의 compilerOptions와 include 부분에 design-system의 경로를 주입해 다음과
+같이 깔끔하게 디자인 시스템의 컴포넌트를 불러올 수 있습니다.
+
+<br />
+
+```
+/apps/sample/pages/index.ts
+
+import { CoreButton } from '@monorepo/design-system';
+
+export const Index = () => {
+  return (
+      <CoreButton />
+  );
+};
+```
+
+<br />
+<br />
+<br />
+<br />
+### 마치며
+<br />
+지금까지 Nx를 활용해 모노레포를 구축해보고 간단한 디자인 시스템을 만들어 Next.js
+프로젝트에서 활용해보는 시간을 가졌습니다. Nx는 프레임워크의 성격이 짙습니다.
+CLI로 많은 기능들을 제공하고 제공하는 플러그인도 많은 장점도 있지만 기존
+모노레포를 개선하거나 도와주는 툴이 아니기 때문에 자칫 Nx의 틀에 갇히기
+쉽습니다. 규모가 작은 프로젝트에서는 확실한 이점이 있지만 규모가 더욱 커지고
+추후에 리팩토링하는 과정에서는 편리함이 비용 증가로 이뤄질 수도 있습니다. 하지만
+최근 Lerna를 인수하고 개발진들이 구글의 Core 구성원이었기에 Nx는 계속 발전 할
+것이고 시장의 파이를 점차 늘려갈 것입니다.
+
+<br />
+모노레포의 생태계는 무궁무진합니다. 최근에는 [Turborepo](https://turborepo.org/)라는
+강력한 라이벌이 등장해 더욱 치열한 경쟁을 벌이고 있습니다. 우리는 규모와 상황에 맞게,
+각각의 라이브러리의 장단점과 특징을 살펴보고 모노레포 도입을 하면 좋을 것 같습니다.
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

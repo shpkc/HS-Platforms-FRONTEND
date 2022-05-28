@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import "@code-hike/mdx/dist/index.css";
 
 // NOTE : custom markdown wrapper
 export const MarkdownWrapper = styled.div`
@@ -86,7 +87,7 @@ export const MarkdownWrapper = styled.div`
 		padding: 0 0 0 1.2rem;
 		margin: 0 0 0.5rem 0;
 		@media (min-width: 1024px) {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			padding: 0 0 0 1.5rem;
 		}
 	}
@@ -100,5 +101,17 @@ export const MarkdownWrapper = styled.div`
 	a {
 		color: #58acfa;
 		font-weight: 6001;
+	}
+	center {
+		color: #555770;
+		font-size: 1rem;
+		line-height: 1.4;
+		margin: 0.2rem 0 0.4rem;
+		font-weight: bold;
+	}
+	blockquote {
+		border-left: 7px solid #20c997;
+		padding: 10px 0 10px 25px;
+		background-color: #f8f9fa;
 	}
 `;
