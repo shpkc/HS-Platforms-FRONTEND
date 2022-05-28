@@ -136,8 +136,8 @@ CI/CD를 포함해 구축과정을 거칠 필요가 없습니다.
 이쯤되니 Nx를 채택하길 잘했다는 생각이 듭니다.
 
 <br />
-지금부터는 Nx를 활용해 간단한 모노레포를 구축해보고 Vercel로 배포하는 과정까지 다뤄보도록
-하겠습니다.
+지금부터는 Nx를 활용해 간단한 모노레포를 구축해보고 Next.js기반의 프로젝트를 Vercel로
+배포하는 과정까지 다뤄보도록 하겠습니다.
 
 <br />
 <br />
@@ -147,15 +147,95 @@ CI/CD를 포함해 구축과정을 거칠 필요가 없습니다.
 #### Create Workspace
 
 <br />
-Nx를 활용해 Nx Workspace를 생성합니다. 최초 프레임워크 셋팅은 react로 진행하겠습니다.
+Nx Cli를 활용해 Nx Workspace를 생성합니다.
 
 <br />
 
 ```
-npx create-nx-workspace@latest <YOUR_WORKSPACE_NAME> --preset=react
+npx create-nx-workspace@latest
 ```
+
+<br />
+
+모노레포가 되는 Worspace 이름은 monorepo로 설정을 합니다.
+
+<br />
+
+```
+? Workspace name (e.g., org name)     › monorepo
+```
+
+<br />
+
+Next.js 기반으로 프로젝트를 진행하기 위해 최초의 app 베이스는 Next.js로 설정해줍니다.
+
+<br />
+
+```
+apps              [an empty workspace with no plugins with a layout that works best for building apps]
+  core              [an empty workspace with no plugins set up to publish npm packages (similar to yarn workspaces)]
+  ts                [an empty workspace with the JS/TS plugin preinstalled]
+  react             [a workspace with a single React application]
+  angular           [a workspace with a single Angular application]
+❯ next.js           [a workspace with a single Next.js application]
+  nest              [a workspace with a single Nest application]
+```
+
+<br />
+모노레포 최초의 프로젝트 app 이름은 sample로 설정합니다. CSS는 기본적인 CSS 설정과
+Nx Cloud는 이번에는 사용하지 않는걸로 선택합니다.
+
+<br />
+
+```
+? Application name : sample
+
+❯ CSS
+SASS(.scss) [ http://sass-lang.com ]
+
+? Use Nx Cloud? (It's free and doesn't require registration.) …
+Yes Faster builds, run details, GitHub integration. Learn more at https://nx.app
+❯ No
+```
+
+<br />
+설정을 마무리하고 설치가 완료되면 monorepo 워크스페이스가 생성이 됩니다. 폴더를 들어가
+yarn start를 입력하면 설정단계에서 지정한 sample 프로젝트가 실행이 됩니다. <br />
+<br />
+Nx는 최초에 설정한 프로젝트(sample)를 디폴트 프로젝트로 지정합니다. 만약 다른 프로젝트를
+생성하고 default 프로젝트로 설정하고 싶다면 nx.json에서 defaultProject를 수정해주시면
+됩니다.
+
+<br />
+
+```
+// nx.json (root)
+
+"defaultProject": "other project name"
+```
+
+<br />
+yarn start (npm run start)를 실행하고 localhost:4200을 들어가면 다음과 같은 Nx 페이지가
+정상적으로 등장합니다.
 
 <br />
 <br />
 <br />
+<br />
+
+<div style={{ display: "flex" }}>
+	<img
+		src="/static/images/posts/nx_first_page.png"
+		width="50%"
+		style={{ margin: "0 auto" }}
+	/>
+</div>
+<br />
+<center>(역시 Nx는 깔끔하다)</center>
+
+<br />
+<br />
+
+### 모노레포 구축하기
+
 <br />
