@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import "@code-hike/mdx/dist/index.css";
 
 // NOTE : custom markdown wrapper
 export const MarkdownWrapper = styled.div`
