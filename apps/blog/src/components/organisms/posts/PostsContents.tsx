@@ -1,6 +1,7 @@
 import { HsContainer, HsText } from "@hs-platforms/hs-core-ui";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { MarkdownWrapper } from "../markdown";
+import CodeBlock from "../markdown/renderes/CodeBlock";
 
 const PostsContents = ({
 	source,
@@ -23,7 +24,7 @@ const PostsContents = ({
 			</HsText>
 			<HsText color={"gray.gray20"}>{date}</HsText>
 			<MarkdownWrapper>
-				<MDXRemote {...source} />
+				<MDXRemote {...source} components={{ code: CodeBlock }} />
 			</MarkdownWrapper>
 		</HsContainer>
 	);
