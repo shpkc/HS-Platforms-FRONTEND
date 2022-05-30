@@ -10,8 +10,8 @@
 
 ```
 ├── apps
-│   ├── nftify
-│   └── marvice
+│   ├── blog
+│   └── other apps
 ├── libs
 │   ├── hs-core-ui
 │   └── other libraries
