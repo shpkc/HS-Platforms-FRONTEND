@@ -5,7 +5,7 @@ import { AboutMarkdownWrapper } from "../markdown/AboutMarkdownWrapper";
 
 const AboutContents = ({ data }: { data: AxiosResponse["data"] }) => {
 	return (
-		<HsContainer padding={["140px 16px 0 16px", "140px 0 0 0"]}>
+		<HsContainer>
 			<HsText
 				color={"blue.blue20"}
 				fontWeight={"bold"}
