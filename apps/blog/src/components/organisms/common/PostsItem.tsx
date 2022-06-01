@@ -12,11 +12,28 @@ const PostsItem = ({ data }: { data: PostType }) => {
 				cursor={"pointer"}
 			>
 				<HsContainer
+					position={"relative"}
+					overflow={"hidden"}
+					width={"100%"}
 					cursor="pointer"
 					border={"1px solid #f2f2f2"}
 					margin={"0 0 30px 0"}
 				>
-					<HsImage src={data.thumbnail} borderRadius={"8px"} height={"100%"} />
+					<HsContainer padding={"50% 0 0 0"} />
+					<HsContainer
+						position={"absolute"}
+						top={"0"}
+						bottom={"0"}
+						left={"0"}
+						right={"0"}
+					>
+						<HsImage
+							src={data.thumbnail}
+							borderRadius={"8px"}
+							height={"100%"}
+							objectFit={"cover"}
+						/>
+					</HsContainer>
 				</HsContainer>
 				<HsText variant={"h4"} margin={"0 0 20px 0"}>
 					{data.title}
