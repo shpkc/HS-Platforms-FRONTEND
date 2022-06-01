@@ -15,6 +15,16 @@
 				"production": {}
 			}
 		},
+		"postbuild": {
+			"executor": "@nrwl/workspace:run-commands",
+			"options": {
+				"commands": [
+					{
+						"command": "next-sitemap --config apps/blog/next-sitemap.js"
+					}
+				]
+			}
+		},
 		"serve": {
 			"executor": "@nrwl/next:server",
 			"options": {

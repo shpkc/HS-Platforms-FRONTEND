@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://teveloper.me
+
+# Sitemaps
+Sitemap: https://teveloper.me/sitemap.xml
