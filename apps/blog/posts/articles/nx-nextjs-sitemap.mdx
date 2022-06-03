@@ -1,0 +1,67 @@
+---
+id: "2"
+title: Nx 모노레포에서 Next.js sitemap 생성하기
+category: dev
+date: "2022-06-01"
+description: SEO 최적화를 위해 Nx로 구성된 모노레포에서 Next.js sitemap을 생성해보자
+slug: nx-nextjs-sitemap
+thumbnail: "https://raw.githubusercontent.com/iamvishnusankar/next-sitemap/HEAD/assets/banner.svg"
+---
+
+&nbsp;
+
+<img
+	src="https://raw.githubusercontent.com/iamvishnusankar/next-sitemap/HEAD/assets/banner.svg"
+	width="100%"
+    style={{borderRadius:"8px"}}
+
+/>
+
+<br />
+<br />
+<br />
+<br />
+
+# Nx 모노레포에서 Next.js sitemap 생성하기
+
+<br />
+블로그 혹은 웹사이트에서 SEO(Search Engine OrOptimization) 최적화는 중요합니다. 우리가
+웹개발을 하는 이유는 웹 상에서 노출되기 위함이고 이는 곧 구글, 네이버, 카카오 등
+메이저한 검색봇에게 정상적으로 크롤링 되어야하는 것과 일맥상통합니다. 그렇기 때문에
+우리가 Next.js를 사용하거나 다양한 방법으로 SSR(Server Side Rendering)을 하려고 노력하는
+것 입니다. 기본적으로 구글에 크롤링 되기 위해서는 구글 서치엔진에 sitemap.xml을 제출해야
+하는데 Next.js에서는 다양한 방법으로 sitemap을 제작할 수 있습니다.
+
+<br />
+
+<br />
+
+#### Next.js에서 sitemap.xml 생성하기
+
+<br />
+<br />
+
+Next.js에서는 다양한 방법으로 sitemap.xml을 생성할 수 있습니다.
+[globby](https://www.npmjs.com/package/globby)를 활용해서 pages 디렉토리 내의 파일명들로 sitemap을 제작하는 방법도 있지만
+보다 손쉽게 [next-sitemap](https://www.npmjs.com/package/next-sitemap) 사용해 아래와 같은 명령어 한줄로 제작할 수 있습니다.
+
+<br />
+<br />
+
+```
+//package.json
+
+{
+  "build": "next build",
+  "postbuild": "next-sitemap"
+}
+```
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

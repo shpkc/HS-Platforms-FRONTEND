@@ -3,18 +3,9 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 // NOTE : code block highlight
-const CodeBlock = ({
-	className,
-	children,
-}: {
-	className?: string;
-	children: ReactNode;
-}) => {
+const CodeBlock = ({ children }: { children: ReactNode }) => {
 	return (
-		<SyntaxHighlighter
-			language={className?.replace("language-", "")}
-			style={vscDarkPlus}
-		>
+		<SyntaxHighlighter language={"js"} style={vscDarkPlus}>
 			{children}
 		</SyntaxHighlighter>
 	);

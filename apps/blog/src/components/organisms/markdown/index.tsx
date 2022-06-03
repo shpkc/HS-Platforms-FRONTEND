@@ -5,12 +5,11 @@ export const MarkdownWrapper = styled.div`
 	p {
 		color: #555770;
 		font-size: 1rem;
-		line-height: 1.4;
+		line-height: 1.5;
 		margin: 0.2rem 0 0.4rem;
 		font-weight: 300;
 		@media (min-width: 1024px) {
 			font-size: 1.1rem;
-			line-height: 1.4;
 		}
 	}
 	em {
