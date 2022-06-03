@@ -2,7 +2,7 @@
 id: "2"
 title: Nx 모노레포에서 Next.js sitemap 생성하기
 category: dev
-date: "2022-06-01"
+date: "2022-06-03"
 description: SEO 최적화를 위해 Nx로 구성된 모노레포에서 Next.js sitemap을 생성해보자
 slug: nx-nextjs-sitemap
 thumbnail: "https://raw.githubusercontent.com/iamvishnusankar/next-sitemap/HEAD/assets/banner.svg"
@@ -27,7 +27,7 @@ thumbnail: "https://raw.githubusercontent.com/iamvishnusankar/next-sitemap/HEAD/
 <br />
 블로그 혹은 웹사이트에서 SEO(Search Engine OrOptimization) 최적화는 중요합니다. 우리가
 웹개발을 하는 이유는 웹 상에서 노출되기 위함이고 이는 곧 구글, 네이버, 카카오 등
-메이저한 검색봇에게 정상적으로 크롤링 되어야하는 것과 일맥상통합니다. 그렇기 때문에
+메이저한 검색봇들에게 정상적으로 크롤링 되어야하는 것과 일맥상통합니다. 그렇기 때문에
 우리가 Next.js를 사용하거나 다양한 방법으로 SSR(Server Side Rendering)을 하려고 노력하는
 것 입니다. 기본적으로 구글에 크롤링 되기 위해서는 구글 서치엔진에 sitemap.xml을 제출해야
 하는데 Next.js에서는 다양한 방법으로 sitemap을 제작할 수 있습니다.
@@ -41,21 +41,111 @@ thumbnail: "https://raw.githubusercontent.com/iamvishnusankar/next-sitemap/HEAD/
 <br />
 <br />
 
-Next.js에서는 다양한 방법으로 sitemap.xml을 생성할 수 있습니다.
+Next.js에서는 다양한 방법으로 sitemap을 생성할 수 있습니다.
 [globby](https://www.npmjs.com/package/globby)를 활용해서 pages 디렉토리 내의 파일명들로 sitemap을 제작하는 방법도 있지만
-보다 손쉽게 [next-sitemap](https://www.npmjs.com/package/next-sitemap) 사용해 아래와 같은 명령어 한줄로 제작할 수 있습니다.
+보다 손쉽게 [next-sitemap](https://www.npmjs.com/package/next-sitemap) 라이브러리를 사용해 아래와 같은 명령어로 제작할수도 있습니다.
 
 <br />
+<br />
+
+```
+//next-sitemap.js
+
+module.exports = {
+      siteUrl: SITE_URL,
+      generateRobotsTxt: true,
+       // ...other options
+ };
+```
+
+<center>(next-sitemap.js 구성)</center>
+
 <br />
 
 ```
 //package.json
 
 {
-  "build": "next build",
-  "postbuild": "next-sitemap"
+    "build": "next build",
+    "postbuild": "next-sitemap"
 }
 ```
+
+<center>(postbuild script 작성)</center>
+
+<br />
+하지만 Nx로 구성된 모노레포에서는 제작하고자 하는 패키지 내에서 별도의 처리과정이
+필요합니다. Nx 종속성의 단점이기도 한데 해당 패키지의
+<strong>project.json</strong>에서 postbuild 스크립트를 작성해야 합니다.
+
+<br />
+
+```
+//apps/sample/project.json
+
+"sample": {
+      ...
+      "postbuild": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "next-sitemap --config apps/sample/next-sitemap.js"
+          }
+        ]
+      }
+ };
+
+```
+
+<center>(해당 패키지의 project.json에서 작성)</center>
+
+<br />
+
+이제 다음과 같은 명령어로 실행할 수 있습니다
+
+<br />
+
+```
+nx run sample:postbuild
+```
+
+<br />
+<br />
+<br />
+<br />
+
+#### Build output path 변경과 배포 명령어
+
+<br />
+Nx는 기본적으로 프로덕션으로 빌드시에 경로가 dist폴더로 지정되어있습니다. 하지만
+<strong>next-sitemap</strong>은 해당 패키지 루트 폴더의
+<strong>.next</strong> 폴더를 참조하므로 빌드 아웃풋의 경로를 루트로 수정해줘야
+합니다.
+
+<br />
+``` nx build sample --prod --outputPath=. ```
+
+<br />
+다음으로 postbuild 명령어를 실행합니다 ``` nx run sample:postbuild ```
+
+<br />
+이제 우리는 public 폴더에 sitemap이 생성됨을 확인할 수 있습니다. 만약 모노레포를
+<strong>vercel</strong>로 배포중이라면 배포할때마다 자동적으로 sitemap을
+생성하기 위해 다음과 같이 명령어를 수정해줍니다.
+
+<br />
+``` npx nx build sample --prod --outputPath=. && nx run sample:postbuild ```
+<center>(vercel 배포 스크립트)</center>
+
+<br />
+<br />
+<br />
+<br />
+
+#### 마치며
+
+구글에도 단 한개의 포스팅만 존재하고 Nx 공식문서에도 나와있지 않아 꽤 애를 먹었습니다. 해당 정보를 찾는 분들에게 도움이 되었으면 좋겠습니다.
 
 <br />
 <br />

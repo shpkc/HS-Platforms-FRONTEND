@@ -112,4 +112,8 @@ export const MarkdownWrapper = styled.div`
 		padding: 10px 0 10px 25px;
 		background-color: #f8f9fa;
 	}
+	strong {
+		color: black;
+		font-weight: bold;
+	}
 `;
