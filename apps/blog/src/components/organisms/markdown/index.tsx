@@ -116,4 +116,12 @@ export const MarkdownWrapper = styled.div`
 		color: black;
 		font-weight: bold;
 	}
+	code {
+		background-color: #eff6ff;
+		color: #2d3436;
+		padding: 0 3px;
+		line-height: 1.3;
+		font-weight: 500;
+		border-radius: 4px;
+	}
 `;
