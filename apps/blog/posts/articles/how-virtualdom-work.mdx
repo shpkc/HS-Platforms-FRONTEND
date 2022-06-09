@@ -53,7 +53,7 @@ Virtual DOM이 React에서 어떻게 구현된다고 생각하십니까? 여러�
 #### About the virtual DOM
 
 <br />
-아시다 시피, DOM(Document Object Model)은 웹 페이지를 표현하기 위한 트리 구조이다.
+아시다 시피 DOM(Document Object Model)은 웹 페이지를 표현하기 위한 트리 구조이다.
 이러한 DOM들은 데이터를 불러와 표현하거나 웹페이지의 컨텐츠의 구조를 조작하려는 개발자들에게
 여러 인터페이스를 제공한다. 하지만 DOM을 직접적으로 조작하는 행위는 비효율적이고
 비생산적이므로 자주 일어나서는 안된다. <code>offsetHeight</code>과 같은 특정
@@ -61,6 +61,18 @@ Virtual DOM이 React에서 어떻게 구현된다고 생각하십니까? 여러�
 비효율적인 연산을 초래하게 된다.
 
 <br />
+따라서 DOM에 대한 작업들은 꼭 필요할 때 효율적으로 수행되어야 하고, 바로 이럴 때
+Virtual DOM이 빛을 발휘하게 된다. 또한 Virtual DOM은 메모리에 저장되며 페이지의 요소들을
+저장하는 트리와 같은 구조지만, 어떤 작업을 수행하든 그에 비해 저렴하고 빠르다는 장점이
+있다. 요소들의 트리구조 측면에서 무엇이 변경되었는지 확인한 후 모든 수정 사항이 실제
+DOM에서 한 번에 커밋되는 책임을 지는 것이 바로 가상 DOM이다.
+
+<br />
+Virtual DOM을 한마디로 표현하자면 <code>FiberNode</code>들로 이루어진 트리
+구조이다.
+
+<br />
+
 <br />
 
 [원문](https://indepth.dev/posts/1501/exploring-how-virtual-dom-is-implemented-in-react)
